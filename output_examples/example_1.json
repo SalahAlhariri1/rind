@@ -1,0 +1,288 @@
+{
+ "run_id": "example-1-watermelons",
+ "status": "success",
+ "mode": "live",
+ "as_of": "2026-10-19",
+ "output": {
+  "summary": {
+   "accounts": 60,
+   "investigated": 3,
+   "at_risk": 3,
+   "watermelons": 3,
+   "arr_at_risk_usd": 316800,
+   "escalations": 2,
+   "reused_unchanged": 0,
+   "false_alarms_stopped": 0,
+   "zetaris_queries": 7,
+   "llm_calls": 11,
+   "degraded": false,
+   "planner_summary": "Caller asked for 3 specific account(s); the Planner's pick was skipped."
+  },
+  "accounts": [
+   {
+    "account_id": "ACC-1047",
+    "account_name": "Maplecrest Logistics",
+    "arr_usd": 170900,
+    "renewal_date": "2026-11-22",
+    "renewal_in_days": 34,
+    "crm_says": {
+     "health_score": 80,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "high",
+     "watermelon": true
+    },
+    "reasons": [
+     {
+      "signal": "invoice_overdue",
+      "statement": "Invoice INV-90188 for Maplecrest Logistics is 50 days overdue, exceeding the 14-day threshold, per latest_days_overdue = 50 and latest_status = overdue.",
+      "source": "Billing",
+      "evidence": [
+       {
+        "view": "rind.billing_invoices",
+        "fact": "latest_days_overdue",
+        "value": 50
+       },
+       {
+        "view": "rind.billing_invoices",
+        "fact": "latest_status",
+        "value": "overdue"
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "escalating_tickets",
+      "statement": "Four high-or-urgent tickets are currently open for Maplecrest Logistics, per open_high_or_urgent = 4 and urgent_issue_still_open = true.",
+      "source": "Support desk",
+      "evidence": [
+       {
+        "view": "rind.support_tickets",
+        "fact": "open_high_or_urgent",
+        "value": 4
+       }
+      ],
+      "added_by": "Investigator"
+     }
+    ],
+    "ruled_out": [],
+    "verifier_overrides": [],
+    "memory_recalled": [
+     "ACC-1047: Risk high; play exec_sponsor_meeting; escalated=True.",
+     "ACC-1047: Risk high; play None; escalated=True."
+    ],
+    "recommended_play": "exec_sponsor_meeting",
+    "play_changed_by_memory": "The last exec_sponsor_meeting attempt recorded escalation=True but risk persists; a follow-up executive conversation is needed to re-align priorities and unblock the account.",
+    "escalation": {
+     "escalate": true,
+     "to": "CS Director + exec sponsor",
+     "rule": "high risk and (ARR >= $100k or renewal <= 60 days)",
+     "renewal_in_days": 34
+    },
+    "draft_email": {
+     "to": "Dev Novak",
+     "subject": "Urgent: Maplecrest Logistics account health and invoice status",
+     "body": "Hi Dev,\n\nI'm writing regarding the Maplecrest Logistics account (ACC-1047). Four high-or-urgent support tickets are currently open, including an urgent issue still open with negative sentiment, and invoice INV-90188 for $42,725 is 50 days overdue. With renewal in 34 days and your 175-day engagement, I'd like to discuss how we can address these swiftly and keep the account on track.\n\nAre you available for a quick call later this week?\n"
+    },
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   },
+   {
+    "account_id": "ACC-1058",
+    "account_name": "Bluegate Academy",
+    "arr_usd": 86600,
+    "renewal_date": "2027-01-07",
+    "renewal_in_days": 80,
+    "crm_says": {
+     "health_score": 72,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "high",
+     "watermelon": true
+    },
+    "reasons": [
+     {
+      "signal": "champion_left",
+      "statement": "Champion Owen Holt departed 14 days ago and no replacement champion has been assigned",
+      "source": "Contacts",
+      "evidence": [
+       {
+        "view": "rind.contacts",
+        "fact": "champion_left",
+        "value": true
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "invoice_overdue",
+      "statement": "Latest invoice INV-90232 for $21,650 is 44 days overdue, exceeding the 14-day overdue threshold",
+      "source": "Billing",
+      "evidence": [
+       {
+        "view": "rind.billing_invoices",
+        "fact": "latest_days_overdue",
+        "value": 44
+       }
+      ],
+      "added_by": "Investigator"
+     }
+    ],
+    "ruled_out": [],
+    "verifier_overrides": [],
+    "memory_recalled": [
+     "ACC-1058: Risk high; play exec_sponsor_meeting; escalated=False.",
+     "ACC-1058: Risk high; play None; escalated=False."
+    ],
+    "recommended_play": "billing_outreach",
+    "play_changed_by_memory": "Memory shows exec_sponsor_meeting was already tried (mem\u20117) and the problem persists, so a different play is recommended.",
+    "escalation": {
+     "escalate": false,
+     "rule": "below escalation thresholds",
+     "renewal_in_days": 80
+    },
+    "draft_email": {
+     "to": "Chloe Abara",
+     "subject": "Invoice INV-90232 \u2013 payment status check",
+     "body": "Hi Chloe,\n\nHope you\u2019re having a good Monday. I\u2019m following up on invoice INV-90232 for $21,650, which is now 44 days overdue. Could you confirm the current status and let me know what\u2019s needed to bring it current?\n\nAlso, I wanted to touch base about the recent departure of Owen Holt as Head of Revenue Ops and ensure we have a plan for champion replacement.\n\nThanks,\n[Your Name]"
+    },
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   },
+   {
+    "account_id": "ACC-1051",
+    "account_name": "Eastvale Power",
+    "arr_usd": 59300,
+    "renewal_date": "2026-12-02",
+    "renewal_in_days": 44,
+    "crm_says": {
+     "health_score": 89,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "high",
+     "watermelon": true
+    },
+    "reasons": [
+     {
+      "signal": "usage_decline",
+      "statement": "Active weekly users fell 48.9% from 111.5 to 57.0 over the last 16 weeks.",
+      "source": "Product usage",
+      "evidence": [
+       {
+        "view": "rind.product_usage",
+        "fact": "change_pct",
+        "value": -48.9
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "champion_left",
+      "statement": "Champion Nadia Sandoval departed 36 days ago and no replacement champion has been named.",
+      "source": "Contacts",
+      "evidence": [
+       {
+        "view": "rind.contacts",
+        "fact": "champion_left",
+        "value": true
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "invoice_overdue",
+      "statement": "Latest invoice INV-90204 for $14,825 is overdue by 47 days.",
+      "source": "Billing",
+      "evidence": [
+       {
+        "view": "rind.billing_invoices",
+        "fact": "latest_days_overdue",
+        "value": 47
+       }
+      ],
+      "added_by": "Investigator"
+     }
+    ],
+    "ruled_out": [],
+    "verifier_overrides": [
+     {
+      "claim_id": "c1",
+      "signal": "usage_decline",
+      "skeptic": "unsupported",
+      "skeptic_reason": "48.9% usage decline over 16 weeks is contradicted by last year's 3.3% increase and higher seat utilization (72.3% vs 36.5%), so the drop does not indicate a new problem.",
+      "verifier": "supported",
+      "reason": "last year's same weeks changed 3.3%, so this decline is new"
+     }
+    ],
+    "memory_recalled": [
+     "ACC-1051: Risk high; play new_champion_onboarding; escalated=True.",
+     "ACC-1051: Risk high; play new_champion_onboarding; escalated=True."
+    ],
+    "recommended_play": "new_champion_onboarding",
+    "play_changed_by_memory": "Risk high; play new_champion_onboarding already recommended; problem persists.",
+    "escalation": {
+     "escalate": true,
+     "to": "CS Director + exec sponsor",
+     "rule": "high risk and (ARR >= $100k or renewal <= 60 days)",
+     "renewal_in_days": 44
+    },
+    "draft_email": {
+     "to": "CS Director",
+     "subject": "Eastvale Power: urgent account health check",
+     "body": "Hi,\n\nWe're seeing a significant drop in product usage at Eastvale Power\u2014active weekly users fell 48.9% from 111.5 to 57.0 over the last 16 weeks, and the named champion Nadia Sandoval departed 36 days ago with no replacement assigned. Latest invoice INV-90204 for $14,825 is 47 days overdue. Given the high-risk status and the existing exec sponsor engagement (41 days), I'd like to schedule a quick sync to understand what's driving the decline, address the billing issue, and discuss champion onboarding to protect the renewal on 2026-12-02.\n\nBest,\n[Your Name]"
+    },
+    "review_rounds": 2,
+    "reused_unchanged_verdict": false
+   }
+  ],
+  "not_investigated": 57
+ },
+ "agents": [
+  {
+   "name": "Planner",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Chooses which accounts to investigate and the hypotheses to test"
+  },
+  {
+   "name": "Investigator",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Writes churn-risk claims, each citing a Zetaris fact"
+  },
+  {
+   "name": "Verifier",
+   "kind": "Deterministic rules",
+   "role": "Rejects claims the data does not support, sends drafts back when a signal is missed, checks the Skeptic's rulings"
+  },
+  {
+   "name": "Skeptic",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Argues against every claim and looks for innocent explanations"
+  },
+  {
+   "name": "Escalation",
+   "kind": "Deterministic policy",
+   "role": "Escalates high-risk, high-revenue or near-renewal accounts"
+  },
+  {
+   "name": "Reporter",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Writes the brief, the recommended play and a draft email"
+  },
+  {
+   "name": "Memory",
+   "kind": "Meterless H-MEM engine",
+   "role": "Recalls earlier weeks per account, stores this week's verdict, rewards helpful memories"
+  }
+ ],
+ "models": {
+  "nvidia/nemotron-3.5-lightning-30b-a3b": 11
+ },
+ "notes": [],
+ "trace_id": "20261027T065143Z-fdd824",
+ "log_file": "logs\\run_20261027T065143Z-fdd824.jsonl",
+ "execution_time_seconds": 196.9,
+ "trace_copy": "output_examples/example_1.trace.jsonl"
+}

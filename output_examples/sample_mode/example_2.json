@@ -1,0 +1,210 @@
+{
+ "run_id": "example-2-false-alarms",
+ "status": "success",
+ "mode": "sample",
+ "as_of": "2026-10-19",
+ "output": {
+  "summary": {
+   "accounts": 60,
+   "investigated": 4,
+   "at_risk": 0,
+   "watermelons": 0,
+   "arr_at_risk_usd": 0,
+   "escalations": 0,
+   "reused_unchanged": 0,
+   "false_alarms_stopped": 4,
+   "zetaris_queries": 7,
+   "llm_calls": 8,
+   "degraded": false,
+   "planner_summary": "Caller asked for 4 specific account(s); the Planner's pick was skipped."
+  },
+  "accounts": [
+   {
+    "account_id": "ACC-1055",
+    "account_name": "Cobaltridge Ag Co-op",
+    "arr_usd": 135300,
+    "renewal_date": "2027-01-13",
+    "renewal_in_days": 86,
+    "crm_says": {
+     "health_score": 74,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "none",
+     "watermelon": false
+    },
+    "reasons": [],
+    "ruled_out": [
+     {
+      "claim": "Weekly active users fell 38.7% (avg 291.9 -> 179.0); seat utilization is now 43.7%.",
+      "reason": "Same dip last year (-40.9%), so it is seasonal."
+     }
+    ],
+    "verifier_overrides": [],
+    "memory_recalled": [],
+    "recommended_play": null,
+    "play_changed_by_memory": null,
+    "escalation": {
+     "escalate": false,
+     "rule": "below escalation thresholds",
+     "renewal_in_days": 86
+    },
+    "draft_email": null,
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   },
+   {
+    "account_id": "ACC-1026",
+    "account_name": "Corvid Farm Supply",
+    "arr_usd": 98700,
+    "renewal_date": "2027-06-17",
+    "renewal_in_days": 241,
+    "crm_says": {
+     "health_score": 87,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "none",
+     "watermelon": false
+    },
+    "reasons": [],
+    "ruled_out": [
+     {
+      "claim": "Champion Owen Lindqvist (Head of Revenue Ops) left 21 days ago for Ashcombe Group.",
+      "reason": "Replacement champion Marcus Iyer is active and usage is stable."
+     }
+    ],
+    "verifier_overrides": [],
+    "memory_recalled": [],
+    "recommended_play": null,
+    "play_changed_by_memory": null,
+    "escalation": {
+     "escalate": false,
+     "rule": "below escalation thresholds",
+     "renewal_in_days": 241
+    },
+    "draft_email": null,
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   },
+   {
+    "account_id": "ACC-1006",
+    "account_name": "Silverlake Insurance",
+    "arr_usd": 41000,
+    "renewal_date": "2027-05-23",
+    "renewal_in_days": 216,
+    "crm_says": {
+     "health_score": 87,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "none",
+     "watermelon": false
+    },
+    "reasons": [],
+    "ruled_out": [
+     {
+      "claim": "Invoice INV-90024 ($10,250) is 51 days overdue.",
+      "reason": "Remembered note: this customer's AP always pays late."
+     }
+    ],
+    "verifier_overrides": [],
+    "memory_recalled": [
+     "ACC-1006: Finance confirmed Silverlake's accounts-payable team pays every vendor around 40 days late (internal net-45 policy). Late invoices are normal for them, not a churn signal."
+    ],
+    "recommended_play": null,
+    "play_changed_by_memory": null,
+    "escalation": {
+     "escalate": false,
+     "rule": "below escalation thresholds",
+     "renewal_in_days": 216
+    },
+    "draft_email": null,
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   },
+   {
+    "account_id": "ACC-1031",
+    "account_name": "Ravenshaw Haulage",
+    "arr_usd": 16000,
+    "renewal_date": "2027-05-03",
+    "renewal_in_days": 196,
+    "crm_says": {
+     "health_score": 81,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "none",
+     "watermelon": false
+    },
+    "reasons": [],
+    "ruled_out": [
+     {
+      "claim": "An urgent ticket was opened in the last 30 days (\"Request: bulk-invite users via CSV\").",
+      "reason": "The urgent ticket was solved and sentiment recovered."
+     }
+    ],
+    "verifier_overrides": [],
+    "memory_recalled": [],
+    "recommended_play": null,
+    "play_changed_by_memory": null,
+    "escalation": {
+     "escalate": false,
+     "rule": "below escalation thresholds",
+     "renewal_in_days": 196
+    },
+    "draft_email": null,
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   }
+  ],
+  "not_investigated": 56
+ },
+ "agents": [
+  {
+   "name": "Planner",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Chooses which accounts to investigate and the hypotheses to test"
+  },
+  {
+   "name": "Investigator",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Writes churn-risk claims, each citing a Zetaris fact"
+  },
+  {
+   "name": "Verifier",
+   "kind": "Deterministic rules",
+   "role": "Rejects claims the data does not support, sends drafts back when a signal is missed, checks the Skeptic's rulings"
+  },
+  {
+   "name": "Skeptic",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Argues against every claim and looks for innocent explanations"
+  },
+  {
+   "name": "Escalation",
+   "kind": "Deterministic policy",
+   "role": "Escalates high-risk, high-revenue or near-renewal accounts"
+  },
+  {
+   "name": "Reporter",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Writes the brief, the recommended play and a draft email"
+  },
+  {
+   "name": "Memory",
+   "kind": "Meterless H-MEM engine",
+   "role": "Recalls earlier weeks per account, stores this week's verdict, rewards helpful memories"
+  }
+ ],
+ "models": {
+  "offline-heuristic": 8
+ },
+ "notes": [
+  "8 step(s) used the offline heuristic instead of a model"
+ ],
+ "trace_id": "20261027T060749Z-4f654d",
+ "log_file": "logs/run_20261027T060749Z-4f654d.jsonl",
+ "execution_time_seconds": 0.6,
+ "trace_copy": "output_examples/sample_mode/example_2.trace.jsonl"
+}

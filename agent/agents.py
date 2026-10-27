@@ -277,6 +277,8 @@ Use only supported claims. Every reason must name its source system. If memory s
 and the problem persists, recommend a different play and say why. Plays to choose from:
 exec_sponsor_meeting, new_champion_onboarding, adoption_workshop, support_escalation, billing_outreach, renewal_risk_review.
 Draft a short, human email (no hype) to the right contact.
+Use only facts in the input. Usage numbers are weekly ACTIVE USERS (people), not minutes.
+Always include recommended_play and draft_email.
 Respond with JSON only:
 {"headline":"one line","why":[{"reason":"sentence with numbers","source":"Product analytics"}],
  "recommended_play":"exec_sponsor_meeting","play_rationale":"one sentence","memory_used":"sentence or null",
@@ -331,5 +333,21 @@ def report(llm: LLM, acct: dict[str, Any], supported: list[dict[str, Any]], risk
 
     out = llm.complete_json("Reporter", "deep", REPORTER_SYS, user, offline, acct["account_id"], 1200)
     out = out if isinstance(out, dict) else {"why": out if isinstance(out, list) else []}
-    out.setdefault("why", [])
+    # The model sometimes leaves a field out. Fill only the missing fields from the rule-based brief, and say so.
+    base, filled = offline(), []
+    plays = {"exec_sponsor_meeting", "new_champion_onboarding", "adoption_workshop", "support_escalation",
+             "billing_outreach", "renewal_risk_review"}
+    if out.get("recommended_play") not in plays:
+        out["recommended_play"], out["play_rationale"] = base["recommended_play"], base["play_rationale"]
+        filled.append("recommended_play")
+    em = out.get("draft_email")
+    if not isinstance(em, dict) or not em.get("body"):
+        out["draft_email"] = base["draft_email"]
+        filled.append("draft_email")
+    for k in ("headline", "play_rationale", "why"):
+        if not out.get(k):
+            out[k] = base[k]
+            filled.append(k)
+    if filled:
+        out["completed_by_rules"] = filled
     return out

@@ -127,7 +127,8 @@ def investigate_account(dl: DataLayer, llm: LLM, mem: MemoryStore, trace: Trace,
         if note:
             trace.log("Verifier", "play_changed", account_id=aid, was=brief.get("recommended_play"), now=play, reason=note)
             brief["recommended_play"], brief["memory_used"] = play, note
-        trace.log("Reporter", "brief", account_id=aid, headline=brief.get("headline"), play=brief.get("recommended_play"))
+        trace.log("Reporter", "brief", account_id=aid, headline=brief.get("headline"), play=brief.get("recommended_play"),
+                  completed_by_rules=brief.get("completed_by_rules"))
 
     # H-MEM trust loop: memories that changed a decision get the spec's "helpful" feedback.
     if hasattr(mem, "helpful"):
@@ -164,8 +165,12 @@ def investigate_account(dl: DataLayer, llm: LLM, mem: MemoryStore, trace: Trace,
     return result
 
 
-def run_weekly(progress: Callable[[str], None] | None = None, trace: Trace | None = None) -> dict[str, Any]:
+def run_weekly(progress: Callable[[str], None] | None = None, trace: Trace | None = None,
+               accounts: list[str] | None = None, max_deep_dives: int | None = None) -> dict[str, Any]:
+    """accounts: investigate exactly these account IDs (the caller replaces the Planner's pick).
+    max_deep_dives: override RIND_MAX_DEEP_DIVES for this run."""
     trace = trace or Trace(mode="sample" if SETTINGS.sample_mode else "live")
+    max_dives = max(1, int(max_deep_dives or SETTINGS.max_deep_dives))
     say = progress or (lambda s: None)
     dl = DataLayer(trace)
     llm = LLM(trace)
@@ -184,9 +189,21 @@ def run_weekly(progress: Callable[[str], None] | None = None, trace: Trace | Non
     snap = snapshot(roster, bulk, dl.as_of)
     memory_index = {r["account_id"]: mem.recall(r["account_id"]) for r in roster}
 
-    say("Planner is choosing which accounts to investigate…")
-    plan = agents.plan(llm, snap, memory_index, SETTINGS.max_deep_dives)
-    trace.log("Planner", "plan", deep_dives=plan["deep_dives"], summary=plan.get("summary"))
+    if accounts:
+        known = {r["account_id"]: r for r in snap}
+        unknown = [a for a in accounts if a not in known]
+        picked = [a for a in dict.fromkeys(accounts) if a in known][:max_dives]
+        plan = {"deep_dives": [{"account_id": a, "priority": i + 1, "why": "requested by the caller",
+                                "hypotheses": [h for h in known[a].get("warning_signs", "none").split("|") if h != "none"]}
+                               for i, a in enumerate(picked)],
+                "summary": f"Caller asked for {len(accounts)} specific account(s); the Planner's pick was skipped."}
+        trace.log("Planner", "plan_override", requested=accounts, unknown=unknown, deep_dives=plan["deep_dives"])
+        if not picked:
+            raise ValueError(f"None of the requested accounts exist: {unknown}")
+    else:
+        say("Planner is choosing which accounts to investigate…")
+        plan = agents.plan(llm, snap, memory_index, max_dives)
+        trace.log("Planner", "plan", deep_dives=plan["deep_dives"], summary=plan.get("summary"))
 
     by_id = {a["account_id"]: a for a in roster}
     results: list[dict[str, Any]] = []

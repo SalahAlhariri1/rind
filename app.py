@@ -406,6 +406,16 @@ else:
         st.markdown('<div class="hd"><b class="t">Scorecard</b></div><p class="lede" style="padding:12px 18px 0">The test data hides an answer key: '
                     "13 accounts truly at risk (8 behind a green CRM score) and 12 traps built to fool simple rules.</p>",
                     unsafe_allow_html=True)
+        live = ROOT / "evidence" / "live_full_run_score.md"
         md = ROOT / "evidence" / "eval_results.md"
         with st.container(key="plainbody"):
-            st.markdown(md.read_text(encoding="utf-8") if md.exists() else "Run `python eval/run_eval.py` to score Rind against the answer key.")
+            if live.exists():
+                st.markdown(live.read_text(encoding="utf-8"))
+                st.caption("Baselines on the same data: the CRM health score alone catches 5/13 at-risk accounts and 0/8 watermelons; "
+                           "naive rules without the Skeptic and Verifier catch 13/13 but wrongly flag 9 of the 12 decoys.")
+                if md.exists():
+                    with st.expander("Sample-mode pipeline check (offline heuristic, no AI model)"):
+                        st.markdown(md.read_text(encoding="utf-8"))
+            else:
+                st.markdown(md.read_text(encoding="utf-8") if md.exists() else
+                            "Run a live triage, then `python eval/score_run.py` to score it against the answer key.")

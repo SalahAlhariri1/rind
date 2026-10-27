@@ -1,0 +1,267 @@
+{
+ "run_id": "example-1-watermelons",
+ "status": "success",
+ "mode": "sample",
+ "as_of": "2026-10-19",
+ "output": {
+  "summary": {
+   "accounts": 60,
+   "investigated": 3,
+   "at_risk": 3,
+   "watermelons": 3,
+   "arr_at_risk_usd": 316800,
+   "escalations": 2,
+   "reused_unchanged": 0,
+   "false_alarms_stopped": 0,
+   "zetaris_queries": 7,
+   "llm_calls": 9,
+   "degraded": false,
+   "planner_summary": "Caller asked for 3 specific account(s); the Planner's pick was skipped."
+  },
+  "accounts": [
+   {
+    "account_id": "ACC-1047",
+    "account_name": "Maplecrest Logistics",
+    "arr_usd": 170900,
+    "renewal_date": "2026-11-22",
+    "renewal_in_days": 34,
+    "crm_says": {
+     "health_score": 80,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "high",
+     "watermelon": true
+    },
+    "reasons": [
+     {
+      "signal": "invoice_overdue",
+      "statement": "Invoice INV-90188 ($42,725) is 50 days overdue.",
+      "source": "Billing",
+      "evidence": [
+       {
+        "view": "rind.billing_invoices",
+        "fact": "latest_days_overdue",
+        "value": 50
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "escalating_tickets",
+      "statement": "4 high/urgent tickets are still open (e.g. \"Workflow automations failing silently since last release\"); 30-day sentiment -0.42.",
+      "source": "Support desk",
+      "evidence": [
+       {
+        "view": "rind.support_tickets",
+        "fact": "open_high_or_urgent",
+        "value": 4
+       }
+      ],
+      "added_by": "Investigator"
+     }
+    ],
+    "ruled_out": [],
+    "verifier_overrides": [],
+    "memory_recalled": [],
+    "recommended_play": "exec_sponsor_meeting",
+    "play_changed_by_memory": null,
+    "escalation": {
+     "escalate": true,
+     "to": "CS Director + exec sponsor",
+     "rule": "high risk and (ARR >= $100k or renewal <= 60 days)",
+     "renewal_in_days": 34
+    },
+    "draft_email": {
+     "to": "Dev Novak",
+     "subject": "Checking in ahead of your renewal - Maplecrest Logistics",
+     "body": "Hi Dev,\n\nI wanted to reach out personally ahead of your renewal. I've noticed a few changes on your account recently and would value 30 minutes to hear how things are going and make sure the team is getting what it needs from us.\n\nWould Thursday or Friday work?\n\nBest,\nDana"
+    },
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   },
+   {
+    "account_id": "ACC-1058",
+    "account_name": "Bluegate Academy",
+    "arr_usd": 86600,
+    "renewal_date": "2027-01-07",
+    "renewal_in_days": 80,
+    "crm_says": {
+     "health_score": 72,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "high",
+     "watermelon": true
+    },
+    "reasons": [
+     {
+      "signal": "champion_left",
+      "statement": "Champion Owen Holt (Head of Revenue Ops) left 14 days ago for Westmarch Holdings.",
+      "source": "Contacts",
+      "evidence": [
+       {
+        "view": "rind.contacts",
+        "fact": "champion_left",
+        "value": true
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "invoice_overdue",
+      "statement": "Invoice INV-90232 ($21,650) is 44 days overdue.",
+      "source": "Billing",
+      "evidence": [
+       {
+        "view": "rind.billing_invoices",
+        "fact": "latest_days_overdue",
+        "value": 44
+       }
+      ],
+      "added_by": "Investigator"
+     }
+    ],
+    "ruled_out": [],
+    "verifier_overrides": [],
+    "memory_recalled": [],
+    "recommended_play": "new_champion_onboarding",
+    "play_changed_by_memory": null,
+    "escalation": {
+     "escalate": false,
+     "rule": "below escalation thresholds",
+     "renewal_in_days": 80
+    },
+    "draft_email": {
+     "to": "Chloe Abara",
+     "subject": "Checking in ahead of your renewal - Bluegate Academy",
+     "body": "Hi Chloe,\n\nI wanted to reach out personally ahead of your renewal. I've noticed a few changes on your account recently and would value 30 minutes to hear how things are going and make sure the team is getting what it needs from us.\n\nWould Thursday or Friday work?\n\nBest,\nDana"
+    },
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   },
+   {
+    "account_id": "ACC-1051",
+    "account_name": "Eastvale Power",
+    "arr_usd": 59300,
+    "renewal_date": "2026-12-02",
+    "renewal_in_days": 44,
+    "crm_says": {
+     "health_score": 89,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "high",
+     "watermelon": true
+    },
+    "reasons": [
+     {
+      "signal": "usage_decline",
+      "statement": "Weekly active users fell 48.9% (avg 111.5 -> 57.0); seat utilization is now 36.5%.",
+      "source": "Product usage",
+      "evidence": [
+       {
+        "view": "rind.product_usage",
+        "fact": "change_pct",
+        "value": -48.9
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "champion_left",
+      "statement": "Champion Nadia Sandoval (Head of Revenue Ops) left 36 days ago for Cedarline Holdings.",
+      "source": "Contacts",
+      "evidence": [
+       {
+        "view": "rind.contacts",
+        "fact": "champion_left",
+        "value": true
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "invoice_overdue",
+      "statement": "Invoice INV-90204 ($14,825) is 47 days overdue.",
+      "source": "Billing",
+      "evidence": [
+       {
+        "view": "rind.billing_invoices",
+        "fact": "latest_days_overdue",
+        "value": 47
+       }
+      ],
+      "added_by": "Investigator"
+     }
+    ],
+    "ruled_out": [],
+    "verifier_overrides": [],
+    "memory_recalled": [],
+    "recommended_play": "exec_sponsor_meeting",
+    "play_changed_by_memory": null,
+    "escalation": {
+     "escalate": true,
+     "to": "CS Director + exec sponsor",
+     "rule": "high risk and (ARR >= $100k or renewal <= 60 days)",
+     "renewal_in_days": 44
+    },
+    "draft_email": {
+     "to": "Hugo Sandoval",
+     "subject": "Checking in ahead of your renewal - Eastvale Power",
+     "body": "Hi Hugo,\n\nI wanted to reach out personally ahead of your renewal. I've noticed a few changes on your account recently and would value 30 minutes to hear how things are going and make sure the team is getting what it needs from us.\n\nWould Thursday or Friday work?\n\nBest,\nDana"
+    },
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   }
+  ],
+  "not_investigated": 57
+ },
+ "agents": [
+  {
+   "name": "Planner",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Chooses which accounts to investigate and the hypotheses to test"
+  },
+  {
+   "name": "Investigator",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Writes churn-risk claims, each citing a Zetaris fact"
+  },
+  {
+   "name": "Verifier",
+   "kind": "Deterministic rules",
+   "role": "Rejects claims the data does not support, sends drafts back when a signal is missed, checks the Skeptic's rulings"
+  },
+  {
+   "name": "Skeptic",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Argues against every claim and looks for innocent explanations"
+  },
+  {
+   "name": "Escalation",
+   "kind": "Deterministic policy",
+   "role": "Escalates high-risk, high-revenue or near-renewal accounts"
+  },
+  {
+   "name": "Reporter",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Writes the brief, the recommended play and a draft email"
+  },
+  {
+   "name": "Memory",
+   "kind": "Meterless H-MEM engine",
+   "role": "Recalls earlier weeks per account, stores this week's verdict, rewards helpful memories"
+  }
+ ],
+ "models": {
+  "offline-heuristic": 9
+ },
+ "notes": [
+  "9 step(s) used the offline heuristic instead of a model"
+ ],
+ "trace_id": "20261027T060748Z-3e92a3",
+ "log_file": "logs/run_20261027T060748Z-3e92a3.jsonl",
+ "execution_time_seconds": 0.7,
+ "trace_copy": "output_examples/sample_mode/example_1.trace.jsonl"
+}

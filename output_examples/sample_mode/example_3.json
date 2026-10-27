@@ -1,0 +1,196 @@
+{
+ "run_id": "example-3-memory",
+ "status": "success",
+ "mode": "sample",
+ "as_of": "2026-10-19",
+ "output": {
+  "summary": {
+   "accounts": 60,
+   "investigated": 2,
+   "at_risk": 2,
+   "watermelons": 2,
+   "arr_at_risk_usd": 25200,
+   "escalations": 0,
+   "reused_unchanged": 0,
+   "false_alarms_stopped": 0,
+   "zetaris_queries": 7,
+   "llm_calls": 6,
+   "degraded": false,
+   "planner_summary": "Caller asked for 2 specific account(s); the Planner's pick was skipped."
+  },
+  "accounts": [
+   {
+    "account_id": "ACC-1027",
+    "account_name": "Windward Logistics",
+    "arr_usd": 13900,
+    "renewal_date": "2027-01-15",
+    "renewal_in_days": 88,
+    "crm_says": {
+     "health_score": 86,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "high",
+     "watermelon": true
+    },
+    "reasons": [
+     {
+      "signal": "champion_left",
+      "statement": "Champion Grace Abara (Head of Revenue Ops) left 39 days ago for Cedarline Partners.",
+      "source": "Contacts",
+      "evidence": [
+       {
+        "view": "rind.contacts",
+        "fact": "champion_left",
+        "value": true
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "escalating_tickets",
+      "statement": "4 high/urgent tickets are still open (e.g. \"Integration with our ERP stopped syncing\"); 30-day sentiment -0.49.",
+      "source": "Support desk",
+      "evidence": [
+       {
+        "view": "rind.support_tickets",
+        "fact": "open_high_or_urgent",
+        "value": 4
+       }
+      ],
+      "added_by": "Investigator"
+     }
+    ],
+    "ruled_out": [],
+    "verifier_overrides": [],
+    "memory_recalled": [
+     "ACC-1027: Champion hinted at a possible reorg on a call; asked to be looped in on the renewal early."
+    ],
+    "recommended_play": "new_champion_onboarding",
+    "play_changed_by_memory": null,
+    "escalation": {
+     "escalate": false,
+     "rule": "below escalation thresholds",
+     "renewal_in_days": 88
+    },
+    "draft_email": {
+     "to": "Ines Romano",
+     "subject": "Checking in ahead of your renewal - Windward Logistics",
+     "body": "Hi Ines,\n\nI wanted to reach out personally ahead of your renewal. I've noticed a few changes on your account recently and would value 30 minutes to hear how things are going and make sure the team is getting what it needs from us.\n\nWould Thursday or Friday work?\n\nBest,\nDana"
+    },
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   },
+   {
+    "account_id": "ACC-1020",
+    "account_name": "Highmoor Components",
+    "arr_usd": 11300,
+    "renewal_date": "2027-02-18",
+    "renewal_in_days": 122,
+    "crm_says": {
+     "health_score": 79,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "high",
+     "watermelon": true
+    },
+    "reasons": [
+     {
+      "signal": "usage_decline",
+      "statement": "Weekly active users fell 51.7% (avg 18.1 -> 8.8); seat utilization is now 32.4%.",
+      "source": "Product usage",
+      "evidence": [
+       {
+        "view": "rind.product_usage",
+        "fact": "change_pct",
+        "value": -51.7
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "invoice_overdue",
+      "statement": "Invoice INV-90080 ($2,825) is 42 days overdue.",
+      "source": "Billing",
+      "evidence": [
+       {
+        "view": "rind.billing_invoices",
+        "fact": "latest_days_overdue",
+        "value": 42
+       }
+      ],
+      "added_by": "Investigator"
+     }
+    ],
+    "ruled_out": [],
+    "verifier_overrides": [],
+    "memory_recalled": [
+     "ACC-1020: Usage dipping. Offered free admin training to lift adoption; customer accepted, session held Oct 8."
+    ],
+    "recommended_play": "exec_sponsor_meeting",
+    "play_changed_by_memory": "Admin training was already tried on Oct 8 and usage kept falling, so escalate to the exec sponsor instead of repeating training.",
+    "escalation": {
+     "escalate": false,
+     "rule": "below escalation thresholds",
+     "renewal_in_days": 122
+    },
+    "draft_email": {
+     "to": "Jordan Chen",
+     "subject": "Checking in ahead of your renewal - Highmoor Components",
+     "body": "Hi Jordan,\n\nI wanted to reach out personally ahead of your renewal. I've noticed a few changes on your account recently and would value 30 minutes to hear how things are going and make sure the team is getting what it needs from us.\n\nWould Thursday or Friday work?\n\nBest,\nDana"
+    },
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   }
+  ],
+  "not_investigated": 58
+ },
+ "agents": [
+  {
+   "name": "Planner",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Chooses which accounts to investigate and the hypotheses to test"
+  },
+  {
+   "name": "Investigator",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Writes churn-risk claims, each citing a Zetaris fact"
+  },
+  {
+   "name": "Verifier",
+   "kind": "Deterministic rules",
+   "role": "Rejects claims the data does not support, sends drafts back when a signal is missed, checks the Skeptic's rulings"
+  },
+  {
+   "name": "Skeptic",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Argues against every claim and looks for innocent explanations"
+  },
+  {
+   "name": "Escalation",
+   "kind": "Deterministic policy",
+   "role": "Escalates high-risk, high-revenue or near-renewal accounts"
+  },
+  {
+   "name": "Reporter",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Writes the brief, the recommended play and a draft email"
+  },
+  {
+   "name": "Memory",
+   "kind": "Meterless H-MEM engine",
+   "role": "Recalls earlier weeks per account, stores this week's verdict, rewards helpful memories"
+  }
+ ],
+ "models": {
+  "offline-heuristic": 6
+ },
+ "notes": [
+  "6 step(s) used the offline heuristic instead of a model"
+ ],
+ "trace_id": "20261027T060750Z-299826",
+ "log_file": "logs/run_20261027T060750Z-299826.jsonl",
+ "execution_time_seconds": 0.6,
+ "trace_copy": "output_examples/sample_mode/example_3.trace.jsonl"
+}

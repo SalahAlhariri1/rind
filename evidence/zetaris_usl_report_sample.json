@@ -1,0 +1,881 @@
+{
+ "engine": "local DuckDB copy (sample mode)",
+ "generated_at": "2026-10-27T06:28:27+00:00",
+ "sources": [
+  {
+   "system": "CRM",
+   "view": "rind.crm_accounts",
+   "rows": 60,
+   "status": "PASS",
+   "error": null
+  },
+  {
+   "system": "Product usage",
+   "view": "rind.product_usage",
+   "rows": 1920,
+   "status": "PASS",
+   "error": null
+  },
+  {
+   "system": "Support desk",
+   "view": "rind.support_tickets",
+   "rows": 205,
+   "status": "PASS",
+   "error": null
+  },
+  {
+   "system": "Billing",
+   "view": "rind.billing_invoices",
+   "rows": 240,
+   "status": "PASS",
+   "error": null
+  },
+  {
+   "system": "Contacts",
+   "view": "rind.contacts",
+   "rows": 182,
+   "status": "PASS",
+   "error": null
+  }
+ ],
+ "exploratory": [
+  {
+   "system": "CRM",
+   "question": "How is the book of business split by CRM health colour?",
+   "sql": "SELECT health_color, COUNT(*) AS accounts, SUM(arr_usd) AS arr_usd FROM rind.crm_accounts GROUP BY health_color ORDER BY accounts DESC",
+   "ok": true,
+   "n": 3,
+   "ms": 12,
+   "rows": [
+    {
+     "health_color": "green",
+     "accounts": 44,
+     "arr_usd": 2713300
+    },
+    {
+     "health_color": "amber",
+     "accounts": 11,
+     "arr_usd": 561900
+    },
+    {
+     "health_color": "red",
+     "accounts": 5,
+     "arr_usd": 171700
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "CRM",
+   "question": "Which green accounts renew in the next 90 days?",
+   "sql": "SELECT account_name, health_score, renewal_date, arr_usd FROM rind.crm_accounts WHERE health_color = 'green' AND renewal_date <= '2027-01-17' ORDER BY renewal_date",
+   "ok": true,
+   "n": 10,
+   "ms": 10,
+   "rows": [
+    {
+     "account_name": "Maplecrest Logistics",
+     "health_score": 80,
+     "renewal_date": "2026-11-22",
+     "arr_usd": 170900
+    },
+    {
+     "account_name": "Clearwater Fabrication",
+     "health_score": 80,
+     "renewal_date": "2026-11-29",
+     "arr_usd": 18900
+    },
+    {
+     "account_name": "Eastvale Power",
+     "health_score": 89,
+     "renewal_date": "2026-12-02",
+     "arr_usd": 59300
+    },
+    {
+     "account_name": "Oakhaven Labs",
+     "health_score": 86,
+     "renewal_date": "2026-12-07",
+     "arr_usd": 7100
+    },
+    {
+     "account_name": "Hollowell Power",
+     "health_score": 77,
+     "renewal_date": "2026-12-15",
+     "arr_usd": 24400
+    },
+    {
+     "account_name": "Juniperhill Hotels",
+     "health_score": 83,
+     "renewal_date": "2026-12-22",
+     "arr_usd": 232000
+    },
+    {
+     "account_name": "Larkspur Analytics",
+     "health_score": 88,
+     "renewal_date": "2027-01-05",
+     "arr_usd": 23900
+    },
+    {
+     "account_name": "Bluegate Academy",
+     "health_score": 72,
+     "renewal_date": "2027-01-07",
+     "arr_usd": 86600
+    },
+    {
+     "account_name": "Cobaltridge Ag Co-op",
+     "health_score": 74,
+     "renewal_date": "2027-01-13",
+     "arr_usd": 135300
+    },
+    {
+     "account_name": "Windward Logistics",
+     "health_score": 86,
+     "renewal_date": "2027-01-15",
+     "arr_usd": 13900
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "CRM",
+   "question": "How old are the health scores the CSM is relying on?",
+   "sql": "SELECT MIN(health_updated_on) AS oldest_score, MAX(health_updated_on) AS newest_score, COUNT(*) AS accounts FROM rind.crm_accounts",
+   "ok": true,
+   "n": 1,
+   "ms": 2,
+   "rows": [
+    {
+     "oldest_score": "2026-09-09",
+     "newest_score": "2026-09-25",
+     "accounts": 60
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Product usage",
+   "question": "How much usage history is there?",
+   "sql": "SELECT COUNT(DISTINCT account_ref) AS accounts, COUNT(DISTINCT week_start) AS weeks, MIN(week_start) AS first_week, MAX(week_start) AS last_week FROM rind.product_usage",
+   "ok": true,
+   "n": 1,
+   "ms": 5,
+   "rows": [
+    {
+     "accounts": 60,
+     "weeks": 32,
+     "first_week": "2025-06-30",
+     "last_week": "2026-10-12"
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Product usage",
+   "question": "Total weekly active users across all customers, last 6 weeks",
+   "sql": "SELECT week_start, SUM(active_users) AS active_users FROM rind.product_usage GROUP BY week_start ORDER BY week_start DESC LIMIT 6",
+   "ok": true,
+   "n": 6,
+   "ms": 1,
+   "rows": [
+    {
+     "week_start": "2026-10-12",
+     "active_users": 6947
+    },
+    {
+     "week_start": "2026-10-05",
+     "active_users": 6869
+    },
+    {
+     "week_start": "2026-09-28",
+     "active_users": 6974
+    },
+    {
+     "week_start": "2026-09-21",
+     "active_users": 7035
+    },
+    {
+     "week_start": "2026-09-14",
+     "active_users": 7139
+    },
+    {
+     "week_start": "2026-09-07",
+     "active_users": 7287
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Product usage",
+   "question": "Which customers use the fewest of the seats they pay for (latest week)?",
+   "sql": "SELECT account_ref, week_start, active_users, seats_purchased, utilisation_pct FROM (SELECT account_ref, week_start, active_users, seats_purchased, ROUND(100.0 * active_users / seats_purchased, 1) AS utilisation_pct, DENSE_RANK() OVER (ORDER BY week_start DESC) AS week_rank FROM rind.product_usage) t WHERE week_rank = 1 ORDER BY utilisation_pct ASC LIMIT 5",
+   "ok": true,
+   "n": 5,
+   "ms": 9,
+   "rows": [
+    {
+     "account_ref": "acc1044",
+     "week_start": "2026-10-12",
+     "active_users": 10,
+     "seats_purchased": 45,
+     "utilisation_pct": 22.2
+    },
+    {
+     "account_ref": "acc1059",
+     "week_start": "2026-10-12",
+     "active_users": 14,
+     "seats_purchased": 57,
+     "utilisation_pct": 24.6
+    },
+    {
+     "account_ref": "acc1011",
+     "week_start": "2026-10-12",
+     "active_users": 44,
+     "seats_purchased": 169,
+     "utilisation_pct": 26.0
+    },
+    {
+     "account_ref": "acc1053",
+     "week_start": "2026-10-12",
+     "active_users": 22,
+     "seats_purchased": 76,
+     "utilisation_pct": 28.9
+    },
+    {
+     "account_ref": "acc1036",
+     "week_start": "2026-10-12",
+     "active_users": 7,
+     "seats_purchased": 24,
+     "utilisation_pct": 29.2
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Support desk",
+   "question": "Ticket volume by priority and status",
+   "sql": "SELECT priority, status, COUNT(*) AS tickets FROM rind.support_tickets GROUP BY priority, status ORDER BY tickets DESC",
+   "ok": true,
+   "n": 8,
+   "ms": 1,
+   "rows": [
+    {
+     "priority": "normal",
+     "status": "solved",
+     "tickets": 115
+    },
+    {
+     "priority": "low",
+     "status": "solved",
+     "tickets": 64
+    },
+    {
+     "priority": "urgent",
+     "status": "open",
+     "tickets": 14
+    },
+    {
+     "priority": "high",
+     "status": "open",
+     "tickets": 4
+    },
+    {
+     "priority": "urgent",
+     "status": "solved",
+     "tickets": 3
+    },
+    {
+     "priority": "urgent",
+     "status": "pending",
+     "tickets": 2
+    },
+    {
+     "priority": "high",
+     "status": "pending",
+     "tickets": 2
+    },
+    {
+     "priority": "normal",
+     "status": "pending",
+     "tickets": 1
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Support desk",
+   "question": "Who has the most open high/urgent tickets?",
+   "sql": "SELECT org_domain, COUNT(*) AS open_high_or_urgent FROM rind.support_tickets WHERE status <> 'solved' AND priority IN ('high', 'urgent') GROUP BY org_domain ORDER BY open_high_or_urgent DESC LIMIT 5",
+   "ok": true,
+   "n": 5,
+   "ms": 2,
+   "rows": [
+    {
+     "org_domain": "maplecrestlogistics.example",
+     "open_high_or_urgent": 4
+    },
+    {
+     "org_domain": "windwardlogistics.example",
+     "open_high_or_urgent": 4
+    },
+    {
+     "org_domain": "marigoldlogistics.example",
+     "open_high_or_urgent": 3
+    },
+    {
+     "org_domain": "larkspuranalytics.example",
+     "open_high_or_urgent": 3
+    },
+    {
+     "org_domain": "elmsteadanalytics.example",
+     "open_high_or_urgent": 3
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Support desk",
+   "question": "How do sentiment and first response time vary by priority?",
+   "sql": "SELECT priority, ROUND(AVG(sentiment), 2) AS avg_sentiment, ROUND(AVG(first_response_hours), 1) AS avg_first_response_hours, COUNT(*) AS tickets FROM rind.support_tickets GROUP BY priority ORDER BY avg_sentiment",
+   "ok": true,
+   "n": 4,
+   "ms": 4,
+   "rows": [
+    {
+     "priority": "high",
+     "avg_sentiment": -0.67,
+     "avg_first_response_hours": 21.8,
+     "tickets": 6
+    },
+    {
+     "priority": "urgent",
+     "avg_sentiment": -0.65,
+     "avg_first_response_hours": 21.6,
+     "tickets": 19
+    },
+    {
+     "priority": "low",
+     "avg_sentiment": 0.46,
+     "avg_first_response_hours": 3.4,
+     "tickets": 64
+    },
+    {
+     "priority": "normal",
+     "avg_sentiment": 0.46,
+     "avg_first_response_hours": 4.4,
+     "tickets": 116
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Billing",
+   "question": "Invoices by status",
+   "sql": "SELECT status, COUNT(*) AS invoices, SUM(amount_usd) AS amount_usd FROM rind.billing_invoices GROUP BY status ORDER BY invoices DESC",
+   "ok": true,
+   "n": 2,
+   "ms": 1,
+   "rows": [
+    {
+     "status": "paid",
+     "invoices": 231,
+     "amount_usd": 3277200
+    },
+    {
+     "status": "overdue",
+     "invoices": 9,
+     "amount_usd": 169700
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Billing",
+   "question": "Largest overdue invoices",
+   "sql": "SELECT invoice_id, legal_name, amount_usd, due_on FROM rind.billing_invoices WHERE status = 'overdue' ORDER BY amount_usd DESC LIMIT 5",
+   "ok": true,
+   "n": 5,
+   "ms": 4,
+   "rows": [
+    {
+     "invoice_id": "INV-90188",
+     "legal_name": "Maplecrest Logistics, LLC",
+     "amount_usd": 42725,
+     "due_on": "2026-08-30"
+    },
+    {
+     "invoice_id": "INV-90072",
+     "legal_name": "Foxhollow Retail, Corp.",
+     "amount_usd": 38275,
+     "due_on": "2026-09-08"
+    },
+    {
+     "invoice_id": "INV-90232",
+     "legal_name": "Bluegate Academy, Ltd.",
+     "amount_usd": 21650,
+     "due_on": "2026-09-05"
+    },
+    {
+     "invoice_id": "INV-90044",
+     "legal_name": "Cinderfield Growers, Ltd.",
+     "amount_usd": 16050,
+     "due_on": "2026-08-31"
+    },
+    {
+     "invoice_id": "INV-90096",
+     "legal_name": "Ambergate Freight, LLC",
+     "amount_usd": 15875,
+     "due_on": "2026-09-02"
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Billing",
+   "question": "Which customers habitually pay after the due date?",
+   "sql": "SELECT customer_no, MAX(legal_name) AS legal_name, COUNT(*) AS paid_invoices, SUM(CASE WHEN paid_on > due_on THEN 1 ELSE 0 END) AS paid_late FROM rind.billing_invoices WHERE status = 'paid' GROUP BY customer_no ORDER BY paid_late DESC LIMIT 5",
+   "ok": true,
+   "n": 5,
+   "ms": 2,
+   "rows": [
+    {
+     "customer_no": "C-84946",
+     "legal_name": "Silverlake Insurance, Corp.",
+     "paid_invoices": 3,
+     "paid_late": 3
+    },
+    {
+     "customer_no": "C-58717",
+     "legal_name": "Ambergate Freight, LLC",
+     "paid_invoices": 3,
+     "paid_late": 3
+    },
+    {
+     "customer_no": "C-87060",
+     "legal_name": "Foxhollow Retail, Corp.",
+     "paid_invoices": 3,
+     "paid_late": 3
+    },
+    {
+     "customer_no": "C-66207",
+     "legal_name": "Mossbank College, Corp.",
+     "paid_invoices": 4,
+     "paid_late": 0
+    },
+    {
+     "customer_no": "C-68183",
+     "legal_name": "Cinderfield Growers, Ltd.",
+     "paid_invoices": 3,
+     "paid_late": 0
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Contacts",
+   "question": "Key contacts by role and status",
+   "sql": "SELECT role, status, COUNT(*) AS contacts FROM rind.contacts GROUP BY role, status ORDER BY contacts DESC",
+   "ok": true,
+   "n": 4,
+   "ms": 1,
+   "rows": [
+    {
+     "role": "exec_sponsor",
+     "status": "active",
+     "contacts": 60
+    },
+    {
+     "role": "admin",
+     "status": "active",
+     "contacts": 60
+    },
+    {
+     "role": "champion",
+     "status": "active",
+     "contacts": 52
+    },
+    {
+     "role": "champion",
+     "status": "left_company",
+     "contacts": 10
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Contacts",
+   "question": "Which champions left, and where did they go?",
+   "sql": "SELECT company_domain, full_name, title, changed_on, new_company FROM rind.contacts WHERE role = 'champion' AND status = 'left_company' ORDER BY changed_on DESC",
+   "ok": true,
+   "n": 10,
+   "ms": 1,
+   "rows": [
+    {
+     "company_domain": "saltmarshdental.example",
+     "full_name": "Anya Osei",
+     "title": "VP Operations",
+     "changed_on": "2026-10-06",
+     "new_company": "Elmstead Partners"
+    },
+    {
+     "company_domain": "bluegateacademy.example",
+     "full_name": "Owen Holt",
+     "title": "Head of Revenue Ops",
+     "changed_on": "2026-10-05",
+     "new_company": "Westmarch Holdings"
+    },
+    {
+     "company_domain": "bramblewoodsystems.example",
+     "full_name": "Ryan Duarte",
+     "title": "IT Director",
+     "changed_on": "2026-10-02",
+     "new_company": "Elmstead Group"
+    },
+    {
+     "company_domain": "tidewaterfarm.example",
+     "full_name": "Malik Iyer",
+     "title": "VP Operations",
+     "changed_on": "2026-09-30",
+     "new_company": "Juniperhill Holdings"
+    },
+    {
+     "company_domain": "corvidfarm.example",
+     "full_name": "Owen Lindqvist",
+     "title": "Head of Revenue Ops",
+     "changed_on": "2026-09-28",
+     "new_company": "Ashcombe Group"
+    },
+    {
+     "company_domain": "cinderfieldgrowers.example",
+     "full_name": "Hugo Nakamura",
+     "title": "Head of Revenue Ops",
+     "changed_on": "2026-09-27",
+     "new_company": "Cedarline Holdings"
+    },
+    {
+     "company_domain": "clearwaterfabrication.example",
+     "full_name": "Ines Osei",
+     "title": "IT Director",
+     "changed_on": "2026-09-13",
+     "new_company": "Highmoor Group"
+    },
+    {
+     "company_domain": "eastvalepower.example",
+     "full_name": "Nadia Sandoval",
+     "title": "Head of Revenue Ops",
+     "changed_on": "2026-09-13",
+     "new_company": "Cedarline Holdings"
+    },
+    {
+     "company_domain": "copperlinehaulage.example",
+     "full_name": "Zara Whitfield",
+     "title": "Head of Revenue Ops",
+     "changed_on": "2026-09-11",
+     "new_company": "Foxhollow Holdings"
+    },
+    {
+     "company_domain": "windwardlogistics.example",
+     "full_name": "Grace Abara",
+     "title": "Head of Revenue Ops",
+     "changed_on": "2026-09-10",
+     "new_company": "Cedarline Partners"
+    }
+   ],
+   "error": null
+  },
+  {
+   "system": "Contacts",
+   "question": "Which customers have no active champion?",
+   "sql": "SELECT company_domain, SUM(CASE WHEN role = 'champion' AND status = 'active' THEN 1 ELSE 0 END) AS active_champions FROM rind.contacts GROUP BY company_domain HAVING SUM(CASE WHEN role = 'champion' AND status = 'active' THEN 1 ELSE 0 END) = 0",
+   "ok": true,
+   "n": 8,
+   "ms": 3,
+   "rows": [
+    {
+     "company_domain": "cinderfieldgrowers.example",
+     "active_champions": 0
+    },
+    {
+     "company_domain": "bramblewoodsystems.example",
+     "active_champions": 0
+    },
+    {
+     "company_domain": "clearwaterfabrication.example",
+     "active_champions": 0
+    },
+    {
+     "company_domain": "eastvalepower.example",
+     "active_champions": 0
+    },
+    {
+     "company_domain": "tidewaterfarm.example",
+     "active_champions": 0
+    },
+    {
+     "company_domain": "copperlinehaulage.example",
+     "active_champions": 0
+    },
+    {
+     "company_domain": "windwardlogistics.example",
+     "active_champions": 0
+    },
+    {
+     "company_domain": "bluegateacademy.example",
+     "active_champions": 0
+    }
+   ],
+   "error": null
+  }
+ ],
+ "usl": [
+  {
+   "question": "Watermelon candidates: green in the CRM, but red in billing or support (one query, three systems, three keys)",
+   "sql": "SELECT account_name, health_score, arr_usd, overdue_invoices, open_high_tickets FROM rind.account_360 WHERE health_color = 'green' AND (overdue_invoices > 0 OR open_high_tickets > 0) ORDER BY arr_usd DESC",
+   "ok": true,
+   "n": 10,
+   "ms": 5,
+   "rows": [
+    {
+     "account_name": "Maplecrest Logistics",
+     "health_score": 80,
+     "arr_usd": 170900,
+     "overdue_invoices": 1,
+     "open_high_tickets": 4
+    },
+    {
+     "account_name": "Foxhollow Retail",
+     "health_score": 89,
+     "arr_usd": 153100,
+     "overdue_invoices": 1,
+     "open_high_tickets": 0
+    },
+    {
+     "account_name": "Bluegate Academy",
+     "health_score": 72,
+     "arr_usd": 86600,
+     "overdue_invoices": 1,
+     "open_high_tickets": 0
+    },
+    {
+     "account_name": "Ambergate Freight",
+     "health_score": 73,
+     "arr_usd": 63500,
+     "overdue_invoices": 1,
+     "open_high_tickets": 0
+    },
+    {
+     "account_name": "Eastvale Power",
+     "health_score": 89,
+     "arr_usd": 59300,
+     "overdue_invoices": 1,
+     "open_high_tickets": 0
+    },
+    {
+     "account_name": "Silverlake Insurance",
+     "health_score": 87,
+     "arr_usd": 41000,
+     "overdue_invoices": 1,
+     "open_high_tickets": 0
+    },
+    {
+     "account_name": "Larkspur Analytics",
+     "health_score": 88,
+     "arr_usd": 23900,
+     "overdue_invoices": 0,
+     "open_high_tickets": 3
+    },
+    {
+     "account_name": "Clearwater Fabrication",
+     "health_score": 80,
+     "arr_usd": 18900,
+     "overdue_invoices": 0,
+     "open_high_tickets": 3
+    },
+    {
+     "account_name": "Windward Logistics",
+     "health_score": 86,
+     "arr_usd": 13900,
+     "overdue_invoices": 0,
+     "open_high_tickets": 4
+    },
+    {
+     "account_name": "Highmoor Components",
+     "health_score": 79,
+     "arr_usd": 11300,
+     "overdue_invoices": 1,
+     "open_high_tickets": 0
+    }
+   ],
+   "error": null
+  },
+  {
+   "question": "Revenue exposure: how many accounts of each CRM colour have a red signal elsewhere?",
+   "sql": "SELECT health_color, COUNT(*) AS accounts, SUM(arr_usd) AS arr_usd, SUM(CASE WHEN overdue_invoices > 0 OR open_high_tickets > 0 THEN 1 ELSE 0 END) AS with_red_signal_elsewhere FROM rind.account_360 GROUP BY health_color ORDER BY accounts DESC",
+   "ok": true,
+   "n": 3,
+   "ms": 6,
+   "rows": [
+    {
+     "health_color": "green",
+     "accounts": 44,
+     "arr_usd": 2713300,
+     "with_red_signal_elsewhere": 10
+    },
+    {
+     "health_color": "amber",
+     "accounts": 11,
+     "arr_usd": 561900,
+     "with_red_signal_elsewhere": 0
+    },
+    {
+     "health_color": "red",
+     "accounts": 5,
+     "arr_usd": 171700,
+     "with_red_signal_elsewhere": 4
+    }
+   ],
+   "error": null
+  },
+  {
+   "question": "Four systems in one query: green accounts whose champion has left",
+   "sql": "SELECT a.account_name, a.health_score, c.full_name AS departed_champion, c.new_company, x.overdue_invoices, x.open_high_tickets FROM rind.crm_accounts a JOIN rind.contacts c ON c.company_domain = a.domain JOIN rind.account_360 x ON x.account_id = a.account_id WHERE a.health_color = 'green' AND c.role = 'champion' AND c.status = 'left_company' ORDER BY a.arr_usd DESC",
+   "ok": true,
+   "n": 7,
+   "ms": 6,
+   "rows": [
+    {
+     "account_name": "Corvid Farm Supply",
+     "health_score": 87,
+     "departed_champion": "Owen Lindqvist",
+     "new_company": "Ashcombe Group",
+     "overdue_invoices": 0,
+     "open_high_tickets": 0
+    },
+    {
+     "account_name": "Bluegate Academy",
+     "health_score": 72,
+     "departed_champion": "Owen Holt",
+     "new_company": "Westmarch Holdings",
+     "overdue_invoices": 1,
+     "open_high_tickets": 0
+    },
+    {
+     "account_name": "Eastvale Power",
+     "health_score": 89,
+     "departed_champion": "Nadia Sandoval",
+     "new_company": "Cedarline Holdings",
+     "overdue_invoices": 1,
+     "open_high_tickets": 0
+    },
+    {
+     "account_name": "Saltmarsh Dental Group",
+     "health_score": 87,
+     "departed_champion": "Anya Osei",
+     "new_company": "Elmstead Partners",
+     "overdue_invoices": 0,
+     "open_high_tickets": 0
+    },
+    {
+     "account_name": "Tidewater Farm Supply",
+     "health_score": 74,
+     "departed_champion": "Malik Iyer",
+     "new_company": "Juniperhill Holdings",
+     "overdue_invoices": 0,
+     "open_high_tickets": 0
+    },
+    {
+     "account_name": "Clearwater Fabrication",
+     "health_score": 80,
+     "departed_champion": "Ines Osei",
+     "new_company": "Highmoor Group",
+     "overdue_invoices": 0,
+     "open_high_tickets": 3
+    },
+    {
+     "account_name": "Windward Logistics",
+     "health_score": 86,
+     "departed_champion": "Grace Abara",
+     "new_company": "Cedarline Partners",
+     "overdue_invoices": 0,
+     "open_high_tickets": 4
+    }
+   ],
+   "error": null
+  }
+ ],
+ "data_quality": {
+  "rules": [
+   {
+    "rule_name": "invoice_customer_in_crm",
+    "rule_text": "Every invoice belongs to a CRM account (billing customer_no = CRM billing_customer_no)",
+    "checked": 240,
+    "violations": 0,
+    "result": "PASS",
+    "ran_as": "view `rind.dq_invoice_customer_in_crm`"
+   },
+   {
+    "rule_name": "ticket_domain_in_crm",
+    "rule_text": "Every support ticket belongs to a CRM account (help-desk org_domain = CRM domain)",
+    "checked": 205,
+    "violations": 0,
+    "result": "PASS",
+    "ran_as": "view `rind.dq_ticket_domain_in_crm`"
+   },
+   {
+    "rule_name": "usage_ref_in_crm",
+    "rule_text": "Every usage row belongs to a CRM account (usage account_ref acc1047 = CRM ACC-1047)",
+    "checked": 1920,
+    "violations": 0,
+    "result": "PASS",
+    "ran_as": "view `rind.dq_usage_ref_in_crm`"
+   },
+   {
+    "rule_name": "contact_domain_in_crm",
+    "rule_text": "Every key contact belongs to a CRM account (directory company_domain = CRM domain)",
+    "checked": 182,
+    "violations": 0,
+    "result": "PASS",
+    "ran_as": "view `rind.dq_contact_domain_in_crm`"
+   },
+   {
+    "rule_name": "health_score_in_range",
+    "rule_text": "CRM health score is present and between 0 and 100",
+    "checked": 60,
+    "violations": 0,
+    "result": "PASS",
+    "ran_as": "view `rind.dq_health_score_in_range`"
+   },
+   {
+    "rule_name": "invoice_due_after_issue",
+    "rule_text": "No invoice is due before it was issued",
+    "checked": 240,
+    "violations": 0,
+    "result": "PASS",
+    "ran_as": "view `rind.dq_invoice_due_after_issue`"
+   },
+   {
+    "rule_name": "overdue_invoice_unpaid",
+    "rule_text": "An invoice marked overdue has no payment date",
+    "checked": 240,
+    "violations": 0,
+    "result": "PASS",
+    "ran_as": "view `rind.dq_overdue_invoice_unpaid`"
+   },
+   {
+    "rule_name": "usage_within_seats",
+    "rule_text": "Weekly active users never exceed seats purchased",
+    "checked": 1920,
+    "violations": 0,
+    "result": "PASS",
+    "ran_as": "view `rind.dq_usage_within_seats`"
+   }
+  ],
+  "notes": []
+ },
+ "handcoded_vs_usl": {
+  "identical_accounts": 60,
+  "accounts": 60,
+  "python_lines": 23,
+  "usl_sql_lines": 13
+ },
+ "summary": "Sources: 5/5 \u00b7 exploratory queries: 15/15 \u00b7 USL queries: 3/3 \u00b7 data quality rules passed: 8/8 \u00b7 hand-coded match: 60/60"
+}

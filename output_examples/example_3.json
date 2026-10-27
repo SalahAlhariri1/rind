@@ -1,0 +1,218 @@
+{
+ "run_id": "example-3-memory",
+ "status": "success",
+ "mode": "live",
+ "as_of": "2026-10-19",
+ "output": {
+  "summary": {
+   "accounts": 60,
+   "investigated": 2,
+   "at_risk": 2,
+   "watermelons": 2,
+   "arr_at_risk_usd": 25200,
+   "escalations": 0,
+   "reused_unchanged": 0,
+   "false_alarms_stopped": 0,
+   "zetaris_queries": 7,
+   "llm_calls": 6,
+   "degraded": false,
+   "planner_summary": "Caller asked for 2 specific account(s); the Planner's pick was skipped."
+  },
+  "accounts": [
+   {
+    "account_id": "ACC-1027",
+    "account_name": "Windward Logistics",
+    "arr_usd": 13900,
+    "renewal_date": "2027-01-15",
+    "renewal_in_days": 88,
+    "crm_says": {
+     "health_score": 86,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "high",
+     "watermelon": true
+    },
+    "reasons": [
+     {
+      "signal": "escalating_tickets",
+      "statement": "Four open high or urgent support tickets are active, including integration sync failures, data export row losses, permissions bugs, and silent workflow automation failures.",
+      "source": "Support desk",
+      "evidence": [
+       {
+        "view": "rind.support_tickets",
+        "fact": "open_high_or_urgent",
+        "value": 4
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "champion_left",
+      "statement": "Champion Grace Abara departed 39 days ago as Head of Revenue Ops; no replacement champion has been named; exec sponsor Isaac Whitfield has been engaged for 148 days, leaving a critical sponsorship gap.",
+      "source": "Contacts",
+      "evidence": [
+       {
+        "view": "rind.contacts",
+        "fact": "champion_left",
+        "value": true
+       }
+      ],
+      "added_by": "Investigator"
+     }
+    ],
+    "ruled_out": [],
+    "verifier_overrides": [
+     {
+      "claim_id": "c2",
+      "signal": "champion_left",
+      "skeptic": "unsupported",
+      "skeptic_reason": "Counter-evidence: health score green (86) with exec sponsor Isaac Whitfield engaged for 148 days provides ongoing sponsorship despite champion departure, explaining the claimed critical gap.",
+      "verifier": "supported",
+      "reason": "no replacement champion is active"
+     }
+    ],
+    "memory_recalled": [
+     "ACC-1027: Champion hinted at a possible reorg on a call; asked to be looped in on the renewal early.",
+     "ACC-1027: Risk high; play support_escalation; escalated=False.",
+     "ACC-1027: Risk high; play new_champion_onboarding; escalated=False.",
+     "ACC-1027: Risk high; play exec_sponsor_meeting; escalated=False."
+    ],
+    "recommended_play": "exec_sponsor_meeting",
+    "play_changed_by_memory": null,
+    "escalation": {
+     "escalate": false,
+     "rule": "below escalation thresholds",
+     "renewal_in_days": 88
+    },
+    "draft_email": {
+     "to": "Isaac Whitfield",
+     "subject": "Windward Logistics: champion gap and support tickets",
+     "body": "Hi Isaac,\n\nHope you're having a good Monday morning. At Windward Logistics we've had Grace Abara depart 39 days ago with no replacement named, and we currently have four open high-or-urgent support tickets (integration sync failures, data export issues) with strongly negative sentiment. I'd like to align on replacing the champion and getting the tickets prioritized. Are you available for a quick 15-min call this week?\n\nBest,\n[Your Name]"
+    },
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   },
+   {
+    "account_id": "ACC-1020",
+    "account_name": "Highmoor Components",
+    "arr_usd": 11300,
+    "renewal_date": "2027-02-18",
+    "renewal_in_days": 122,
+    "crm_says": {
+     "health_score": 79,
+     "color": "green"
+    },
+    "rind_says": {
+     "risk": "high",
+     "watermelon": true
+    },
+    "reasons": [
+     {
+      "signal": "usage_decline",
+      "statement": "Usage dropped 51.7% over 16 weeks, falling from 18.1 to 8.8 average weekly active users",
+      "source": "Product usage",
+      "evidence": [
+       {
+        "view": "rind.product_usage",
+        "fact": "change_pct",
+        "value": -51.7
+       }
+      ],
+      "added_by": "Investigator"
+     },
+     {
+      "signal": "invoice_overdue",
+      "statement": "Invoice INV-90080 is 42 days overdue, exceeding the 14-day payment risk threshold",
+      "source": "Billing",
+      "evidence": [
+       {
+        "view": "rind.billing_invoices",
+        "fact": "latest_days_overdue",
+        "value": 42
+       }
+      ],
+      "added_by": "Investigator"
+     }
+    ],
+    "ruled_out": [],
+    "verifier_overrides": [
+     {
+      "claim_id": "c1",
+      "signal": "usage_decline",
+      "skeptic": "unsupported",
+      "skeptic_reason": "Usage declined 51.7% over 16 weeks, but last year the identical period showed 0% change (last_year_change_pct: 0.0) and seasonal_dip_last_year is false, meaning the decline is new and not seasonal; the drop from 18.1 to 8.8 average weekly active users is a structural decline, not a repeating pattern.",
+      "verifier": "supported",
+      "reason": "last year's same weeks changed 0.0%, so this decline is new"
+     }
+    ],
+    "memory_recalled": [
+     "ACC-1020: Usage dipping. Offered free admin training to lift adoption; customer accepted, session held Oct 8.",
+     "ACC-1020: Risk high; play support_escalation; escalated=False.",
+     "ACC-1020: Risk high; play new_champion_onboarding; escalated=False.",
+     "ACC-1020: Risk high; play billing_outreach; escalated=False."
+    ],
+    "recommended_play": "new_champion_onboarding",
+    "play_changed_by_memory": "mem-38: new_champion_onboarding play was previously evaluated but not executed; problem persists with usage drop and champion departure, so a fresh attempt is needed.",
+    "escalation": {
+     "escalate": false,
+     "rule": "below escalation thresholds",
+     "renewal_in_days": 122
+    },
+    "draft_email": {
+     "to": "Olivia Duarte",
+     "subject": "Re-engaging Highmoor Components after champion departure",
+     "body": "Hi Olivia,\n\nI'm reaching out because our named champion, Ines Osei, departed 36 days ago and no replacement has been named. Since then, product usage has dropped 51.7% over 16 weeks (from 18.1 to 8.8 avg weekly active users), and invoice INV-90080 is 42 days overdue.\n\nWe previously trialed an adoption workshop, but the account continues to decline. I'd like to onboard a new champion to re-energize the relationship and get usage back on track. Are you available for a brief call early next week to discuss?\n\nBest,\n[Your Name]"
+    },
+    "review_rounds": 1,
+    "reused_unchanged_verdict": false
+   }
+  ],
+  "not_investigated": 58
+ },
+ "agents": [
+  {
+   "name": "Planner",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Chooses which accounts to investigate and the hypotheses to test"
+  },
+  {
+   "name": "Investigator",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Writes churn-risk claims, each citing a Zetaris fact"
+  },
+  {
+   "name": "Verifier",
+   "kind": "Deterministic rules",
+   "role": "Rejects claims the data does not support, sends drafts back when a signal is missed, checks the Skeptic's rulings"
+  },
+  {
+   "name": "Skeptic",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Argues against every claim and looks for innocent explanations"
+  },
+  {
+   "name": "Escalation",
+   "kind": "Deterministic policy",
+   "role": "Escalates high-risk, high-revenue or near-renewal accounts"
+  },
+  {
+   "name": "Reporter",
+   "kind": "AI (Nemotron via Nightshift)",
+   "role": "Writes the brief, the recommended play and a draft email"
+  },
+  {
+   "name": "Memory",
+   "kind": "Meterless H-MEM engine",
+   "role": "Recalls earlier weeks per account, stores this week's verdict, rewards helpful memories"
+  }
+ ],
+ "models": {
+  "nvidia/nemotron-3.5-lightning-30b-a3b": 6
+ },
+ "notes": [],
+ "trace_id": "20261027T065707Z-c60392",
+ "log_file": "logs\\run_20261027T065707Z-c60392.jsonl",
+ "execution_time_seconds": 626.8,
+ "trace_copy": "output_examples/example_3.trace.jsonl"
+}

@@ -1,0 +1,6 @@
+{
+  "run_id": "example-3-memory",
+  "description": "Two at-risk accounts with notes from earlier weeks in H-MEM memory. Expected: memory is recalled, and for Highmoor the recommended play changes because training was already tried.",
+  "input": {"accounts": ["ACC-1020", "ACC-1027"]},
+  "options": {"reuse_unchanged": false}
+}

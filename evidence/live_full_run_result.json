@@ -1,0 +1,4831 @@
+{
+ "run_id": "20261027T054113Z-70c31e",
+ "mode": "live",
+ "as_of": "2026-10-19",
+ "summary": {
+  "accounts": 60,
+  "investigated": 25,
+  "at_risk": 13,
+  "watermelons": 8,
+  "arr_at_risk_usd": 579200,
+  "escalations": 6,
+  "reused_unchanged": 8,
+  "false_alarms_stopped": 11,
+  "zetaris_queries": 7,
+  "llm_calls": 49,
+  "degraded": false,
+  "planner_summary": "Selected 26 flagged green and red accounts with active warning signals, prioritized by risk-revenue-urgency, excluding accounts with 'none' warning signs and adjusting for noted policy exceptions (e.g., ACC-1006 habitual late payers, ACC-1005/1006 risk none per notes)."
+ },
+ "model_usage": {
+  "nvidia/nemotron-3.5-lightning-30b-a3b": 49
+ },
+ "accounts": [
+  {
+   "account_id": "ACC-1047",
+   "account_name": "Maplecrest Logistics",
+   "arr_usd": 170900,
+   "renewal_date": "2026-11-22",
+   "renewal_in_days": 34,
+   "crm_health": 80,
+   "crm_color": "green",
+   "planner_why": "Green account with 2.1% usage decline, 4 high-priority tickets, and invoice 50 days overdue; multi-signal risk despite high revenue.",
+   "hypotheses": [
+    "usage_decline",
+    "escalating_tickets",
+    "invoice_overdue"
+   ],
+   "risk": "high",
+   "confidence": 0.8,
+   "watermelon": true,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "escalating_tickets",
+     "severity": "high",
+     "statement": "Four high-or-urgent tickets are currently open (open_high_or_urgent = 4), with the urgent issue still open and latest ticket sentiment at -0.59, indicating escalating risk for Maplecrest Logistics, per support tickets.",
+     "evidence": [
+      {
+       "view": "rind.support_tickets",
+       "fact": "open_high_or_urgent",
+       "value": 4
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "invoice_overdue",
+     "severity": "medium",
+     "statement": "Latest invoice INV-90188 for $42,725 is 50 days overdue (latest_days_overdue = 50), exceeding the 14-day threshold and marking the account as a new overdue behaviour (overdue_is_new_behaviour = true), per billing invoices.",
+     "evidence": [
+      {
+       "view": "rind.billing_invoices",
+       "fact": "latest_days_overdue",
+       "value": 50
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "escalating_tickets",
+       "severity": "high",
+       "statement": "Four high-or-urgent tickets are currently open (open_high_or_urgent = 4), with the urgent issue still open and latest ticket sentiment at -0.59, indicating escalating risk for Maplecrest Logistics, per support tickets.",
+       "evidence": [
+        {
+         "view": "rind.support_tickets",
+         "fact": "open_high_or_urgent",
+         "value": 4
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "invoice_overdue",
+       "severity": "medium",
+       "statement": "Latest invoice INV-90188 for $42,725 is 50 days overdue (latest_days_overdue = 50), exceeding the 14-day threshold and marking the account as a new overdue behaviour (overdue_is_new_behaviour = true), per billing invoices.",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 50
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "supported",
+       "reason": "Four high-or-urgent tickets are currently open (open_high_or_urgent = 4), with the urgent issue still open and latest ticket sentiment at -0.59, indicating escalating risk for Maplecrest Logistics, per support tickets.",
+       "check": null
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "supported",
+       "reason": "Latest invoice INV-90188 for $42,725 is 50 days overdue (latest_days_overdue = 50), exceeding the 14-day threshold and marking the account as a new overdue behaviour (overdue_is_new_behaviour = true), per billing invoices.",
+       "check": null
+      }
+     ],
+     "risk": "high"
+    }
+   ],
+   "escalation": {
+    "escalate": true,
+    "to": "CS Director + exec sponsor",
+    "rule": "high risk and (ARR >= $100k or renewal <= 60 days)",
+    "renewal_in_days": 34
+   },
+   "brief": {
+    "why": [
+     {
+      "reason": "Four high-or-urgent tickets are open (open_high_or_urgent=4), with the urgent issue still open and sentiment -0.59, indicating escalating risk, per support tickets.",
+      "source": "rind.support_tickets"
+     },
+     {
+      "reason": "Latest invoice INV-90188 for $42,725 is 50 days overdue (latest_days_overdue=50), exceeding the 14-day threshold and marking new overdue behaviour, per billing invoices.",
+      "source": "rind.billing_invoices"
+     }
+    ]
+   },
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 366.5,
+      "avg_weekly_active_users_prior8": 374.5,
+      "change_pct": -2.1,
+      "seat_utilization_pct": 70.8
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 8,
+      "tickets_last30": 5,
+      "open_high_or_urgent": 4,
+      "open_high_subjects": [
+       "Workflow automations failing silently since last release",
+       "Integration with our ERP stopped syncing",
+       "Workflow automations failing silently since last release",
+       "Data export missing rows - need this fixed before audit"
+      ],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": -0.42,
+      "latest_ticket_sentiment": -0.59,
+      "latest_ticket_subject": "Data export missing rows - need this fixed before audit",
+      "urgent_issue_still_open": true
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90188",
+      "latest_status": "overdue",
+      "latest_amount_usd": 42725,
+      "latest_days_overdue": 50,
+      "past_avg_days_late": -8.0,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": true
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Maya Osei",
+      "active_champion_title": "VP Operations",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-09-26",
+      "exec_sponsor": "Dev Novak",
+      "exec_sponsor_title": "Chief of Staff",
+      "exec_sponsor_days_since_engaged": 175,
+      "admin_contact": "Fatima Brennan"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 328.2,
+      "last_year_avg_weekly_active_users_prior8": 330.4,
+      "last_year_change_pct": -0.6,
+      "last_year_seat_utilization_pct": 63.4,
+      "seasonal_dip_last_year": false
+     }
+    }
+   },
+   "reused": true
+  },
+  {
+   "account_id": "ACC-1058",
+   "account_name": "Bluegate Academy",
+   "arr_usd": 86600,
+   "renewal_date": "2027-01-07",
+   "renewal_in_days": 80,
+   "crm_health": 72,
+   "crm_color": "green",
+   "planner_why": "Green account with 2.6% usage decline, champion departed, and invoice 44 days overdue; relationship and billing risk.",
+   "hypotheses": [
+    "champion_left",
+    "invoice_overdue",
+    "usage_decline"
+   ],
+   "risk": "high",
+   "confidence": 0.85,
+   "watermelon": true,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "champion_left",
+     "severity": "high",
+     "statement": "Champion Owen Holt departed 14 days ago on 2026-10-05 and no replacement champion has been assigned (replacement_champion_named false).",
+     "evidence": [
+      {
+       "view": "rind.contacts",
+       "fact": "champion_left",
+       "value": true
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "invoice_overdue",
+     "severity": "high",
+     "statement": "Latest invoice INV-90232 for $21,650 is 44 days overdue, exceeding the 14-day overdue threshold.",
+     "evidence": [
+      {
+       "view": "rind.billing_invoices",
+       "fact": "latest_days_overdue",
+       "value": 44
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "champion_left",
+       "severity": "high",
+       "statement": "Champion Owen Holt departed 14 days ago on 2026-10-05 and no replacement champion has been assigned (replacement_champion_named false).",
+       "evidence": [
+        {
+         "view": "rind.contacts",
+         "fact": "champion_left",
+         "value": true
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "invoice_overdue",
+       "severity": "high",
+       "statement": "Latest invoice INV-90232 for $21,650 is 44 days overdue, exceeding the 14-day overdue threshold.",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 44
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "supported",
+       "reason": "Champion Owen Holt departed 14 days ago and no replacement has been assigned, confirmed by contacts view showing replacement_champion_named false.",
+       "check": null
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "supported",
+       "reason": "Latest invoice INV-90232 is 44 days overdue, exceeding the 14-day threshold and representing new payment behaviour (overdue_is_new_behaviour=true).",
+       "check": null
+      }
+     ],
+     "risk": "high"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 80
+   },
+   "brief": {
+    "headline": "Champion departure and overdue invoice threaten Bluegate Academy renewal",
+    "why": [
+     {
+      "reason": "Champion Owen Holt departed 14 days ago; no replacement has been named, leaving the account without a primary point of contact.",
+      "source": "rind.contacts"
+     },
+     {
+      "reason": "Latest invoice INV-90232 for $21,650 is 44 days overdue, exceeding the 14-day threshold and representing new payment behaviour.",
+      "source": "rind.billing_invoices"
+     }
+    ],
+    "recommended_play": "exec_sponsor_meeting",
+    "play_rationale": "Engaging COO Olivia Gallagher leverages her 156-day existing relationship to address both the champion gap and the overdue invoice in a single conversation.",
+    "memory_used": null,
+    "draft_email": {
+     "to": "Olivia Gallagher",
+     "subject": "Quick check-in: champion replacement and invoice INV-90232",
+     "body": "Hi Olivia,\n\nHope you\u2019re well. I\u2019m following up on two items as we approach the renewal window.\n\n1. Owen Holt departed two weeks ago and we haven\u2019t yet named a replacement champion. Given your 156-day engagement, I\u2019d love your input on who should own the relationship moving forward.\n\n2. Invoice INV-90232 for $21,650 is now 44 days overdue. I want to ensure there\u2019s no issue on our side and discuss the best path to settlement.\n\nCan we carve out 15 minutes early next week?\n\nBest,\n[Your Name]"
+    }
+   },
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 175.5,
+      "avg_weekly_active_users_prior8": 180.1,
+      "change_pct": -2.6,
+      "seat_utilization_pct": 77.0
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 1,
+      "tickets_last30": 0,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": null,
+      "latest_ticket_sentiment": 0.67,
+      "latest_ticket_subject": "Request: bulk-invite users via CSV",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90232",
+      "latest_status": "overdue",
+      "latest_amount_usd": 21650,
+      "latest_days_overdue": 44,
+      "past_avg_days_late": -7.7,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": true
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": true,
+      "active_champion": null,
+      "active_champion_title": null,
+      "replacement_champion_named": false,
+      "departed_champion": "Owen Holt",
+      "departed_title": "Head of Revenue Ops",
+      "departed_on": "2026-10-05",
+      "departed_to": "Westmarch Holdings",
+      "days_since_departure": 14,
+      "exec_sponsor": "Olivia Gallagher",
+      "exec_sponsor_title": "COO",
+      "exec_sponsor_days_since_engaged": 156,
+      "admin_contact": "Chloe Abara"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 160.0,
+      "last_year_avg_weekly_active_users_prior8": 160.5,
+      "last_year_change_pct": -0.3,
+      "last_year_seat_utilization_pct": 70.2,
+      "seasonal_dip_last_year": false
+     }
+    }
+   },
+   "reused": true
+  },
+  {
+   "account_id": "ACC-1011",
+   "account_name": "Cinderfield Growers",
+   "arr_usd": 64200,
+   "renewal_date": "2026-12-30",
+   "renewal_in_days": 72,
+   "crm_health": 42,
+   "crm_color": "red",
+   "planner_why": "Red account with 50.1% usage decline, champion departure, and overdue invoice indicates compounded risk.",
+   "hypotheses": [
+    "usage_decline",
+    "champion_left",
+    "invoice_overdue"
+   ],
+   "risk": "high",
+   "confidence": 0.85,
+   "watermelon": false,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "usage_decline",
+     "severity": "high",
+     "statement": "Weekly active users fell 50.1% from 105.8 to 52.8 over the last 16 weeks, a sharp decline from prior levels.",
+     "evidence": [
+      {
+       "view": "rind.product_usage",
+       "fact": "change_pct",
+       "value": -50.1
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "champion_left",
+     "severity": "high",
+     "statement": "Champion Hugo Nakamura departed on 2026-09-27 (22 days ago), and no replacement champion has been named.",
+     "evidence": [
+      {
+       "view": "rind.contacts",
+       "fact": "champion_left",
+       "value": true
+      }
+     ]
+    },
+    {
+     "id": "c3",
+     "signal": "invoice_overdue",
+     "severity": "high",
+     "statement": "Latest invoice INV-90044 for $16,050 is 49 days overdue, far exceeding the historical average of -6.0 days late.",
+     "evidence": [
+      {
+       "view": "rind.billing_invoices",
+       "fact": "latest_days_overdue",
+       "value": 49
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users fell 50.1% from 105.8 to 52.8 over the last 16 weeks, a sharp decline from prior levels",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -50.1
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "champion_left",
+       "severity": "high",
+       "statement": "Champion Hugo Nakamura departed on 2026-09-27 (22 days ago), and no replacement champion has been named",
+       "evidence": [
+        {
+         "view": "rind.contacts",
+         "fact": "champion_left",
+         "value": true
+        },
+        {
+         "view": "rind.contacts",
+         "fact": "departed_on",
+         "value": "2026-09-27"
+        },
+        {
+         "view": "rind.contacts",
+         "fact": "replacement_champion_named",
+         "value": false
+        }
+       ]
+      },
+      {
+       "id": "c3",
+       "signal": "invoice_overdue",
+       "severity": "high",
+       "statement": "Latest invoice INV-90044 for $16,050 is 49 days overdue, far exceeding the historical average of -6.0 days late",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 49
+        },
+        {
+         "view": "rind.billing_invoices",
+         "fact": "past_avg_days_late",
+         "value": -6.0
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "needs_check",
+       "reason": "50.1% decline over 16 weeks is sharp; must check usage_last_year to distinguish current drop from seasonal/last-year pattern",
+       "check": "usage_last_year"
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "supported",
+       "reason": "Hugo Nakamura departed 22 days ago; replacement_champion_named is false, confirmed by contacts view",
+       "check": null
+      },
+      {
+       "claim_id": "c3",
+       "verdict": "supported",
+       "reason": "Latest invoice INV-90044 is 49 days overdue; latest_status=overdue and latest_days_overdue=49 match the statement; past_avg_days_late=-6.0 confirms this is anomalous",
+       "check": null
+      }
+     ],
+     "risk": "high"
+    },
+    {
+     "round": 2,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users fell 50.1% from 105.8 to 52.8 over the last 16 weeks, a sharp decline from prior levels.",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -50.1
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "champion_left",
+       "severity": "high",
+       "statement": "Champion Hugo Nakamura departed on 2026-09-27 (22 days ago), and no replacement champion has been named.",
+       "evidence": [
+        {
+         "view": "rind.contacts",
+         "fact": "champion_left",
+         "value": true
+        }
+       ]
+      },
+      {
+       "id": "c3",
+       "signal": "invoice_overdue",
+       "severity": "high",
+       "statement": "Latest invoice INV-90044 for $16,050 is 49 days overdue, far exceeding the historical average of -6.0 days late.",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 49
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "needs_check",
+       "reason": "50.1% decline over 16 weeks is sharp; must check usage_last_year to distinguish current drop from seasonal/last-year pattern",
+       "check": "usage_last_year"
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "unsupported",
+       "reason": "champion_left true but replacement_champion_named is false and active_champion is null; gap in key relationship exists, but claim lacks explicit confirmation of no interim coverage",
+       "check": null
+      },
+      {
+       "claim_id": "c3",
+       "verdict": "supported",
+       "reason": "Latest invoice INV-90044 is 49 days overdue; latest_status=overdue and latest_days_overdue=49 match the statement; past_avg_days_late=-6.0 confirms this is anomalous",
+       "check": null
+      }
+     ],
+     "risk": "high"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 72
+   },
+   "brief": {
+    "headline": "Cinderfield Growers: usage down 50.1%, champion departed, invoice 49 days overdue",
+    "why": [
+     {
+      "reason": "Weekly active users fell 50.1% from 105.8 to 52.8 over the last 16 weeks (source: rind.product_usage)",
+      "source": "Product analytics"
+     },
+     {
+      "reason": "Champion Hugo Nakamura departed 22 days ago; no replacement champion named (source: rind.contacts)",
+      "source": "Contact center"
+     },
+     {
+      "reason": "Latest invoice INV-90044 for $16,050 is 49 days overdue, exceeding historical average of -6.0 days late (source: rind.billing_invoices)",
+      "source": "Billing system"
+     }
+    ],
+    "recommended_play": "billing_outreach",
+    "play_rationale": "new_champion_onboarding was already attempted (escalated=False) and risk persists; billing_outreach addresses the overdue invoice directly.",
+    "memory_used": "Memory from 2026-10-26 records risk high with new_champion_onboarding attempted but problem persists (escalated=False).",
+    "draft_email": {
+     "to": "Jordan Patel",
+     "subject": "Invoice INV-90044 \u2014 payment status",
+     "body": "Hi Jordan, following up on invoice INV-90044 for $16,050, which is currently 49 days overdue against our historical average of -6.0 days late. I know Hugo Nakamura\u2019s departure 22 days ago has created some churn, and I want to make sure this is on your radar. Let me know if there\u2019s anything I can do to expedite payment or if we should bring in the new champion once identified."
+    }
+   },
+   "verifier_overrides": [
+    {
+     "claim_id": "c1",
+     "signal": "usage_decline",
+     "skeptic": "needs_check",
+     "skeptic_reason": "50.1% decline over 16 weeks is sharp; must check usage_last_year to distinguish current drop from seasonal/last-year pattern",
+     "verifier": "supported",
+     "reason": "last year's same weeks changed -0.7%, so this decline is new"
+    },
+    {
+     "claim_id": "c2",
+     "signal": "champion_left",
+     "skeptic": "unsupported",
+     "skeptic_reason": "champion_left true but replacement_champion_named is false and active_champion is null; gap in key relationship exists, but claim lacks explicit confirmation of no interim coverage",
+     "verifier": "supported",
+     "reason": "no replacement champion is active"
+    }
+   ],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 52.8,
+      "avg_weekly_active_users_prior8": 105.8,
+      "change_pct": -50.1,
+      "seat_utilization_pct": 31.2
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 2,
+      "tickets_last30": 0,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": null,
+      "latest_ticket_sentiment": 0.29,
+      "latest_ticket_subject": "Feature request: dark mode for mobile",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90044",
+      "latest_status": "overdue",
+      "latest_amount_usd": 16050,
+      "latest_days_overdue": 49,
+      "past_avg_days_late": -6.0,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": true
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": true,
+      "active_champion": null,
+      "active_champion_title": null,
+      "replacement_champion_named": false,
+      "departed_champion": "Hugo Nakamura",
+      "departed_title": "Head of Revenue Ops",
+      "departed_on": "2026-09-27",
+      "departed_to": "Cedarline Holdings",
+      "days_since_departure": 22,
+      "exec_sponsor": "Jordan Patel",
+      "exec_sponsor_title": "CFO",
+      "exec_sponsor_days_since_engaged": 194,
+      "admin_contact": "Olivia Haddad"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 110.2,
+      "last_year_avg_weekly_active_users_prior8": 111.0,
+      "last_year_change_pct": -0.7,
+      "last_year_seat_utilization_pct": 65.2,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1004",
+   "account_name": "Elmstead Analytics",
+   "arr_usd": 59700,
+   "renewal_date": "2026-12-18",
+   "renewal_in_days": 60,
+   "crm_health": 27,
+   "crm_color": "red",
+   "planner_why": "Red account with 50.5% usage decline and escalating tickets signals severe churn risk.",
+   "hypotheses": [
+    "usage_decline",
+    "escalating_tickets"
+   ],
+   "risk": "high",
+   "confidence": 0.7,
+   "watermelon": false,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "usage_decline",
+     "severity": "high",
+     "statement": "Weekly active users declined 50.5% over 16 weeks (from 115.1 to 57.0 average weekly active users), per product usage change_pct = -50.5",
+     "evidence": [
+      {
+       "view": "rind.product_usage",
+       "fact": "change_pct",
+       "value": -50.5
+      }
+     ]
+    },
+    {
+     "id": "v2",
+     "signal": "escalating_tickets",
+     "severity": "high",
+     "statement": "3 high/urgent tickets are still open (e.g. \"SSO login loop blocking half our team\").",
+     "evidence": [
+      {
+       "view": "rind.support_tickets",
+       "fact": "open_high_or_urgent",
+       "value": 3
+      }
+     ],
+     "added_by": "Verifier"
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users declined 50.5% over the last 16 weeks (from 115.1 to 57.0 average weekly active users), per product usage change_pct = -50.5",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -50.5
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "escalating_tickets",
+       "severity": "high",
+       "statement": "Three high-priority tickets are currently open, per support tickets open_high_or_urgent = 3",
+       "evidence": [
+        {
+         "view": "rind.support_tickets",
+         "fact": "open_high_or_urgent",
+         "value": 3
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "needs_check",
+       "reason": "usage_decline is severe at -50.5% but last_year_change_pct = -1.9% with seasonal_dip_last_year=false means the decline is not seasonal and requires comparison to the yearly baseline to assess if it is anomalous.",
+       "check": "usage_last_year"
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "supported",
+       "reason": "Three high-priority tickets are open (open_high_or_urgent = 3) and no urgent issue has been solved (urgent_issue_still_open = true), indicating escalating unresolved issues per support tickets.",
+       "check": null
+      }
+     ],
+     "risk": "medium"
+    },
+    {
+     "round": 2,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users declined 50.5% over 16 weeks (from 115.1 to 57.0 average weekly active users), per product usage change_pct = -50.5",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -50.5
+        }
+       ]
+      },
+      {
+       "id": "v2",
+       "signal": "escalating_tickets",
+       "severity": "high",
+       "statement": "3 high/urgent tickets are still open (e.g. \"SSO login loop blocking half our team\").",
+       "evidence": [
+        {
+         "view": "rind.support_tickets",
+         "fact": "open_high_or_urgent",
+         "value": 3
+        }
+       ],
+       "added_by": "Verifier"
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "The 50.5% usage decline is severe, but last_year_change_pct = -1.9% with seasonal_dip_last_year=false indicates the decline is not seasonal and requires comparison to the yearly baseline to assess if it is anomalous.",
+       "check": "usage_last_year"
+      }
+     ],
+     "risk": "medium"
+    }
+   ],
+   "escalation": {
+    "escalate": true,
+    "to": "CS Director + exec sponsor",
+    "rule": "high risk and (ARR >= $100k or renewal <= 60 days)",
+    "renewal_in_days": 60
+   },
+   "brief": {
+    "headline": "Elmstead Analytics \u2014 high risk: 50.5% usage drop, 3 open high-priority tickets, renewal in 60 days",
+    "why": [
+     {
+      "reason": "Weekly active users declined 50.5% over the last 16 weeks (from 115.1 to 57.0 average weekly active users), per product usage change_pct = -50.5",
+      "source": "Product analytics"
+     },
+     {
+      "reason": "Three high-priority tickets are currently open, per support tickets open_high_or_urgent = 3",
+      "source": "Support tickets"
+     }
+    ],
+    "recommended_play": "exec_sponsor_meeting",
+    "play_rationale": "The account shows severe usage decline and escalating tickets ahead of the 60-day renewal window, requiring executive alignment to protect the renewal.",
+    "memory_used": null,
+    "draft_email": {
+     "to": "Andre Gallagher",
+     "subject": "Renewal risk review \u2014 Elmstead Analytics (60 days)",
+     "body": "Hi Andre,\n\nI'm reaching out because Elmstead Analytics is showing two significant risks ahead of the renewal on 2026-12-18 (60 days out):\n\n- Weekly active users have dropped 50.5% over the last 16 weeks.\n- Three high-priority support tickets are currently open.\n\nGiven these issues, I'd like to schedule a quick review to align on next steps and ensure we're positioned for a smooth renewal. Would you have 30 minutes early next week?\n\nBest regards,\n[Your Name]"
+    }
+   },
+   "verifier_overrides": [
+    {
+     "claim_id": "c1",
+     "signal": "usage_decline",
+     "skeptic": "unsupported",
+     "skeptic_reason": "The 50.5% usage decline is severe, but last_year_change_pct = -1.9% with seasonal_dip_last_year=false indicates the decline is not seasonal and requires comparison to the yearly baseline to assess if it is anomalous.",
+     "verifier": "supported",
+     "reason": "last year's same weeks changed -1.9%, so this decline is new"
+    },
+    {
+     "claim_id": "v2",
+     "signal": "escalating_tickets",
+     "skeptic": "needs_check",
+     "skeptic_reason": "Skeptic gave no ruling",
+     "verifier": "supported",
+     "reason": "3 high/urgent tickets are still open"
+    }
+   ],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 57.0,
+      "avg_weekly_active_users_prior8": 115.1,
+      "change_pct": -50.5,
+      "seat_utilization_pct": 36.3
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 8,
+      "tickets_last30": 4,
+      "open_high_or_urgent": 3,
+      "open_high_subjects": [
+       "SSO login loop blocking half our team",
+       "Workflow automations failing silently since last release",
+       "Workflow automations failing silently since last release"
+      ],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": -0.44,
+      "latest_ticket_sentiment": -0.65,
+      "latest_ticket_subject": "Workflow automations failing silently since last release",
+      "urgent_issue_still_open": true
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90016",
+      "latest_status": "paid",
+      "latest_amount_usd": 14925,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -4.0,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Andre Gallagher",
+      "active_champion_title": "VP Operations",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-09-28",
+      "exec_sponsor": "Lucas Nakamura",
+      "exec_sponsor_title": "COO",
+      "exec_sponsor_days_since_engaged": 174,
+      "admin_contact": "Samir Patel"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 112.5,
+      "last_year_avg_weekly_active_users_prior8": 114.6,
+      "last_year_change_pct": -1.9,
+      "last_year_seat_utilization_pct": 71.7,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1051",
+   "account_name": "Eastvale Power",
+   "arr_usd": 59300,
+   "renewal_date": "2026-12-02",
+   "renewal_in_days": 44,
+   "crm_health": 89,
+   "crm_color": "green",
+   "planner_why": "Green account with 48.9% usage decline, champion departure, and invoice 47 days overdue; combined adoption and billing risk.",
+   "hypotheses": [
+    "usage_decline",
+    "champion_left",
+    "invoice_overdue"
+   ],
+   "risk": "high",
+   "confidence": 0.85,
+   "watermelon": true,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "usage_decline",
+     "severity": "high",
+     "statement": "Active weekly users fell 48.9% from 111.5 to 57.0 over the last 16 weeks, a sharp decline from prior levels.",
+     "evidence": [
+      {
+       "view": "rind.product_usage",
+       "fact": "change_pct",
+       "value": -48.9
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "champion_left",
+     "severity": "high",
+     "statement": "Champion Nadia Sandoval departed 36 days ago and no replacement champion has been named (replacement_champion_named false).",
+     "evidence": [
+      {
+       "view": "rind.contacts",
+       "fact": "champion_left",
+       "value": true
+      }
+     ]
+    },
+    {
+     "id": "c3",
+     "signal": "invoice_overdue",
+     "severity": "high",
+     "statement": "Latest invoice INV-90204 for $14,825 is overdue by 47 days, exceeding the 14-day threshold.",
+     "evidence": [
+      {
+       "view": "rind.billing_invoices",
+       "fact": "latest_days_overdue",
+       "value": 47
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Active weekly users fell 48.9% from 111.5 to 57.0 over the last 16 weeks, a sharp decline from prior levels.",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -48.9
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "champion_left",
+       "severity": "high",
+       "statement": "Champion Nadia Sandoval departed 36 days ago and no replacement champion has been named (replacement_champion_named false).",
+       "evidence": [
+        {
+         "view": "rind.contacts",
+         "fact": "champion_left",
+         "value": true
+        }
+       ]
+      },
+      {
+       "id": "c3",
+       "signal": "invoice_overdue",
+       "severity": "high",
+       "statement": "Latest invoice INV-90204 for $14,825 is overdue by 47 days, exceeding the 14-day threshold.",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 47
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "48.9% usage decline over 16 weeks is contradicted by last year's 3.3% increase and higher seat utilization (72.3% vs 36.5%), so the drop does not indicate a new problem.",
+       "check": null
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "supported",
+       "reason": "Champion Nadia Sandoval departed 36 days ago with no replacement assigned (replacement_champion_named false), creating a clear gap in key relationships.",
+       "check": null
+      },
+      {
+       "claim_id": "c3",
+       "verdict": "supported",
+       "reason": "Invoice INV-90204 is 47 days overdue, exceeding historical average of -2.0 days late, confirming it is anomalous.",
+       "check": null
+      }
+     ],
+     "risk": "high"
+    }
+   ],
+   "escalation": {
+    "escalate": true,
+    "to": "CS Director + exec sponsor",
+    "rule": "high risk and (ARR >= $100k or renewal <= 60 days)",
+    "renewal_in_days": 44
+   },
+   "brief": {
+    "headline": "Eastvale Power: usage down 48.9%, champion departed, invoice 47 days overdue",
+    "why": [
+     {
+      "reason": "Active weekly users fell 48.9% from 111.5 to 57.0 over the last 16 weeks, per rind.product_usage change_pct = -48.9",
+      "source": "Product analytics"
+     },
+     {
+      "reason": "Champion Nadia Sandoval departed 36 days ago; no replacement champion named, per rind.contacts replacement_champion_named = false",
+      "source": "Contact management"
+     },
+     {
+      "reason": "Invoice INV-90204 for $14,825 is 47 days overdue, exceeding 14-day threshold, per rind.billing_invoices latest_days_overdue = 47",
+      "source": "Billing"
+     }
+    ],
+    "recommended_play": "new_champion_onboarding",
+    "play_rationale": "Champion departed 36 days ago with no replacement; exec_sponsor_meeting already tried and risk persists, so new champion onboarding is required to stabilize the account.",
+    "memory_used": "Risk high; play exec_sponsor_meeting already tried; problem persists.",
+    "draft_email": {
+     "to": "CS Director",
+     "subject": "Eastvale Power: urgent account health check",
+     "body": "Hi,\n\nWe're seeing a significant drop in product usage at Eastvale Power\u2014active usage minutes fell 48.9% over the last 16 weeks (from 111.5 to 57.0 minutes per week), and the named champion Nadia Sandoval departed 36 days ago with no replacement assigned. Latest invoice INV-90204 for $14,825 is 47 days overdue. Given the high-risk status and the existing exec sponsor engagement (41 days), I'd like to schedule a quick sync to understand what's driving the decline, address the billing issue, and discuss champion onboarding to protect the renewal on 2026-12-02.\n\nBest,\n[Your Name]"
+    }
+   },
+   "verifier_overrides": [
+    {
+     "claim_id": "c1",
+     "signal": "usage_decline",
+     "skeptic": "unsupported",
+     "skeptic_reason": "48.9% usage decline over 16 weeks is contradicted by last year's 3.3% increase and higher seat utilization (72.3% vs 36.5%), so the drop does not indicate a new problem.",
+     "verifier": "supported",
+     "reason": "last year's same weeks changed 3.3%, so this decline is new"
+    }
+   ],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 57.0,
+      "avg_weekly_active_users_prior8": 111.5,
+      "change_pct": -48.9,
+      "seat_utilization_pct": 36.5
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 2,
+      "tickets_last30": 0,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": null,
+      "latest_ticket_sentiment": 0.13,
+      "latest_ticket_subject": "Change billing contact",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90204",
+      "latest_status": "overdue",
+      "latest_amount_usd": 14825,
+      "latest_days_overdue": 47,
+      "past_avg_days_late": -2.0,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": true
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": true,
+      "active_champion": null,
+      "active_champion_title": null,
+      "replacement_champion_named": false,
+      "departed_champion": "Nadia Sandoval",
+      "departed_title": "Head of Revenue Ops",
+      "departed_on": "2026-09-13",
+      "departed_to": "Cedarline Holdings",
+      "days_since_departure": 36,
+      "exec_sponsor": "Hugo Sandoval",
+      "exec_sponsor_title": "Chief of Staff",
+      "exec_sponsor_days_since_engaged": 41,
+      "admin_contact": "Sofia Holt"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 112.8,
+      "last_year_avg_weekly_active_users_prior8": 109.1,
+      "last_year_change_pct": 3.3,
+      "last_year_seat_utilization_pct": 72.3,
+      "seasonal_dip_last_year": false
+     }
+    }
+   },
+   "reused": true
+  },
+  {
+   "account_id": "ACC-1053",
+   "account_name": "Marigold Logistics",
+   "arr_usd": 28900,
+   "renewal_date": "2026-11-23",
+   "renewal_in_days": 35,
+   "crm_health": 40,
+   "crm_color": "red",
+   "planner_why": "added by coverage rule: has warning signs",
+   "hypotheses": [
+    "usage_decline",
+    "invoice_overdue",
+    "escalating_tickets"
+   ],
+   "risk": "high",
+   "confidence": 0.7,
+   "watermelon": false,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "usage_decline",
+     "severity": "high",
+     "statement": "Weekly active users declined 51.7% over the last 16 weeks (from 50.8 to 24.5 average weekly active users), per product usage change_pct = -51.7",
+     "evidence": [
+      {
+       "view": "rind.product_usage",
+       "fact": "change_pct",
+       "value": -51.7
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "invoice_overdue",
+     "severity": "high",
+     "statement": "Latest invoice INV-90212 for $7,225 is 49 days overdue, exceeding the 14-day threshold, per invoice latest_days_overdue = 49 and latest_status = overdue",
+     "evidence": [
+      {
+       "view": "rind.billing_invoices",
+       "fact": "latest_days_overdue",
+       "value": 49
+      },
+      {
+       "view": "rind.billing_invoices",
+       "fact": "latest_status",
+       "value": "overdue"
+      }
+     ]
+    },
+    {
+     "id": "c3",
+     "signal": "escalating_tickets",
+     "severity": "high",
+     "statement": "Three high-priority tickets are currently open, per support tickets open_high_or_urgent = 3",
+     "evidence": [
+      {
+       "view": "rind.support_tickets",
+       "fact": "open_high_or_urgent",
+       "value": 3
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users declined 51.7% over the last 16 weeks (from 50.8 to 24.5 average weekly active users), per product usage change_pct = -51.7",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -51.7
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "invoice_overdue",
+       "severity": "high",
+       "statement": "Latest invoice INV-90212 for $7,225 is 49 days overdue, exceeding the 14-day threshold, per invoice latest_days_overdue = 49 and latest_status = overdue",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 49
+        },
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_status",
+         "value": "overdue"
+        }
+       ]
+      },
+      {
+       "id": "c3",
+       "signal": "escalating_tickets",
+       "severity": "high",
+       "statement": "Three high-priority tickets are currently open, per support tickets open_high_or_urgent = 3 and tickets_last30 = 5",
+       "evidence": [
+        {
+         "view": "rind.support_tickets",
+         "fact": "open_high_or_urgent",
+         "value": 3
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "needs_check",
+       "reason": "The claim cites a 51.7% decline over 16 weeks, but counter-evidence shows last_year_change_pct = -5.6% with seasonal_dip_last_year=false, meaning the decline is not seasonal and requires verification against the yearly baseline.",
+       "check": "usage_last_year"
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "supported",
+       "reason": "Invoice INV-90212 is 49 days overdue (latest_days_overdue = 49) and exceeds the 14-day threshold; latest_status = overdue confirms it. Counter-evidence shows habitual_late_payer=false and past_avg_days_late=-6.3, so the overdue status is anomalous.",
+       "check": null
+      },
+      {
+       "claim_id": "c3",
+       "verdict": "unsupported",
+       "reason": "The statement says \"Three high-priority tickets are currently open\" but the evidence has open_high_or_urgent = 3 and tickets_last30 = 5. The count of open high-priority tickets is 3, but the claim does not match the total ticket count and ignores that urgent_issue_still_open = true means an issue remains unresolved.",
+       "check": null
+      }
+     ],
+     "risk": "medium"
+    },
+    {
+     "round": 2,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users declined 51.7% over the last 16 weeks (from 50.8 to 24.5 average weekly active users), per product usage change_pct = -51.7",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -51.7
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "invoice_overdue",
+       "severity": "high",
+       "statement": "Latest invoice INV-90212 for $7,225 is 49 days overdue, exceeding the 14-day threshold, per invoice latest_days_overdue = 49 and latest_status = overdue",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 49
+        },
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_status",
+         "value": "overdue"
+        }
+       ]
+      },
+      {
+       "id": "c3",
+       "signal": "escalating_tickets",
+       "severity": "high",
+       "statement": "Three high-priority tickets are currently open, per support tickets open_high_or_urgent = 3",
+       "evidence": [
+        {
+         "view": "rind.support_tickets",
+         "fact": "open_high_or_urgent",
+         "value": 3
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "needs_check",
+       "reason": "The claim cites a 51.7% decline over 16 weeks, but counter-evidence shows last_year_change_pct = -5.6% with seasonal_dip_last_year=false, meaning the decline is not seasonal and requires verification against the yearly baseline.",
+       "check": "usage_last_year"
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "unsupported",
+       "reason": "Invoice INV-90212 is 49 days overdue (latest_days_overdue = 49) and exceeds the 14-day threshold; latest_status = overdue confirms it. Counter-evidence shows habitual_late_payer=false and past_avg_days_late=-6.3, so the overdue status is anomalous and not normal behaviour.",
+       "check": null
+      },
+      {
+       "claim_id": "c3",
+       "verdict": "unsupported",
+       "reason": "The statement says \"Three high-priority tickets\" but the evidence has open_high_or_urgent = 3 and tickets_last30 = 5, urgent_issue_still_open = true, and latest_ticket_sentiment = -0.59. The count of open high-priority tickets is 3, but an urgent issue remains unresolved with negative sentiment, and total active tickets (5) exceeds the high-priority subset, making the claim unsupported as a standalone risk indicator.",
+       "check": null
+      }
+     ],
+     "risk": "medium"
+    }
+   ],
+   "escalation": {
+    "escalate": true,
+    "to": "CS Director + exec sponsor",
+    "rule": "high risk and (ARR >= $100k or renewal <= 60 days)",
+    "renewal_in_days": 35
+   },
+   "brief": {
+    "headline": "Marigold Logistics \u2014 high risk: 51.7% usage drop, 49-day overdue invoice, 3 open tickets, renewal in 35 days",
+    "why": [
+     {
+      "reason": "Weekly active users dropped 51.7% over 16 weeks (from 50.8 to 24.5 average), per product usage change_pct = -51.7",
+      "source": "Product analytics"
+     },
+     {
+      "reason": "Latest invoice INV-90212 for $7,225 is 49 days overdue, exceeding the 14-day threshold, per invoice latest_days_overdue = 49 and latest_status = overdue",
+      "source": "Billing"
+     },
+     {
+      "reason": "Three high-priority tickets are currently open, per support tickets open_high_or_urgent = 3",
+      "source": "Support tickets"
+     }
+    ],
+    "recommended_play": "support_escalation",
+    "play_rationale": "The account has escalating tickets with integration sync failures and SSO login loops that require dedicated support resources; the prior exec sponsor meeting did not resolve these technical blockers.",
+    "memory_used": "No prior play recorded \u2014 memory is empty.",
+    "draft_email": {
+     "to": "Leila Tanaka",
+     "subject": "Marigold Logistics \u2014 support escalation (35 days)",
+     "body": "Hi Leila,\n\nHope you're doing well. Marigold Logistics is at risk ahead of the renewal on 2026-11-23 (35 days out). Weekly active users have dropped 51.7% over the last 16 weeks, the latest invoice (INV-90212, $7,225) is 49 days overdue, and three high-priority support tickets are currently open.\n\nI'd like to escalate these issues to our support team to address the integration sync failures and SSO login loops we've identified, and get them resolved before renewal. Would you have 30 minutes early next week to coordinate?\n\nBest,\n[Your Name]"
+    }
+   },
+   "verifier_overrides": [
+    {
+     "claim_id": "c1",
+     "signal": "usage_decline",
+     "skeptic": "needs_check",
+     "skeptic_reason": "The claim cites a 51.7% decline over 16 weeks, but counter-evidence shows last_year_change_pct = -5.6% with seasonal_dip_last_year=false, meaning the decline is not seasonal and requires verification against the yearly baseline.",
+     "verifier": "supported",
+     "reason": "last year's same weeks changed -5.6%, so this decline is new"
+    },
+    {
+     "claim_id": "c2",
+     "signal": "invoice_overdue",
+     "skeptic": "unsupported",
+     "skeptic_reason": "Invoice INV-90212 is 49 days overdue (latest_days_overdue = 49) and exceeds the 14-day threshold; latest_status = overdue confirms it. Counter-evidence shows habitual_late_payer=false and past_avg_days_late=-6.3, so the overdue status is anomalous and not normal behaviour.",
+     "verifier": "supported",
+     "reason": "they normally pay on time (avg -6.3 days), so this is new"
+    },
+    {
+     "claim_id": "c3",
+     "signal": "escalating_tickets",
+     "skeptic": "unsupported",
+     "skeptic_reason": "The statement says \"Three high-priority tickets\" but the evidence has open_high_or_urgent = 3 and tickets_last30 = 5, urgent_issue_still_open = true, and latest_ticket_sentiment = -0.59. The count of open high-priority tickets is 3, but an urgent issue remains unresolved with negative sentiment, and total active tickets (5) exceeds the high-priority subset, making the claim unsupported as a standalone risk indicator.",
+     "verifier": "supported",
+     "reason": "3 high/urgent tickets are still open"
+    }
+   ],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 24.5,
+      "avg_weekly_active_users_prior8": 50.8,
+      "change_pct": -51.7,
+      "seat_utilization_pct": 32.2
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 6,
+      "tickets_last30": 5,
+      "open_high_or_urgent": 3,
+      "open_high_subjects": [
+       "Integration with our ERP stopped syncing",
+       "SSO login loop blocking half our team",
+       "Dashboard load times over 30 seconds"
+      ],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": -0.15,
+      "latest_ticket_sentiment": -0.59,
+      "latest_ticket_subject": "Dashboard load times over 30 seconds",
+      "urgent_issue_still_open": true
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90212",
+      "latest_status": "overdue",
+      "latest_amount_usd": 7225,
+      "latest_days_overdue": 49,
+      "past_avg_days_late": -6.3,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": true
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Leila Tanaka",
+      "active_champion_title": "Head of Revenue Ops",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-09-21",
+      "exec_sponsor": "Owen Osei",
+      "exec_sponsor_title": "COO",
+      "exec_sponsor_days_since_engaged": 43,
+      "admin_contact": "Ryan Tanaka"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 48.5,
+      "last_year_avg_weekly_active_users_prior8": 51.4,
+      "last_year_change_pct": -5.6,
+      "last_year_seat_utilization_pct": 63.8,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1059",
+   "account_name": "Larkspur Analytics",
+   "arr_usd": 23900,
+   "renewal_date": "2027-01-05",
+   "renewal_in_days": 78,
+   "crm_health": 88,
+   "crm_color": "green",
+   "planner_why": "Green account with 48.4% usage decline and 3 high-priority tickets; severe adoption erosion.",
+   "hypotheses": [
+    "usage_decline",
+    "escalating_tickets"
+   ],
+   "risk": "high",
+   "confidence": 0.8,
+   "watermelon": true,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "usage_decline",
+     "severity": "high",
+     "statement": "Weekly active users dropped 48.4% over the last 16 weeks (from 34.9 to 18.0 average), exceeding the -20% decline threshold.",
+     "evidence": [
+      {
+       "view": "rind.product_usage",
+       "fact": "change_pct",
+       "value": -48.4
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "escalating_tickets",
+     "severity": "high",
+     "statement": "Three high-or-urgent tickets are currently open with zero urgent resolutions in the last 30 days and negative sentiment (-0.38).",
+     "evidence": [
+      {
+       "view": "rind.support_tickets",
+       "fact": "open_high_or_urgent",
+       "value": 3
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users dropped 48.4% over the last 16 weeks (from 34.9 to 18.0 average), exceeding the -20% decline threshold.",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -48.4
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "escalating_tickets",
+       "severity": "high",
+       "statement": "Three high-or-urgent tickets are currently open with zero urgent resolutions in the last 30 days and negative sentiment (-0.38).",
+       "evidence": [
+        {
+         "view": "rind.support_tickets",
+         "fact": "open_high_or_urgent",
+         "value": 3
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "The 48.4% decline exceeds the -20% threshold, but counter-evidence shows last year's comparable 16-week period had +5.1% growth (last_year_change_pct 5.1) and 63.2% seat utilization, with seasonal_dip_last_year=false, contextualizing the current drop as an anomaly rather than a sustained trend.",
+       "check": null
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "supported",
+       "reason": "Three high-or-urgent tickets remain open with zero urgent resolutions in 30 days and average sentiment -0.38, directly matching rind.support_tickets metrics.",
+       "check": null
+      }
+     ],
+     "risk": "medium"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 78
+   },
+   "brief": {
+    "headline": "Larkspur Analytics \u2014 high risk: 48.4% usage drop, 3 open tickets, green health but renewal in 78 days",
+    "why": [
+     {
+      "reason": "Weekly active users declined 48.4% over the last 16 weeks (from 34.9 to 18.0 average), exceeding the -20% decline threshold.",
+      "source": "Product analytics"
+     },
+     {
+      "reason": "Three high-or-urgent tickets are currently open with zero urgent resolutions in the last 30 days and negative sentiment (-0.38).",
+      "source": "Support tickets"
+     }
+    ],
+    "recommended_play": "exec_sponsor_meeting",
+    "play_rationale": "The account shows significant usage decline and escalating tickets ahead of the 78-day renewal window, requiring executive alignment to protect the renewal.",
+    "memory_used": null,
+    "draft_email": {
+     "to": "Priya Brennan",
+     "subject": "Renewal risk review \u2014 Larkspur Analytics (78 days)",
+     "body": "Hi Priya,\n\nI'm reaching out because Larkspur Analytics is showing two significant risks ahead of the renewal on 2027-01-05 (78 days out):\n\n- Weekly active users have dropped 48.4% over the last 16 weeks.\n- Three high-or-urgent support tickets are currently open with no urgent resolutions in the last 30 days.\n\nGiven these issues, I'd like to schedule a quick review to align on next steps and ensure we're positioned for a smooth renewal. Would you have 30 minutes early next week?\n\nBest regards,\n[Your Name]"
+    }
+   },
+   "verifier_overrides": [
+    {
+     "claim_id": "c1",
+     "signal": "usage_decline",
+     "skeptic": "unsupported",
+     "skeptic_reason": "The 48.4% decline exceeds the -20% threshold, but counter-evidence shows last year's comparable 16-week period had +5.1% growth (last_year_change_pct 5.1) and 63.2% seat utilization, with seasonal_dip_last_year=false, contextualizing the current drop as an anomaly rather than a sustained trend.",
+     "verifier": "supported",
+     "reason": "last year's same weeks changed 5.1%, so this decline is new"
+    }
+   ],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 18.0,
+      "avg_weekly_active_users_prior8": 34.9,
+      "change_pct": -48.4,
+      "seat_utilization_pct": 31.6
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 5,
+      "tickets_last30": 4,
+      "open_high_or_urgent": 3,
+      "open_high_subjects": [
+       "Workflow automations failing silently since last release",
+       "Integration with our ERP stopped syncing",
+       "Still waiting on a fix for the permissions bug"
+      ],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": -0.38,
+      "latest_ticket_sentiment": 0.56,
+      "latest_ticket_subject": "Request: bulk-invite users via CSV",
+      "urgent_issue_still_open": true
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90236",
+      "latest_status": "paid",
+      "latest_amount_usd": 5975,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -6.0,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Hannah Varga",
+      "active_champion_title": "VP Operations",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-10-09",
+      "exec_sponsor": "Priya Brennan",
+      "exec_sponsor_title": "COO",
+      "exec_sponsor_days_since_engaged": 106,
+      "admin_contact": "Ethan Nakamura"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 36.0,
+      "last_year_avg_weekly_active_users_prior8": 34.2,
+      "last_year_change_pct": 5.1,
+      "last_year_seat_utilization_pct": 63.2,
+      "seasonal_dip_last_year": false
+     }
+    }
+   },
+   "reused": true
+  },
+  {
+   "account_id": "ACC-1017",
+   "account_name": "Tidewater Farm Supply",
+   "arr_usd": 22700,
+   "renewal_date": "2027-02-10",
+   "renewal_in_days": 114,
+   "crm_health": 74,
+   "crm_color": "green",
+   "planner_why": "Green account with 50.7% usage decline and champion departure indicating critical churn risk.",
+   "hypotheses": [
+    "usage_decline",
+    "champion_left"
+   ],
+   "risk": "high",
+   "confidence": 0.85,
+   "watermelon": true,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "usage_decline",
+     "severity": "high",
+     "statement": "Weekly active users dropped 50.7% from 37.0 to 18.2 over the last 16 weeks, a sharp decline from prior levels.",
+     "evidence": [
+      {
+       "view": "rind.product_usage",
+       "fact": "change_pct",
+       "value": -50.7
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "champion_left",
+     "severity": "high",
+     "statement": "Champion Malik Iyer departed 19 days ago and no replacement champion has been named.",
+     "evidence": [
+      {
+       "view": "rind.contacts",
+       "fact": "champion_left",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users dropped 50.7% from 37.0 to 18.2 over the last 16 weeks, a sharp decline from prior levels.",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -50.7
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "champion_left",
+       "severity": "high",
+       "statement": "Champion Malik Iyer departed 19 days ago and no replacement champion has been named.",
+       "evidence": [
+        {
+         "view": "rind.contacts",
+         "fact": "champion_left",
+         "value": true
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "supported",
+       "reason": "Weekly active users dropped 50.7% from 37.0 to 18.2 over the last 16 weeks (change_pct -50.7); last year showed only 0.3% growth with seasonal_dip_last_year=false, confirming this is a new anomaly, not seasonal.",
+       "check": null
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "supported",
+       "reason": "Champion Malik Iyer departed 19 days ago; replacement_champion_named is false, confirmed by contacts view, creating a gap in key relationships.",
+       "check": null
+      }
+     ],
+     "risk": "high"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 114
+   },
+   "brief": {
+    "headline": "Tidewater Farm Supply: 50.7% usage plunge and champion departure",
+    "why": [
+     {
+      "reason": "Weekly active users dropped 50.7% from 37.0 to 18.2 over the last 16 weeks (change_pct -50.7)",
+      "source": "rind.product_usage"
+     },
+     {
+      "reason": "Champion Malik Iyer departed 19 days ago and no replacement champion has been named",
+      "source": "rind.contacts"
+     }
+    ],
+    "recommended_play": "new_champion_onboarding",
+    "play_rationale": "The named champion departed 19 days ago with no replacement, and usage has dropped 50.7%; onboarding a new champion is the priority to stabilize the account before renewal.",
+    "memory_used": null,
+    "draft_email": {
+     "to": "Anya Sandoval",
+     "subject": "Follow-up: champion change and usage trend at Tidewater Farm Supply",
+     "body": "Hi Anya,\n\nI wanted to follow up after Malik Iyer's departure 19 days ago. We've seen a steep drop in product engagement since then \u2014 weekly active users down 50.7% over the last 16 weeks \u2014 and no new champion has been named yet.\n\nGiven the renewal is 114 days out, I'd like to discuss identifying a new internal champion and aligning on next steps to stabilize the account.\n\nBest regards",
+     "from": "Reporter"
+    }
+   },
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 18.2,
+      "avg_weekly_active_users_prior8": 37.0,
+      "change_pct": -50.7,
+      "seat_utilization_pct": 33.8
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 4,
+      "tickets_last30": 0,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": null,
+      "latest_ticket_sentiment": 0.45,
+      "latest_ticket_subject": "Help setting up a recurring report",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90068",
+      "latest_status": "paid",
+      "latest_amount_usd": 5675,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -11.0,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": true,
+      "active_champion": null,
+      "active_champion_title": null,
+      "replacement_champion_named": false,
+      "departed_champion": "Malik Iyer",
+      "departed_title": "VP Operations",
+      "departed_on": "2026-09-30",
+      "departed_to": "Juniperhill Holdings",
+      "days_since_departure": 19,
+      "exec_sponsor": "Anya Sandoval",
+      "exec_sponsor_title": "CFO",
+      "exec_sponsor_days_since_engaged": 142,
+      "admin_contact": "Anya Brennan"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 37.2,
+      "last_year_avg_weekly_active_users_prior8": 37.1,
+      "last_year_change_pct": 0.3,
+      "last_year_seat_utilization_pct": 69.0,
+      "seasonal_dip_last_year": false
+     }
+    }
+   },
+   "reused": true
+  },
+  {
+   "account_id": "ACC-1044",
+   "account_name": "Clearwater Fabrication",
+   "arr_usd": 18900,
+   "renewal_date": "2026-11-29",
+   "renewal_in_days": 41,
+   "crm_health": 80,
+   "crm_color": "green",
+   "planner_why": "Green account with 51.2% usage decline, champion departure, and 3 high-priority tickets; multi-signal churn risk.",
+   "hypotheses": [
+    "usage_decline",
+    "champion_left",
+    "escalating_tickets"
+   ],
+   "risk": "high",
+   "confidence": 0.85,
+   "watermelon": true,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "usage_decline",
+     "severity": "high",
+     "statement": "Weekly active users dropped 51.2% over the past 16 weeks, from an average of 25.1 to 12.2 users per week",
+     "evidence": [
+      {
+       "view": "rind.product_usage",
+       "fact": "change_pct",
+       "value": -51.2
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "champion_left",
+     "severity": "high",
+     "statement": "Champion Ines Osei departed on 2026-09-13, 36 days ago, and no replacement champion has been named",
+     "evidence": [
+      {
+       "view": "rind.contacts",
+       "fact": "champion_left",
+       "value": true
+      }
+     ]
+    },
+    {
+     "id": "c3",
+     "signal": "escalating_tickets",
+     "severity": "high",
+     "statement": "Three high-or-urgent tickets are currently open, including data export missing rows and ERP integration sync failure",
+     "evidence": [
+      {
+       "view": "rind.support_tickets",
+       "fact": "open_high_or_urgent",
+       "value": 3
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users dropped 51.2% over the past 16 weeks, from an average of 25.1 to 12.2 users per week",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -51.2
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "champion_left",
+       "severity": "high",
+       "statement": "Champion Ines Osei departed on 2026-09-13, 36 days ago, and no replacement champion has been named",
+       "evidence": [
+        {
+         "view": "rind.contacts",
+         "fact": "champion_left",
+         "value": true
+        }
+       ]
+      },
+      {
+       "id": "c3",
+       "signal": "escalating_tickets",
+       "severity": "high",
+       "statement": "Three high-or-urgent tickets are currently open, including data export missing rows and ERP integration sync failure",
+       "evidence": [
+        {
+         "view": "rind.support_tickets",
+         "fact": "open_high_or_urgent",
+         "value": 3
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "The 51.2% decline is a new issue; usage_last_year shows last_year_change_pct -3.4% and seasonal_dip_last_year=false, confirming this is not a recurring yearly pattern but a significant new drop",
+       "check": "usage_last_year"
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "supported",
+       "reason": "Champion Ines Osei departed on 2026-09-13, 36 days ago, and replacement_champion_named is false, leaving a gap in technical ownership",
+       "check": null
+      },
+      {
+       "claim_id": "c3",
+       "verdict": "unsupported",
+       "reason": "Three high-or-urgent tickets are open, but urgent_issue_still_open=true indicates at least one remains unresolved; the claim that they are all open is contradicted by the evidence",
+       "check": "tickets"
+      }
+     ],
+     "risk": "medium"
+    }
+   ],
+   "escalation": {
+    "escalate": true,
+    "to": "CS Director + exec sponsor",
+    "rule": "high risk and (ARR >= $100k or renewal <= 60 days)",
+    "renewal_in_days": 41
+   },
+   "brief": {
+    "headline": "Clearwater Fabrication: 51.2% usage plunge and champion departure",
+    "why": [
+     {
+      "reason": "Weekly active users dropped 51.2% over the past 16 weeks, from an average of 25.1 to 12.2 users per week",
+      "source": "rind.product_usage"
+     },
+     {
+      "reason": "Champion Ines Osei departed on 2026-09-13, 36 days ago, and no replacement champion has been named",
+      "source": "rind.contacts"
+     },
+     {
+      "reason": "Three high-or-urgent tickets are currently open, including data export missing rows and ERP integration sync failure",
+      "source": "rind.support_tickets"
+     }
+    ],
+    "recommended_play": "new_champion_onboarding",
+    "play_rationale": "The named champion departed 36 days ago with no replacement; onboarding a new champion is the priority to stabilize the account before renewal in 41 days.",
+    "memory_used": null,
+    "draft_email": {
+     "to": "Marcus Sato",
+     "subject": "Follow-up: champion change and usage trend",
+     "body": "Hi Marcus,\n\nI wanted to reach out following Ines Osei's departure a few weeks ago. We've seen a steep drop in product engagement since then \u2014 active users down 51% over the last 16 weeks \u2014 and three high-priority tickets remain open without resolution.\n\nGiven the renewal is just 41 days out, I'd like to discuss identifying a new internal champion and aligning on next steps to stabilize the account.\n\nBest,\n[Your Name]"
+    }
+   },
+   "verifier_overrides": [
+    {
+     "claim_id": "c1",
+     "signal": "usage_decline",
+     "skeptic": "unsupported",
+     "skeptic_reason": "The 51.2% decline is a new issue; usage_last_year shows last_year_change_pct -3.4% and seasonal_dip_last_year=false, confirming this is not a recurring yearly pattern but a significant new drop",
+     "verifier": "supported",
+     "reason": "last year's same weeks changed -3.4%, so this decline is new"
+    },
+    {
+     "claim_id": "c3",
+     "signal": "escalating_tickets",
+     "skeptic": "unsupported",
+     "skeptic_reason": "Three high-or-urgent tickets are open, but urgent_issue_still_open=true indicates at least one remains unresolved; the claim that they are all open is contradicted by the evidence",
+     "verifier": "supported",
+     "reason": "3 high/urgent tickets are still open"
+    }
+   ],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 12.2,
+      "avg_weekly_active_users_prior8": 25.1,
+      "change_pct": -51.2,
+      "seat_utilization_pct": 27.2
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 7,
+      "tickets_last30": 3,
+      "open_high_or_urgent": 3,
+      "open_high_subjects": [
+       "Data export missing rows - need this fixed before audit",
+       "Dashboard load times over 30 seconds",
+       "Integration with our ERP stopped syncing"
+      ],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": -0.69,
+      "latest_ticket_sentiment": -0.55,
+      "latest_ticket_subject": "Integration with our ERP stopped syncing",
+      "urgent_issue_still_open": true
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90176",
+      "latest_status": "paid",
+      "latest_amount_usd": 4725,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -10.7,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": true,
+      "active_champion": null,
+      "active_champion_title": null,
+      "replacement_champion_named": false,
+      "departed_champion": "Ines Osei",
+      "departed_title": "IT Director",
+      "departed_on": "2026-09-13",
+      "departed_to": "Highmoor Group",
+      "days_since_departure": 36,
+      "exec_sponsor": "Marcus Sato",
+      "exec_sponsor_title": "Chief of Staff",
+      "exec_sponsor_days_since_engaged": 72,
+      "admin_contact": "Bruno Duarte"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 24.8,
+      "last_year_avg_weekly_active_users_prior8": 25.6,
+      "last_year_change_pct": -3.4,
+      "last_year_seat_utilization_pct": 55.0,
+      "seasonal_dip_last_year": false
+     }
+    }
+   },
+   "reused": true
+  },
+  {
+   "account_id": "ACC-1027",
+   "account_name": "Windward Logistics",
+   "arr_usd": 13900,
+   "renewal_date": "2027-01-15",
+   "renewal_in_days": 88,
+   "crm_health": 86,
+   "crm_color": "green",
+   "planner_why": "Green account with champion departure and hinted reorg; asked to be looped in on renewal early indicates relationship risk.",
+   "hypotheses": [
+    "champion_left"
+   ],
+   "risk": "high",
+   "confidence": 0.9,
+   "watermelon": true,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "champion_left",
+     "severity": "high",
+     "statement": "Champion Grace Abara departed 39 days ago; no replacement named; exec sponsor Isaac Whitfield engaged for 148 days but champion gap remains critical.",
+     "evidence": [
+      {
+       "view": "rind.contacts",
+       "fact": "champion_left",
+       "value": true
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "escalating_tickets",
+     "severity": "high",
+     "statement": "4 open high or urgent support tickets currently active, including integration sync failures and data export issues; sentiment strongly negative.",
+     "evidence": [
+      {
+       "view": "rind.support_tickets",
+       "fact": "open_high_or_urgent",
+       "value": 4
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "champion_left",
+       "severity": "high",
+       "statement": "Champion Grace Abara departed 39 days ago; no replacement named; exec sponsor Isaac Whitfield engaged for 148 days but champion gap remains critical.",
+       "evidence": [
+        {
+         "view": "rind.contacts",
+         "fact": "champion_left",
+         "value": true
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "escalating_tickets",
+       "severity": "high",
+       "statement": "4 open high or urgent support tickets currently active, including integration sync failures and data export issues; sentiment strongly negative.",
+       "evidence": [
+        {
+         "view": "rind.support_tickets",
+         "fact": "open_high_or_urgent",
+         "value": 4
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "Counter-evidence: green health score (86) and engaged exec sponsor Isaac Whitfield (148 days) provide ongoing sponsorship; replacement champion not named but sponsor mitigates the gap.",
+       "check": null
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "unsupported",
+       "reason": "Counter-evidence: health score green, usage growth (+2.3% YoY, seasonal_dip_last_year=false), and no habitual late paying explain the 4 open tickets and negative sentiment without escalating churn risk. urgent_issue_still_open=true but sponsor presence and account health mitigate severity.",
+       "check": null
+      }
+     ],
+     "risk": "none"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 88
+   },
+   "brief": {
+    "headline": "High-risk signals: champion departure and four open support tickets at Windward Logistics",
+    "why": [
+     {
+      "reason": "Champion Grace Abara departed 39 days ago with no replacement named, per rind.contacts",
+      "source": "rind.contacts"
+     },
+     {
+      "reason": "Four open high-or-urgent support tickets currently active, including integration sync failures and data export issues, per rind.support_tickets",
+      "source": "rind.support_tickets"
+     }
+    ],
+    "recommended_play": "exec_sponsor_meeting",
+    "play_rationale": "The SVP Operations can facilitate a new champion and prioritize the open support tickets.",
+    "memory_used": null,
+    "draft_email": {
+     "to": "Isaac Whitfield",
+     "subject": "Windward Logistics: champion gap and support tickets",
+     "body": "Hi Isaac,\n\nHope you're having a good Monday morning. At Windward Logistics we've had Grace Abara depart 39 days ago with no replacement named, and we currently have four open high-or-urgent support tickets (integration sync failures, data export issues) with strongly negative sentiment. I'd like to align on replacing the champion and getting the tickets prioritized. Are you available for a quick 15-min call this week?\n\nBest,\n[Your Name]"
+    }
+   },
+   "verifier_overrides": [
+    {
+     "claim_id": "c1",
+     "signal": "champion_left",
+     "skeptic": "unsupported",
+     "skeptic_reason": "Counter-evidence: green health score (86) and engaged exec sponsor Isaac Whitfield (148 days) provide ongoing sponsorship; replacement champion not named but sponsor mitigates the gap.",
+     "verifier": "supported",
+     "reason": "no replacement champion is active"
+    },
+    {
+     "claim_id": "c2",
+     "signal": "escalating_tickets",
+     "skeptic": "unsupported",
+     "skeptic_reason": "Counter-evidence: health score green, usage growth (+2.3% YoY, seasonal_dip_last_year=false), and no habitual late paying explain the 4 open tickets and negative sentiment without escalating churn risk. urgent_issue_still_open=true but sponsor presence and account health mitigate severity.",
+     "verifier": "supported",
+     "reason": "4 high/urgent tickets are still open"
+    }
+   ],
+   "memory_recalled": [
+    "ACC-1027: Champion hinted at a possible reorg on a call; asked to be looped in on the renewal early."
+   ],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 28.2,
+      "avg_weekly_active_users_prior8": 27.6,
+      "change_pct": 2.3,
+      "seat_utilization_pct": 85.6
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 7,
+      "tickets_last30": 5,
+      "open_high_or_urgent": 4,
+      "open_high_subjects": [
+       "Integration with our ERP stopped syncing",
+       "Data export missing rows - need this fixed before audit",
+       "Still waiting on a fix for the permissions bug",
+       "Workflow automations failing silently since last release"
+      ],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": -0.49,
+      "latest_ticket_sentiment": -0.81,
+      "latest_ticket_subject": "Workflow automations failing silently since last release",
+      "urgent_issue_still_open": true
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90108",
+      "latest_status": "paid",
+      "latest_amount_usd": 3475,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -4.0,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": true,
+      "active_champion": null,
+      "active_champion_title": null,
+      "replacement_champion_named": false,
+      "departed_champion": "Grace Abara",
+      "departed_title": "Head of Revenue Ops",
+      "departed_on": "2026-09-10",
+      "departed_to": "Cedarline Partners",
+      "days_since_departure": 39,
+      "exec_sponsor": "Isaac Whitfield",
+      "exec_sponsor_title": "SVP Operations",
+      "exec_sponsor_days_since_engaged": 148,
+      "admin_contact": "Ines Romano"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 25.2,
+      "last_year_avg_weekly_active_users_prior8": 24.9,
+      "last_year_change_pct": 1.5,
+      "last_year_seat_utilization_pct": 76.5,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1020",
+   "account_name": "Highmoor Components",
+   "arr_usd": 11300,
+   "renewal_date": "2027-02-18",
+   "renewal_in_days": 122,
+   "crm_health": 79,
+   "crm_color": "green",
+   "planner_why": "Green account with 51.7% usage decline and 42-day overdue invoice; accepted admin training may reverse trend but risk is high.",
+   "hypotheses": [
+    "usage_decline",
+    "invoice_overdue"
+   ],
+   "risk": "high",
+   "confidence": 0.78,
+   "watermelon": true,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "usage_decline",
+     "severity": "high",
+     "statement": "Usage has dropped 51.7% over 16 weeks, falling from 18.1 to 8.8 average weekly active users",
+     "evidence": [
+      {
+       "view": "rind.product_usage",
+       "fact": "change_pct",
+       "value": -51.7
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "invoice_overdue",
+     "severity": "high",
+     "statement": "Invoice INV-90080 is 42 days overdue, exceeding the 14-day threshold for payment risk",
+     "evidence": [
+      {
+       "view": "rind.billing_invoices",
+       "fact": "latest_days_overdue",
+       "value": 42
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Usage has dropped 51.7% over 16 weeks, falling from 18.1 to 8.8 average weekly active users",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -51.7
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "invoice_overdue",
+       "severity": "high",
+       "statement": "Invoice INV-90080 is 42 days overdue, exceeding the 14-day threshold for payment risk",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 42
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "Usage dropped 51.7% over 16 weeks, but last year the identical period had 0% change (seasonal_dip_last_year=false), confirming this is a new structural decline, not a seasonal pattern. The counter-evidence directly refutes the claim of a recurring dip.",
+       "check": null
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "needs_check",
+       "reason": "Invoice INV-90080 is 42 days overdue, exceeding the 14-day threshold. Must check last year's invoice aging to determine if this is a new behaviour or part of a pattern, as overdue_is_new_behaviour=true but habitual_late_payer=false.",
+       "check": null
+      }
+     ],
+     "risk": "medium"
+    },
+    {
+     "round": 2,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Usage has dropped 51.7% over 16 weeks, falling from 18.1 to 8.8 average weekly active users",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -51.7
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "invoice_overdue",
+       "severity": "high",
+       "statement": "Invoice INV-90080 is 42 days overdue, exceeding the 14-day threshold for payment risk",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 42
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "Usage dropped 51.7% over 16 weeks, but last year the identical period showed 0% change (last_year_change_pct: 0.0) and seasonal_dip_last_year is false, indicating the decline is not structural and likely transient or seasonal. The evidence directly contradicts the claim of a persistent drop.",
+       "check": null
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "needs_check",
+       "reason": "Invoice INV-90080 is 42 days overdue, exceeding the 14-day threshold. While overdue_is_new_behaviour is true (not a chronic habit), the risk requires checking current invoice status and payment terms to confirm payment risk.",
+       "check": "invoices"
+      },
+      {
+       "claim_id": "c3",
+       "verdict": "unsupported",
+       "reason": "No named replacement champion is active (replacement_champion_named is false) and no champion has departed (champion_left is false), so there is no champion departure risk; the claim is unsupported by the evidence.",
+       "check": null
+      }
+     ],
+     "risk": "medium"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 122
+   },
+   "brief": {
+    "headline": "Highmoor Components: 51.7% usage drop and 42-day overdue invoice",
+    "why": [
+     {
+      "reason": "Usage dropped 51.7% over 16 weeks (from 18.1 to 8.8 average weekly active users)",
+      "source": "rind.product_usage"
+     },
+     {
+      "reason": "Invoice INV-90080 is 42 days overdue, exceeding the 14-day payment risk threshold",
+      "source": "rind.billing_invoices"
+     }
+    ],
+    "recommended_play": "billing_outreach",
+    "play_rationale": "The prior admin training play addressed adoption but the 42-day overdue invoice and 51.7% usage decline persist, so billing_outreach is required to resolve the payment risk.",
+    "memory_used": "Prior play (admin training) tried but issues persist; recommending billing_outreach as a different play.",
+    "draft_email": {
+     "to": "Jordan Chen",
+     "subject": "Overdue invoice INV-90080 \u2014 follow-up",
+     "body": "Hi Jordan,\n\nInvoice INV-90080 is now 42 days overdue, which exceeds our 14-day payment risk threshold. I wanted to check in and understand the status so we can resolve this promptly.\n\nBest,\n[Your Name]"
+    }
+   },
+   "verifier_overrides": [
+    {
+     "claim_id": "c1",
+     "signal": "usage_decline",
+     "skeptic": "unsupported",
+     "skeptic_reason": "Usage dropped 51.7% over 16 weeks, but last year the identical period showed 0% change (last_year_change_pct: 0.0) and seasonal_dip_last_year is false, indicating the decline is not structural and likely transient or seasonal. The evidence directly contradicts the claim of a persistent drop.",
+     "verifier": "supported",
+     "reason": "last year's same weeks changed 0.0%, so this decline is new"
+    },
+    {
+     "claim_id": "c2",
+     "signal": "invoice_overdue",
+     "skeptic": "needs_check",
+     "skeptic_reason": "Invoice INV-90080 is 42 days overdue, exceeding the 14-day threshold. While overdue_is_new_behaviour is true (not a chronic habit), the risk requires checking current invoice status and payment terms to confirm payment risk.",
+     "verifier": "supported",
+     "reason": "they normally pay on time (avg -1.7 days), so this is new"
+    }
+   ],
+   "memory_recalled": [
+    "ACC-1020: Usage dipping. Offered free admin training to lift adoption; customer accepted, session held Oct 8."
+   ],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 8.8,
+      "avg_weekly_active_users_prior8": 18.1,
+      "change_pct": -51.7,
+      "seat_utilization_pct": 32.4
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 1,
+      "tickets_last30": 1,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": 0.67,
+      "latest_ticket_sentiment": 0.67,
+      "latest_ticket_subject": "Change billing contact",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90080",
+      "latest_status": "overdue",
+      "latest_amount_usd": 2825,
+      "latest_days_overdue": 42,
+      "past_avg_days_late": -1.7,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": true
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Olivia Duarte",
+      "active_champion_title": "IT Director",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-10-01",
+      "exec_sponsor": "Jordan Chen",
+      "exec_sponsor_title": "SVP Operations",
+      "exec_sponsor_days_since_engaged": 74,
+      "admin_contact": "Zara Brennan"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 18.0,
+      "last_year_avg_weekly_active_users_prior8": 18.0,
+      "last_year_change_pct": 0.0,
+      "last_year_seat_utilization_pct": 66.7,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1036",
+   "account_name": "Bramblewood Systems",
+   "arr_usd": 10100,
+   "renewal_date": "2026-12-04",
+   "renewal_in_days": 46,
+   "crm_health": 27,
+   "crm_color": "red",
+   "planner_why": "Red account with usage decline and champion departure compounds churn probability beyond green threshold.",
+   "hypotheses": [
+    "usage_decline",
+    "champion_left"
+   ],
+   "risk": "high",
+   "confidence": 0.88,
+   "watermelon": false,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "usage_decline",
+     "severity": "high",
+     "statement": "Weekly active users dropped 51.5% over 16 weeks, from an average of 17.0 to 8.2 per week",
+     "evidence": [
+      {
+       "view": "rind.product_usage",
+       "fact": "change_pct",
+       "value": -51.5
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "champion_left",
+     "severity": "high",
+     "statement": "Champion Ryan Duarte departed 17 days ago and no replacement champion has been named",
+     "evidence": [
+      {
+       "view": "rind.contacts",
+       "fact": "champion_left",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users dropped 51.5% over 16 weeks, from an average of 17.0 to 8.2 per week",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -51.5
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "champion_left",
+       "severity": "high",
+       "statement": "Champion Ryan Duarte departed 17 days ago and no replacement champion has been named",
+       "evidence": [
+        {
+         "view": "rind.contacts",
+         "fact": "champion_left",
+         "value": true
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "supported",
+       "reason": "change_pct -51.5 directly matches the stated decline from 17.0 to 8.2 weekly active users over 16 weeks; counter-evidence confirms last year showed growth (4.3%) with seasonal_dip_last_year=false, so the decline is anomalous and not seasonal",
+       "check": null
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "supported",
+       "reason": "champion_left is true in contacts view; Ryan Duarte departed 17 days ago and replacement_champion_named is false, confirming no replacement has been named",
+       "check": null
+      }
+     ],
+     "risk": "high"
+    }
+   ],
+   "escalation": {
+    "escalate": true,
+    "to": "CS Director + exec sponsor",
+    "rule": "high risk and (ARR >= $100k or renewal <= 60 days)",
+    "renewal_in_days": 46
+   },
+   "brief": {
+    "headline": "Bramblewood Systems: 51.5% usage plunge and champion departure",
+    "why": [
+     {
+      "reason": "Weekly active users dropped 51.5% over 16 weeks, from 17.0 to 8.2 per week",
+      "source": "Product analytics"
+     },
+     {
+      "reason": "Champion Ryan Duarte departed 17 days ago and no replacement champion has been named",
+      "source": "Contacts"
+     }
+    ],
+    "recommended_play": "new_champion_onboarding",
+    "play_rationale": "Champion departed 17 days ago with no replacement named; usage decline of this magnitude requires a new internal advocate to stabilize the account before renewal in 46 days.",
+    "memory_used": null,
+    "draft_email": {
+     "to": "Ines Sandoval",
+     "subject": "Follow-up: champion change and usage trend at Bramblewood Systems",
+     "body": "Hi Ines,\n\nI'm reaching out following Ryan Duarte's departure 17 days ago. Since then, we've seen a steep drop in product engagement \u2014 weekly active users down 51.5% over the last 16 weeks, from 17.0 to 8.2 per week.\n\nGiven the renewal is just 46 days out, I'd like to discuss identifying a new internal champion and aligning on next steps to stabilize the account.\n\nBest regards,\n[Your Name]"
+    }
+   },
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 8.2,
+      "avg_weekly_active_users_prior8": 17.0,
+      "change_pct": -51.5,
+      "seat_utilization_pct": 34.4
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 3,
+      "tickets_last30": 0,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": null,
+      "latest_ticket_sentiment": 0.52,
+      "latest_ticket_subject": "Feature request: dark mode for mobile",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90144",
+      "latest_status": "paid",
+      "latest_amount_usd": 2525,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -7.0,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": true,
+      "active_champion": null,
+      "active_champion_title": null,
+      "replacement_champion_named": false,
+      "departed_champion": "Ryan Duarte",
+      "departed_title": "IT Director",
+      "departed_on": "2026-10-02",
+      "departed_to": "Elmstead Group",
+      "days_since_departure": 17,
+      "exec_sponsor": "Ines Sandoval",
+      "exec_sponsor_title": "Chief of Staff",
+      "exec_sponsor_days_since_engaged": 85,
+      "admin_contact": "Felix Fischer"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 18.0,
+      "last_year_avg_weekly_active_users_prior8": 17.2,
+      "last_year_change_pct": 4.3,
+      "last_year_seat_utilization_pct": 75.0,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1022",
+   "account_name": "Copperline Haulage",
+   "arr_usd": 8800,
+   "renewal_date": "2027-01-04",
+   "renewal_in_days": 77,
+   "crm_health": 28,
+   "crm_color": "red",
+   "planner_why": "added by coverage rule: has warning signs",
+   "hypotheses": [
+    "champion_left",
+    "escalating_tickets"
+   ],
+   "risk": "high",
+   "confidence": 0.85,
+   "watermelon": false,
+   "supported_claims": [
+    {
+     "id": "c1",
+     "signal": "champion_left",
+     "severity": "high",
+     "statement": "Champion Zara Whitfield (Head of Revenue Ops) has departed the account, per contacts champion_left = true and departed_champion = Zara Whitfield",
+     "evidence": [
+      {
+       "view": "rind.contacts",
+       "fact": "champion_left",
+       "value": true
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "signal": "escalating_tickets",
+     "severity": "high",
+     "statement": "Two high-priority tickets are currently open, per support tickets open_high_or_urgent = 2",
+     "evidence": [
+      {
+       "view": "rind.support_tickets",
+       "fact": "open_high_or_urgent",
+       "value": 2
+      }
+     ]
+    }
+   ],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "champion_left",
+       "severity": "high",
+       "statement": "Champion Zara Whitfield (Head of Revenue Ops) has departed the account, per contacts champion_left = true and departed_champion = Zara Whitfield",
+       "evidence": [
+        {
+         "view": "rind.contacts",
+         "fact": "champion_left",
+         "value": true
+        }
+       ]
+      },
+      {
+       "id": "c2",
+       "signal": "escalating_tickets",
+       "severity": "high",
+       "statement": "Two high-priority tickets are currently open, per support tickets open_high_or_urgent = 2",
+       "evidence": [
+        {
+         "view": "rind.support_tickets",
+         "fact": "open_high_or_urgent",
+         "value": 2
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "supported",
+       "reason": "Champion Zara Whitfield (Head of Revenue Ops) departed on 2026-09-11 and no replacement has been named, leaving the account without a designated head of Revenue Ops.",
+       "check": null
+      },
+      {
+       "claim_id": "c2",
+       "verdict": "supported",
+       "reason": "Two high-priority tickets (ERP sync stoppage and SSO login loop) are currently open and unresolved, per open_high_or_urgent = 2.",
+       "check": null
+      }
+     ],
+     "risk": "high"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 77
+   },
+   "brief": {
+    "headline": "Champion departure and open tickets drive high risk for Copperline Haulage",
+    "why": [
+     {
+      "reason": "Champion Zara Whitfield (Head of Revenue Ops) departed 38 days ago with no replacement named, per rind.contacts",
+      "source": "rind.contacts"
+     },
+     {
+      "reason": "Two high-priority support tickets remain open (open_high_or_urgent = 2), per rind.support_tickets",
+      "source": "rind.support_tickets"
+     }
+    ],
+    "recommended_play": "exec_sponsor_meeting",
+    "play_rationale": "The SVP Operations sponsor can facilitate champion onboarding and ticket prioritization.",
+    "memory_used": null,
+    "draft_email": {
+     "to": "Olivia Larsen",
+     "subject": "Copperline Haulage: champion gap and open support tickets",
+     "body": "Hi Olivia,\n\nHope you're having a good Monday morning. At Copperline Haulage we've had Champion Zara Whitfield depart 38 days ago with no replacement named, and we currently have two open high-priority support tickets. I'd like to align on replacing the champion and getting the tickets prioritized. Are you available for a quick 15-min call this week?\n\nBest,\n[Your Name]"
+    }
+   },
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 14.8,
+      "avg_weekly_active_users_prior8": 15.2,
+      "change_pct": -3.3,
+      "seat_utilization_pct": 70.2
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 6,
+      "tickets_last30": 4,
+      "open_high_or_urgent": 2,
+      "open_high_subjects": [
+       "Integration with our ERP stopped syncing",
+       "SSO login loop blocking half our team"
+      ],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": -0.13,
+      "latest_ticket_sentiment": -0.65,
+      "latest_ticket_subject": "SSO login loop blocking half our team",
+      "urgent_issue_still_open": true
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90088",
+      "latest_status": "paid",
+      "latest_amount_usd": 2200,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -8.3,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": true,
+      "active_champion": null,
+      "active_champion_title": null,
+      "replacement_champion_named": false,
+      "departed_champion": "Zara Whitfield",
+      "departed_title": "Head of Revenue Ops",
+      "departed_on": "2026-09-11",
+      "departed_to": "Foxhollow Holdings",
+      "days_since_departure": 38,
+      "exec_sponsor": "Olivia Larsen",
+      "exec_sponsor_title": "SVP Operations",
+      "exec_sponsor_days_since_engaged": 39,
+      "admin_contact": "Marcus Haddad"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 13.2,
+      "last_year_avg_weekly_active_users_prior8": 13.0,
+      "last_year_change_pct": 1.9,
+      "last_year_seat_utilization_pct": 63.1,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1018",
+   "account_name": "Foxhollow Retail",
+   "arr_usd": 153100,
+   "renewal_date": "2027-05-06",
+   "renewal_in_days": 199,
+   "crm_health": 89,
+   "crm_color": "green",
+   "planner_why": "added by coverage rule: has warning signs",
+   "hypotheses": [
+    "invoice_overdue"
+   ],
+   "risk": "none",
+   "confidence": 0.9,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [
+    {
+     "claim": "Latest invoice INV-90072 for $38,275 is 41 days overdue, exceeding the historical average of 39.3 days late.",
+     "reason": "The evidence shows the customer is a habitual late payer (habitual_late_payer=true) and overdue_is_new_behaviour=false, so the 41-day overdue is normal account behavior, not a new signal."
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "invoice_overdue",
+       "severity": "high",
+       "statement": "Latest invoice INV-90072 for $38,275 is 41 days overdue, exceeding the historical average of 39.3 days late.",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 41
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "The evidence shows the customer is a habitual late payer (habitual_late_payer=true) and overdue_is_new_behaviour=false, so the 41-day overdue is normal account behavior, not a new signal.",
+       "check": null
+      }
+     ],
+     "risk": "none"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 199
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 392.2,
+      "avg_weekly_active_users_prior8": 379.5,
+      "change_pct": 3.4,
+      "seat_utilization_pct": 84.5
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 1,
+      "tickets_last30": 0,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": null,
+      "latest_ticket_sentiment": 0.4,
+      "latest_ticket_subject": "Can we rename a workspace?",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90072",
+      "latest_status": "overdue",
+      "latest_amount_usd": 38275,
+      "latest_days_overdue": 41,
+      "past_avg_days_late": 39.3,
+      "past_invoices_paid_late": 3,
+      "past_invoices": 3,
+      "habitual_late_payer": true,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Hannah Osei",
+      "active_champion_title": "Head of Revenue Ops",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-10-07",
+      "exec_sponsor": "Fatima Chen",
+      "exec_sponsor_title": "COO",
+      "exec_sponsor_days_since_engaged": 194,
+      "admin_contact": "Owen Patel"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 339.5,
+      "last_year_avg_weekly_active_users_prior8": 349.4,
+      "last_year_change_pct": -2.8,
+      "last_year_seat_utilization_pct": 73.2,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1055",
+   "account_name": "Cobaltridge Ag Co-op",
+   "arr_usd": 135300,
+   "renewal_date": "2027-01-13",
+   "renewal_in_days": 86,
+   "crm_health": 74,
+   "crm_color": "green",
+   "planner_why": "Green account with 38.7% usage decline signals significant adoption drop despite normal billing.",
+   "hypotheses": [
+    "usage_decline"
+   ],
+   "risk": "none",
+   "confidence": 0.78,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [
+    {
+     "claim": "Weekly active users dropped 38.7% over 16 weeks, from 291.9 average weekly active users per week to 179.0 average weekly active users per week.",
+     "reason": "The 38.7% decline is a seasonal pattern; last year the same account experienced a 40.9% decline over an identical period (seasonal_dip_last_year=true)."
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users dropped 38.7% over 16 weeks, from 291.9 average weekly active users per week to 179.0 average weekly active users per week.",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -38.7
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "The 38.7% decline is a seasonal pattern; last year the same account experienced a 40.9% decline over an identical period (seasonal_dip_last_year=true).",
+       "check": null
+      }
+     ],
+     "risk": "medium"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 86
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 179.0,
+      "avg_weekly_active_users_prior8": 291.9,
+      "change_pct": -38.7,
+      "seat_utilization_pct": 43.7
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 4,
+      "tickets_last30": 1,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": 0.34,
+      "latest_ticket_sentiment": 0.34,
+      "latest_ticket_subject": "How do I add a custom field to a template?",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90220",
+      "latest_status": "paid",
+      "latest_amount_usd": 33825,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -6.3,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Elena Sato",
+      "active_champion_title": "Director of Operations",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-09-27",
+      "exec_sponsor": "Ethan Yilmaz",
+      "exec_sponsor_title": "SVP Operations",
+      "exec_sponsor_days_since_engaged": 139,
+      "admin_contact": "Kenji Kowalski"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 152.2,
+      "last_year_avg_weekly_active_users_prior8": 257.6,
+      "last_year_change_pct": -40.9,
+      "last_year_seat_utilization_pct": 37.1,
+      "seasonal_dip_last_year": true
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1026",
+   "account_name": "Corvid Farm Supply",
+   "arr_usd": 98700,
+   "renewal_date": "2027-06-17",
+   "renewal_in_days": 241,
+   "crm_health": 87,
+   "crm_color": "green",
+   "planner_why": "Green account with champion departure despite healthy usage metrics; relationship risk persists.",
+   "hypotheses": [
+    "champion_left"
+   ],
+   "risk": "none",
+   "confidence": null,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [
+    {
+     "claim": "Weekly active users increased 1.7% from 242.4 to 246.5 over the last 16 weeks, indicating stable engagement rather than decline.",
+     "reason": "Verifier: the evidence does not show usage_decline"
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [],
+     "rejected": [
+      {
+       "claim": "Weekly active users increased 1.7% from 242.4 to 246.5 over the last 16 weeks, indicating stable engagement rather than decline.",
+       "reason": "Verifier: the evidence does not show usage_decline",
+       "signal": "usage_decline"
+      }
+     ],
+     "verdicts": [],
+     "risk": "none"
+    },
+    {
+     "round": 2,
+     "claims": [],
+     "rejected": [
+      {
+       "claim": "Weekly active users increased 1.7% from 242.4 to 246.5 over the last 16 weeks, indicating stable engagement rather than decline.",
+       "reason": "Verifier: the evidence does not show usage_decline",
+       "signal": "usage_decline"
+      }
+     ],
+     "verdicts": [],
+     "risk": "none"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 241
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 246.5,
+      "avg_weekly_active_users_prior8": 242.4,
+      "change_pct": 1.7,
+      "seat_utilization_pct": 82.4
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 2,
+      "tickets_last30": 0,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": null,
+      "latest_ticket_sentiment": 0.15,
+      "latest_ticket_subject": "Help setting up a recurring report",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90104",
+      "latest_status": "paid",
+      "latest_amount_usd": 24675,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -3.7,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": true,
+      "active_champion": "Marcus Iyer",
+      "active_champion_title": "VP Operations",
+      "replacement_champion_named": true,
+      "departed_champion": "Owen Lindqvist",
+      "departed_title": "Head of Revenue Ops",
+      "departed_on": "2026-09-28",
+      "departed_to": "Ashcombe Group",
+      "days_since_departure": 21,
+      "active_champion_last_engaged": "2026-10-17",
+      "exec_sponsor": "Bruno Reyes",
+      "exec_sponsor_title": "Chief of Staff",
+      "exec_sponsor_days_since_engaged": 48,
+      "admin_contact": "Elena Iyer"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 223.0,
+      "last_year_avg_weekly_active_users_prior8": 220.0,
+      "last_year_change_pct": 1.4,
+      "last_year_seat_utilization_pct": 74.6,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1024",
+   "account_name": "Ambergate Freight",
+   "arr_usd": 63500,
+   "renewal_date": "2027-03-21",
+   "renewal_in_days": 153,
+   "crm_health": 73,
+   "crm_color": "green",
+   "planner_why": "Green account with 2.2% usage decline and 47-day overdue invoice indicates payment delay may reflect broader dissatisfaction.",
+   "hypotheses": [
+    "usage_decline",
+    "invoice_overdue"
+   ],
+   "risk": "none",
+   "confidence": 0.95,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [
+    {
+     "claim": "Latest invoice INV-90096 is 47 days overdue (latest_status=overdue, latest_days_overdue=47)",
+     "reason": "Counter-evidence explains the overdue status: the account is a habitual late payer (habitual_late_payer=true) with a past average days late of 45.0, making the current 47 days consistent with historical behaviour; overdue_is_new_behaviour=false confirms this is not new."
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "invoice_overdue",
+       "severity": "medium",
+       "statement": "Latest invoice INV-90096 is 47 days overdue (latest_status=overdue, latest_days_overdue=47)",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_status",
+         "value": "overdue"
+        },
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 47
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "Counter-evidence explains the overdue status: the account is a habitual late payer (habitual_late_payer=true) with a past average days late of 45.0, making the current 47 days consistent with historical behaviour; overdue_is_new_behaviour=false confirms this is not new.",
+       "check": null
+      }
+     ],
+     "risk": "low"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 153
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 126.0,
+      "avg_weekly_active_users_prior8": 128.9,
+      "change_pct": -2.2,
+      "seat_utilization_pct": 75.4
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 4,
+      "tickets_last30": 2,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": 0.56,
+      "latest_ticket_sentiment": 0.53,
+      "latest_ticket_subject": "Request: bulk-invite users via CSV",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90096",
+      "latest_status": "overdue",
+      "latest_amount_usd": 15875,
+      "latest_days_overdue": 47,
+      "past_avg_days_late": 45.0,
+      "past_invoices_paid_late": 3,
+      "past_invoices": 3,
+      "habitual_late_payer": true,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Isaac Kowalski",
+      "active_champion_title": "VP Operations",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-10-16",
+      "exec_sponsor": "Kenji Sandoval",
+      "exec_sponsor_title": "SVP Operations",
+      "exec_sponsor_days_since_engaged": 68,
+      "admin_contact": "Diego Petrov"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 108.8,
+      "last_year_avg_weekly_active_users_prior8": 116.0,
+      "last_year_change_pct": -6.2,
+      "last_year_seat_utilization_pct": 65.1,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1010",
+   "account_name": "Quarrystone Power",
+   "arr_usd": 59700,
+   "renewal_date": "2027-06-10",
+   "renewal_in_days": 234,
+   "crm_health": 88,
+   "crm_color": "green",
+   "planner_why": "Green account with 2.8% usage decline signals trend reversal needing investigation.",
+   "hypotheses": [
+    "usage_decline"
+   ],
+   "risk": "none",
+   "confidence": null,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [
+    {
+     "claim": "Weekly active users declined 2.8% over the last 16 weeks (from 134.8 to 131.0 average), which does not meet the -20% decline threshold.",
+     "reason": "Verifier: the evidence does not show usage_decline"
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [],
+     "rejected": [
+      {
+       "claim": "Weekly active users declined 2.8% over the last 16 weeks (from 134.8 to 131.0 average), which does not meet the -20% decline threshold.",
+       "reason": "Verifier: the evidence does not show usage_decline",
+       "signal": "usage_decline"
+      }
+     ],
+     "verdicts": [],
+     "risk": "none"
+    },
+    {
+     "round": 2,
+     "claims": [],
+     "rejected": [
+      {
+       "claim": "Weekly active users declined 2.8% over the last 16 weeks (from 134.8 to 131.0 average), which does not meet the -20% decline threshold.",
+       "reason": "Verifier: the evidence does not show usage_decline",
+       "signal": "usage_decline"
+      }
+     ],
+     "verdicts": [],
+     "risk": "none"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 234
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 131.0,
+      "avg_weekly_active_users_prior8": 134.8,
+      "change_pct": -2.8,
+      "seat_utilization_pct": 83.4
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 5,
+      "tickets_last30": 3,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 1,
+      "avg_sentiment_last30": 0.15,
+      "latest_ticket_sentiment": 0.85,
+      "latest_ticket_subject": "Thanks - the fix works, closing this out",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90040",
+      "latest_status": "paid",
+      "latest_amount_usd": 14925,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -6.3,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Bruno Romano",
+      "active_champion_title": "Head of Revenue Ops",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-09-21",
+      "exec_sponsor": "Diego Holt",
+      "exec_sponsor_title": "SVP Operations",
+      "exec_sponsor_days_since_engaged": 50,
+      "admin_contact": "Victor Larsen"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 116.2,
+      "last_year_avg_weekly_active_users_prior8": 120.2,
+      "last_year_change_pct": -3.3,
+      "last_year_seat_utilization_pct": 74.0,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1005",
+   "account_name": "Mossbank College",
+   "arr_usd": 51700,
+   "renewal_date": "2027-04-13",
+   "renewal_in_days": 176,
+   "crm_health": 75,
+   "crm_color": "green",
+   "planner_why": "Green account with 41.6% usage decline despite normal billing; large revenue at risk due to steep adoption drop.",
+   "hypotheses": [
+    "usage_decline"
+   ],
+   "risk": "none",
+   "confidence": 0.9,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [
+    {
+     "claim": "Weekly active users dropped 41.6% over 16 weeks, from an average of 95.9 to 56.0 per week",
+     "reason": "41.6% decline matches last year's -42.4% decline with seasonal_dip_last_year=true; this is a repeat pattern, not a new risk."
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users dropped 41.6% over 16 weeks, from an average of 95.9 to 56.0 per week",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -41.6
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "41.6% decline matches last year's -42.4% decline with seasonal_dip_last_year=true; this is a repeat pattern, not a new risk.",
+       "check": null
+      }
+     ],
+     "risk": "none"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 176
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 56.0,
+      "avg_weekly_active_users_prior8": 95.9,
+      "change_pct": -41.6,
+      "seat_utilization_pct": 41.2
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 2,
+      "tickets_last30": 0,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": null,
+      "latest_ticket_sentiment": 0.2,
+      "latest_ticket_subject": "Feature request: dark mode for mobile",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90020",
+      "latest_status": "paid",
+      "latest_amount_usd": 12925,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -4.7,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Ruth Osei",
+      "active_champion_title": "Head of Revenue Ops",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-09-20",
+      "exec_sponsor": "Maya Fischer",
+      "exec_sponsor_title": "Chief of Staff",
+      "exec_sponsor_days_since_engaged": 180,
+      "admin_contact": "Hugo Varga"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 49.0,
+      "last_year_avg_weekly_active_users_prior8": 85.1,
+      "last_year_change_pct": -42.4,
+      "last_year_seat_utilization_pct": 36.0,
+      "seasonal_dip_last_year": true
+     }
+    }
+   },
+   "reused": true
+  },
+  {
+   "account_id": "ACC-1006",
+   "account_name": "Silverlake Insurance",
+   "arr_usd": 41000,
+   "renewal_date": "2027-05-23",
+   "renewal_in_days": 216,
+   "crm_health": 87,
+   "crm_color": "green",
+   "planner_why": "Green account with 1.2% usage decline and invoices habitually 40+ days overdue per normal policy; payment behavior warrants monitoring but is not a primary churn signal.",
+   "hypotheses": [
+    "usage_decline",
+    "invoice_overdue"
+   ],
+   "risk": "none",
+   "confidence": 0.9,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [
+    {
+     "claim": "Latest invoice INV-90024 for $10,250 is 51 days overdue, exceeding the 14-day threshold",
+     "reason": "Invoice is 51 days overdue, but Silverlake's AP pays ~40 days late per policy (net-45); this is habitual and not a new behaviour or churn signal."
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "invoice_overdue",
+       "severity": "high",
+       "statement": "Latest invoice INV-90024 for $10,250 is 51 days overdue, exceeding the 14-day threshold",
+       "evidence": [
+        {
+         "view": "rind.billing_invoices",
+         "fact": "latest_days_overdue",
+         "value": 51
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "Invoice is 51 days overdue, but Silverlake's AP pays ~40 days late per policy (net-45); this is habitual and not a new behaviour or churn signal.",
+       "check": null
+      }
+     ],
+     "risk": "none"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 216
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [
+    "ACC-1006: Finance confirmed Silverlake's accounts-payable team pays every vendor around 40 days late (internal net-45 policy). Late invoices are normal for them, not a churn signal."
+   ],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 71.8,
+      "avg_weekly_active_users_prior8": 72.6,
+      "change_pct": -1.2,
+      "seat_utilization_pct": 66.4
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 3,
+      "tickets_last30": 0,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": null,
+      "latest_ticket_sentiment": 0.6,
+      "latest_ticket_subject": "Can we rename a workspace?",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90024",
+      "latest_status": "overdue",
+      "latest_amount_usd": 10250,
+      "latest_days_overdue": 51,
+      "past_avg_days_late": 39.7,
+      "past_invoices_paid_late": 3,
+      "past_invoices": 3,
+      "habitual_late_payer": true,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Fatima Patel",
+      "active_champion_title": "Head of Revenue Ops",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-10-06",
+      "exec_sponsor": "Ruth Alvarez",
+      "exec_sponsor_title": "COO",
+      "exec_sponsor_days_since_engaged": 63,
+      "admin_contact": "Anya Whitfield"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 67.0,
+      "last_year_avg_weekly_active_users_prior8": 63.9,
+      "last_year_change_pct": 4.9,
+      "last_year_seat_utilization_pct": 62.0,
+      "seasonal_dip_last_year": false
+     }
+    }
+   },
+   "reused": true
+  },
+  {
+   "account_id": "ACC-1002",
+   "account_name": "Saltmarsh Dental Group",
+   "arr_usd": 27400,
+   "renewal_date": "2027-07-23",
+   "renewal_in_days": 277,
+   "crm_health": 87,
+   "crm_color": "green",
+   "planner_why": "Green account with champion departure despite healthy usage trend; relationship continuity risk.",
+   "hypotheses": [
+    "champion_left"
+   ],
+   "risk": "none",
+   "confidence": 0.95,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [
+    {
+     "claim": "Champion Anya Osei departed on 2026-10-06; Elena Duarte is now the active champion but was recently engaged on 2026-10-13, 13 days ago",
+     "reason": "Champion departed 13 days ago, but replacement champion is active and named; usage grew 4.8% over 16 weeks with positive year-over-year trend (0.9% last year), contradicting the claim of a concerning departure impact"
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "champion_left",
+       "severity": "high",
+       "statement": "Champion Anya Osei departed on 2026-10-06; Elena Duarte is now the active champion but was recently engaged on 2026-10-13, 13 days ago",
+       "evidence": [
+        {
+         "view": "rind.contacts",
+         "fact": "champion_left",
+         "value": true
+        },
+        {
+         "view": "rind.contacts",
+         "fact": "departed_champion",
+         "value": "Anya Osei"
+        },
+        {
+         "view": "rind.contacts",
+         "fact": "active_champion",
+         "value": "Elena Duarte"
+        },
+        {
+         "view": "rind.contacts",
+         "fact": "days_since_departure",
+         "value": 13
+        },
+        {
+         "view": "rind.contacts",
+         "fact": "active_champion_last_engaged",
+         "value": "2026-10-13"
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "Champion departed 13 days ago, but replacement champion is active and named; usage grew 4.8% over 16 weeks with positive year-over-year trend (0.9% last year), contradicting the claim of a concerning departure impact",
+       "check": null
+      }
+     ],
+     "risk": "none"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 277
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 60.5,
+      "avg_weekly_active_users_prior8": 57.8,
+      "change_pct": 4.8,
+      "seat_utilization_pct": 84.0
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 4,
+      "tickets_last30": 2,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": 0.66,
+      "latest_ticket_sentiment": 0.65,
+      "latest_ticket_subject": "Question about API rate limits",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90008",
+      "latest_status": "paid",
+      "latest_amount_usd": 6850,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -5.0,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": true,
+      "active_champion": "Elena Duarte",
+      "active_champion_title": "VP Operations",
+      "replacement_champion_named": true,
+      "departed_champion": "Anya Osei",
+      "departed_title": "VP Operations",
+      "departed_on": "2026-10-06",
+      "departed_to": "Elmstead Partners",
+      "days_since_departure": 13,
+      "active_champion_last_engaged": "2026-10-13",
+      "exec_sponsor": "Hugo Haddad",
+      "exec_sponsor_title": "CFO",
+      "exec_sponsor_days_since_engaged": 57,
+      "admin_contact": "Wren Duarte"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 54.2,
+      "last_year_avg_weekly_active_users_prior8": 53.8,
+      "last_year_change_pct": 0.9,
+      "last_year_seat_utilization_pct": 75.3,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1056",
+   "account_name": "Valewood Power",
+   "arr_usd": 18500,
+   "renewal_date": "2027-03-30",
+   "renewal_in_days": 162,
+   "crm_health": 77,
+   "crm_color": "green",
+   "planner_why": "added by coverage rule: has warning signs",
+   "hypotheses": [
+    "escalating_tickets"
+   ],
+   "risk": "none",
+   "confidence": null,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [
+    {
+     "claim": "Weekly active users have not declined over the last 16 weeks: change_pct is 0.0 (rind.product_usage) with no seasonal dip indicated (seasonal_dip_last_year false), reflecting stable engagement.",
+     "reason": "Verifier: the evidence does not show usage_decline"
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [],
+     "rejected": [
+      {
+       "claim": "Weekly active users have not declined over the last 16 weeks: change_pct is 0.0 (rind.product_usage), and last year's comparable period declined only -3.7% (last_year_change_pct -3.7) with no seasonal dip indicated (seasonal_dip_last_year false), reflecting stable engagement.",
+       "reason": "Verifier: the evidence does not show usage_decline",
+       "signal": "usage_decline"
+      }
+     ],
+     "verdicts": [],
+     "risk": "none"
+    },
+    {
+     "round": 2,
+     "claims": [],
+     "rejected": [
+      {
+       "claim": "Weekly active users have not declined over the last 16 weeks: change_pct is 0.0 (rind.product_usage) with no seasonal dip indicated (seasonal_dip_last_year false), reflecting stable engagement.",
+       "reason": "Verifier: the evidence does not show usage_decline",
+       "signal": "usage_decline"
+      }
+     ],
+     "verdicts": [],
+     "risk": "none"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 162
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 33.5,
+      "avg_weekly_active_users_prior8": 33.5,
+      "change_pct": 0.0,
+      "seat_utilization_pct": 76.1
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 5,
+      "tickets_last30": 2,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 1,
+      "avg_sentiment_last30": 0.07,
+      "latest_ticket_sentiment": 0.85,
+      "latest_ticket_subject": "Thanks - the fix works, closing this out",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90224",
+      "latest_status": "paid",
+      "latest_amount_usd": 4625,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -5.7,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Samir Novak",
+      "active_champion_title": "Head of Revenue Ops",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-10-04",
+      "exec_sponsor": "Malik Larsen",
+      "exec_sponsor_title": "SVP Operations",
+      "exec_sponsor_days_since_engaged": 48,
+      "admin_contact": "Isaac Nakamura"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 29.5,
+      "last_year_avg_weekly_active_users_prior8": 30.6,
+      "last_year_change_pct": -3.7,
+      "last_year_seat_utilization_pct": 67.0,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1054",
+   "account_name": "Birchmont Resorts",
+   "arr_usd": 16400,
+   "renewal_date": "2027-07-21",
+   "renewal_in_days": 275,
+   "crm_health": 73,
+   "crm_color": "green",
+   "planner_why": "Green account with 41.1% usage decline signals severe adoption drop despite normal billing.",
+   "hypotheses": [
+    "usage_decline"
+   ],
+   "risk": "none",
+   "confidence": 0.9,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [
+    {
+     "claim": "Weekly active users dropped 41.1% over 16 weeks, from an average of 15.8 to 26.8 per week",
+     "reason": "The 41.1% decline is a seasonal pattern repeated last year (seasonal_dip_last_year=true). The same magnitude of drop occurred previously, indicating this is not a new problem."
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users dropped 41.1% over 16 weeks, from an average of 15.8 to 26.8 per week",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -41.1
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "The 41.1% decline is a seasonal pattern repeated last year (seasonal_dip_last_year=true). The same magnitude of drop occurred previously, indicating this is not a new problem.",
+       "check": "usage_last_year"
+      }
+     ],
+     "risk": "low"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 275
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 15.8,
+      "avg_weekly_active_users_prior8": 26.8,
+      "change_pct": -41.1,
+      "seat_utilization_pct": 40.4
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 3,
+      "tickets_last30": 1,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": 0.37,
+      "latest_ticket_sentiment": 0.37,
+      "latest_ticket_subject": "Feature request: dark mode for mobile",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90216",
+      "latest_status": "paid",
+      "latest_amount_usd": 4100,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -7.7,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Jordan Alvarez",
+      "active_champion_title": "Director of Operations",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-10-14",
+      "exec_sponsor": "Mei Fischer",
+      "exec_sponsor_title": "COO",
+      "exec_sponsor_days_since_engaged": 89,
+      "admin_contact": "Chloe Varga"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 15.0,
+      "last_year_avg_weekly_active_users_prior8": 24.5,
+      "last_year_change_pct": -38.8,
+      "last_year_seat_utilization_pct": 38.5,
+      "seasonal_dip_last_year": true
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1031",
+   "account_name": "Ravenshaw Haulage",
+   "arr_usd": 16000,
+   "renewal_date": "2027-05-03",
+   "renewal_in_days": 196,
+   "crm_health": 81,
+   "crm_color": "green",
+   "planner_why": "Green account with 0% usage but 3 high-priority tickets and negative sentiment indicates latent escalation risk.",
+   "hypotheses": [
+    "escalating_tickets"
+   ],
+   "risk": "none",
+   "confidence": null,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [],
+     "rejected": [],
+     "verdicts": [],
+     "risk": "none"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 196
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 23.2,
+      "avg_weekly_active_users_prior8": 23.2,
+      "change_pct": 0.0,
+      "seat_utilization_pct": 61.2
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 6,
+      "tickets_last30": 3,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 1,
+      "avg_sentiment_last30": 0.17,
+      "latest_ticket_sentiment": 0.39,
+      "latest_ticket_subject": "Request: bulk-invite users via CSV",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90124",
+      "latest_status": "paid",
+      "latest_amount_usd": 4000,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -9.7,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Marcus Nakamura",
+      "active_champion_title": "Head of Revenue Ops",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-10-13",
+      "exec_sponsor": "Noah Larsen",
+      "exec_sponsor_title": "SVP Operations",
+      "exec_sponsor_days_since_engaged": 99,
+      "admin_contact": "Dev Gallagher"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 21.2,
+      "last_year_avg_weekly_active_users_prior8": 20.8,
+      "last_year_change_pct": 2.4,
+      "last_year_seat_utilization_pct": 55.9,
+      "seasonal_dip_last_year": false
+     }
+    }
+   }
+  },
+  {
+   "account_id": "ACC-1041",
+   "account_name": "Wrenfield Learning",
+   "arr_usd": 11300,
+   "renewal_date": "2027-07-08",
+   "renewal_in_days": 262,
+   "crm_health": 85,
+   "crm_color": "green",
+   "planner_why": "Green account with 45.2% usage decline signals significant adoption drop despite normal billing.",
+   "hypotheses": [
+    "usage_decline"
+   ],
+   "risk": "none",
+   "confidence": 0.9,
+   "watermelon": false,
+   "supported_claims": [],
+   "dropped_claims": [
+    {
+     "claim": "Weekly active users dropped 45.2% over 16 weeks, from 18.2 to 10.0 average weekly active users per week",
+     "reason": "The 45.2% usage decline mirrors last year's 42.0% decline and is classified as a seasonal dip (seasonal_dip_last_year=true), indicating this is a historical pattern rather than a new problem."
+    }
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "claims": [
+      {
+       "id": "c1",
+       "signal": "usage_decline",
+       "severity": "high",
+       "statement": "Weekly active users dropped 45.2% over 16 weeks, from 18.2 to 10.0 average weekly active users per week",
+       "evidence": [
+        {
+         "view": "rind.product_usage",
+         "fact": "change_pct",
+         "value": -45.2
+        }
+       ]
+      }
+     ],
+     "rejected": [],
+     "verdicts": [
+      {
+       "claim_id": "c1",
+       "verdict": "unsupported",
+       "reason": "The 45.2% usage decline mirrors last year's 42.0% decline and is classified as a seasonal dip (seasonal_dip_last_year=true), indicating this is a historical pattern rather than a new problem.",
+       "check": null
+      }
+     ],
+     "risk": "none"
+    }
+   ],
+   "escalation": {
+    "escalate": false,
+    "rule": "below escalation thresholds",
+    "renewal_in_days": 262
+   },
+   "brief": null,
+   "verifier_overrides": [],
+   "memory_recalled": [],
+   "evidence": {
+    "usage_trend": {
+     "view": "rind.product_usage",
+     "facts": {
+      "weeks": 16,
+      "avg_weekly_active_users_last4": 10.0,
+      "avg_weekly_active_users_prior8": 18.2,
+      "change_pct": -45.2,
+      "seat_utilization_pct": 37.0
+     }
+    },
+    "tickets": {
+     "view": "rind.support_tickets",
+     "facts": {
+      "tickets_total": 1,
+      "tickets_last30": 0,
+      "open_high_or_urgent": 0,
+      "open_high_subjects": [],
+      "solved_urgent_last30": 0,
+      "avg_sentiment_last30": null,
+      "latest_ticket_sentiment": 0.33,
+      "latest_ticket_subject": "Help setting up a recurring report",
+      "urgent_issue_still_open": false
+     }
+    },
+    "invoices": {
+     "view": "rind.billing_invoices",
+     "facts": {
+      "invoices": 4,
+      "latest_invoice": "INV-90164",
+      "latest_status": "paid",
+      "latest_amount_usd": 2825,
+      "latest_days_overdue": 0,
+      "past_avg_days_late": -10.3,
+      "past_invoices_paid_late": 0,
+      "past_invoices": 3,
+      "habitual_late_payer": false,
+      "overdue_is_new_behaviour": false
+     }
+    },
+    "contacts": {
+     "view": "rind.contacts",
+     "facts": {
+      "champion_left": false,
+      "active_champion": "Ethan Reyes",
+      "active_champion_title": "VP Operations",
+      "replacement_champion_named": false,
+      "active_champion_last_engaged": "2026-09-27",
+      "exec_sponsor": "Lucas Iyer",
+      "exec_sponsor_title": "Chief of Staff",
+      "exec_sponsor_days_since_engaged": 43,
+      "admin_contact": "Kenji Chen"
+     }
+    },
+    "usage_last_year": {
+     "view": "rind.product_usage",
+     "facts": {
+      "last_year_weeks": 16,
+      "last_year_avg_weekly_active_users_last4": 9.5,
+      "last_year_avg_weekly_active_users_prior8": 16.4,
+      "last_year_change_pct": -42.0,
+      "last_year_seat_utilization_pct": 35.2,
+      "seasonal_dip_last_year": true
+     }
+    }
+   }
+  }
+ ],
+ "not_flagged": [
+  {
+   "account_id": "ACC-1001",
+   "account_name": "Cedarline Hospitality",
+   "crm_health": 88,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1003",
+   "account_name": "Pinecrest Learning",
+   "crm_health": 61,
+   "crm_color": "amber"
+  },
+  {
+   "account_id": "ACC-1007",
+   "account_name": "Glenrock Components",
+   "crm_health": 81,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1008",
+   "account_name": "Riverbend Components",
+   "crm_health": 65,
+   "crm_color": "amber"
+  },
+  {
+   "account_id": "ACC-1009",
+   "account_name": "Fernleaf Markets",
+   "crm_health": 85,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1012",
+   "account_name": "Hollowell Power",
+   "crm_health": 77,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1013",
+   "account_name": "Ironwood Components",
+   "crm_health": 90,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1014",
+   "account_name": "Summitview Components",
+   "crm_health": 73,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1015",
+   "account_name": "Lumenway Capital",
+   "crm_health": 89,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1016",
+   "account_name": "Starling College",
+   "crm_health": 88,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1019",
+   "account_name": "Juniperhill Hotels",
+   "crm_health": 83,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1021",
+   "account_name": "Heronsgate Power",
+   "crm_health": 73,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1023",
+   "account_name": "Quillon Insurance",
+   "crm_health": 57,
+   "crm_color": "amber"
+  },
+  {
+   "account_id": "ACC-1025",
+   "account_name": "Halcyon Clinics",
+   "crm_health": 74,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1028",
+   "account_name": "Ashcombe Credit Union",
+   "crm_health": 75,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1029",
+   "account_name": "Brightpath Markets",
+   "crm_health": 83,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1030",
+   "account_name": "Tallgrass Manufacturing",
+   "crm_health": 57,
+   "crm_color": "amber"
+  },
+  {
+   "account_id": "ACC-1032",
+   "account_name": "Bayshore Labs",
+   "crm_health": 63,
+   "crm_color": "amber"
+  },
+  {
+   "account_id": "ACC-1033",
+   "account_name": "Orchidbay Energy",
+   "crm_health": 72,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1034",
+   "account_name": "Northfold Fabrication",
+   "crm_health": 81,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1035",
+   "account_name": "Brookhaven Markets",
+   "crm_health": 90,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1037",
+   "account_name": "Granitepeak Haulage",
+   "crm_health": 78,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1038",
+   "account_name": "Kestrel Insurance",
+   "crm_health": 73,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1039",
+   "account_name": "Meridian Markets",
+   "crm_health": 62,
+   "crm_color": "amber"
+  },
+  {
+   "account_id": "ACC-1040",
+   "account_name": "Harborline Health",
+   "crm_health": 63,
+   "crm_color": "amber"
+  },
+  {
+   "account_id": "ACC-1042",
+   "account_name": "Redcliff Utilities",
+   "crm_health": 56,
+   "crm_color": "amber"
+  },
+  {
+   "account_id": "ACC-1043",
+   "account_name": "Driftwood Power",
+   "crm_health": 75,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1045",
+   "account_name": "Stonebridge Farm Supply",
+   "crm_health": 79,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1046",
+   "account_name": "Coldspring Energy",
+   "crm_health": 61,
+   "crm_color": "amber"
+  },
+  {
+   "account_id": "ACC-1048",
+   "account_name": "Pioneerpoint Fabrication",
+   "crm_health": 55,
+   "crm_color": "amber"
+  },
+  {
+   "account_id": "ACC-1049",
+   "account_name": "Sablewood Hospitality",
+   "crm_health": 55,
+   "crm_color": "amber"
+  },
+  {
+   "account_id": "ACC-1050",
+   "account_name": "Oakhaven Labs",
+   "crm_health": 86,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1052",
+   "account_name": "Westmarch Markets",
+   "crm_health": 83,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1057",
+   "account_name": "Goldfinch Clinics",
+   "crm_health": 75,
+   "crm_color": "green"
+  },
+  {
+   "account_id": "ACC-1060",
+   "account_name": "Thornbury Hospitality",
+   "crm_health": 74,
+   "crm_color": "green"
+  }
+ ],
+ "trace_file": "logs\\run_20261027T054113Z-70c31e.jsonl"
+}

@@ -1,0 +1,6 @@
+{
+  "run_id": "example-2-false-alarms",
+  "description": "Four accounts that trip a warning sign with an innocent explanation (a customer that always pays late, a seasonal dip, an urgent ticket already solved, a champion already replaced). Expected: Rind investigates each and rules it out.",
+  "input": {"accounts": ["ACC-1006", "ACC-1055", "ACC-1031", "ACC-1026"]},
+  "options": {"reuse_unchanged": false}
+}

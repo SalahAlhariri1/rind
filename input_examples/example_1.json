@@ -1,0 +1,6 @@
+{
+  "run_id": "example-1-watermelons",
+  "description": "Three accounts the CRM scores green (72-89). Expected: Rind finds the hidden problems in billing, support and contacts and flags them as churn risks.",
+  "input": {"accounts": ["ACC-1047", "ACC-1058", "ACC-1051"]},
+  "options": {"reuse_unchanged": false}
+}
