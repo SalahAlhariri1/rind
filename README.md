@@ -65,7 +65,7 @@ Baselines on the same data:
 | CRM health score | 5/13 | 0/8 | 0/12 |
 | Naive rules, no Skeptic/Verifier | 13/13 | 8/8 | 9/12 |
 
-Full benchmark script: `python eval/run_eval.py` (results in `evidence/eval_results.md`).
+Benchmark script: `python eval/run_eval.py`. Note: `evidence/eval_results.md` is a **sample-mode pipeline check** (offline heuristic, no AI model; it says so in the file). It shows the plumbing and scoring work end to end; the live results above are the ones produced by Nemotron.
 
 ## Architecture
 
