@@ -1,0 +1,17 @@
+{
+ "ACC-1020": [
+  {"week_of": "2026-10-05", "type": "action", "by": "Dana Reyes (CSM)",
+   "text": "Usage dipping. Offered free admin training to lift adoption; customer accepted, session held Oct 8.",
+   "outcome": "pending - recheck usage in 2 weeks"}
+ ],
+ "ACC-1006": [
+  {"week_of": "2026-09-28", "type": "context", "by": "Dana Reyes (CSM)",
+   "text": "Finance confirmed Silverlake's accounts-payable team pays every vendor around 40 days late (internal net-45 policy). Late invoices are normal for them, not a churn signal.",
+   "outcome": "no action needed"}
+ ],
+ "ACC-1027": [
+  {"week_of": "2026-10-12", "type": "context", "by": "Dana Reyes (CSM)",
+   "text": "Champion hinted at a possible reorg on a call; asked to be looped in on the renewal early.",
+   "outcome": "watch"}
+ ]
+}

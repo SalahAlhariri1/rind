@@ -1,0 +1,468 @@
+{
+ "as_of": "2026-10-19",
+ "accounts": [
+  {
+   "account_id": "ACC-1001",
+   "account_name": "Cedarline Hospitality",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1002",
+   "account_name": "Saltmarsh Dental Group",
+   "label": "decoy_champion_replaced",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1003",
+   "account_name": "Pinecrest Learning",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1004",
+   "account_name": "Elmstead Analytics",
+   "label": "red_known",
+   "at_risk": true,
+   "signals": [
+    "escalating_tickets",
+    "usage_decline"
+   ]
+  },
+  {
+   "account_id": "ACC-1005",
+   "account_name": "Mossbank College",
+   "label": "decoy_seasonal",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1006",
+   "account_name": "Silverlake Insurance",
+   "label": "decoy_ap",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1007",
+   "account_name": "Glenrock Components",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1008",
+   "account_name": "Riverbend Components",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1009",
+   "account_name": "Fernleaf Markets",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1010",
+   "account_name": "Quarrystone Power",
+   "label": "decoy_ticket",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1011",
+   "account_name": "Cinderfield Growers",
+   "label": "red_known",
+   "at_risk": true,
+   "signals": [
+    "champion_left",
+    "invoice_overdue",
+    "usage_decline"
+   ]
+  },
+  {
+   "account_id": "ACC-1012",
+   "account_name": "Hollowell Power",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1013",
+   "account_name": "Ironwood Components",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1014",
+   "account_name": "Summitview Components",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1015",
+   "account_name": "Lumenway Capital",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1016",
+   "account_name": "Starling College",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1017",
+   "account_name": "Tidewater Farm Supply",
+   "label": "watermelon",
+   "at_risk": true,
+   "signals": [
+    "champion_left",
+    "usage_decline"
+   ]
+  },
+  {
+   "account_id": "ACC-1018",
+   "account_name": "Foxhollow Retail",
+   "label": "decoy_ap",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1019",
+   "account_name": "Juniperhill Hotels",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1020",
+   "account_name": "Highmoor Components",
+   "label": "watermelon",
+   "at_risk": true,
+   "signals": [
+    "invoice_overdue",
+    "usage_decline"
+   ]
+  },
+  {
+   "account_id": "ACC-1021",
+   "account_name": "Heronsgate Power",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1022",
+   "account_name": "Copperline Haulage",
+   "label": "red_known",
+   "at_risk": true,
+   "signals": [
+    "champion_left",
+    "escalating_tickets"
+   ]
+  },
+  {
+   "account_id": "ACC-1023",
+   "account_name": "Quillon Insurance",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1024",
+   "account_name": "Ambergate Freight",
+   "label": "decoy_ap",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1025",
+   "account_name": "Halcyon Clinics",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1026",
+   "account_name": "Corvid Farm Supply",
+   "label": "decoy_champion_replaced",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1027",
+   "account_name": "Windward Logistics",
+   "label": "watermelon",
+   "at_risk": true,
+   "signals": [
+    "champion_left",
+    "escalating_tickets"
+   ]
+  },
+  {
+   "account_id": "ACC-1028",
+   "account_name": "Ashcombe Credit Union",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1029",
+   "account_name": "Brightpath Markets",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1030",
+   "account_name": "Tallgrass Manufacturing",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1031",
+   "account_name": "Ravenshaw Haulage",
+   "label": "decoy_ticket",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1032",
+   "account_name": "Bayshore Labs",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1033",
+   "account_name": "Orchidbay Energy",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1034",
+   "account_name": "Northfold Fabrication",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1035",
+   "account_name": "Brookhaven Markets",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1036",
+   "account_name": "Bramblewood Systems",
+   "label": "red_known",
+   "at_risk": true,
+   "signals": [
+    "champion_left",
+    "usage_decline"
+   ]
+  },
+  {
+   "account_id": "ACC-1037",
+   "account_name": "Granitepeak Haulage",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1038",
+   "account_name": "Kestrel Insurance",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1039",
+   "account_name": "Meridian Markets",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1040",
+   "account_name": "Harborline Health",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1041",
+   "account_name": "Wrenfield Learning",
+   "label": "decoy_seasonal",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1042",
+   "account_name": "Redcliff Utilities",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1043",
+   "account_name": "Driftwood Power",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1044",
+   "account_name": "Clearwater Fabrication",
+   "label": "watermelon",
+   "at_risk": true,
+   "signals": [
+    "champion_left",
+    "escalating_tickets",
+    "usage_decline"
+   ]
+  },
+  {
+   "account_id": "ACC-1045",
+   "account_name": "Stonebridge Farm Supply",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1046",
+   "account_name": "Coldspring Energy",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1047",
+   "account_name": "Maplecrest Logistics",
+   "label": "watermelon",
+   "at_risk": true,
+   "signals": [
+    "escalating_tickets",
+    "invoice_overdue"
+   ]
+  },
+  {
+   "account_id": "ACC-1048",
+   "account_name": "Pioneerpoint Fabrication",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1049",
+   "account_name": "Sablewood Hospitality",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1050",
+   "account_name": "Oakhaven Labs",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1051",
+   "account_name": "Eastvale Power",
+   "label": "watermelon",
+   "at_risk": true,
+   "signals": [
+    "champion_left",
+    "invoice_overdue",
+    "usage_decline"
+   ]
+  },
+  {
+   "account_id": "ACC-1052",
+   "account_name": "Westmarch Markets",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1053",
+   "account_name": "Marigold Logistics",
+   "label": "red_known",
+   "at_risk": true,
+   "signals": [
+    "escalating_tickets",
+    "invoice_overdue",
+    "usage_decline"
+   ]
+  },
+  {
+   "account_id": "ACC-1054",
+   "account_name": "Birchmont Resorts",
+   "label": "decoy_seasonal",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1055",
+   "account_name": "Cobaltridge Ag Co-op",
+   "label": "decoy_seasonal",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1056",
+   "account_name": "Valewood Power",
+   "label": "decoy_ticket",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1057",
+   "account_name": "Goldfinch Clinics",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  },
+  {
+   "account_id": "ACC-1058",
+   "account_name": "Bluegate Academy",
+   "label": "watermelon",
+   "at_risk": true,
+   "signals": [
+    "champion_left",
+    "invoice_overdue"
+   ]
+  },
+  {
+   "account_id": "ACC-1059",
+   "account_name": "Larkspur Analytics",
+   "label": "watermelon",
+   "at_risk": true,
+   "signals": [
+    "escalating_tickets",
+    "usage_decline"
+   ]
+  },
+  {
+   "account_id": "ACC-1060",
+   "account_name": "Thornbury Hospitality",
+   "label": "healthy",
+   "at_risk": false,
+   "signals": []
+  }
+ ]
+}

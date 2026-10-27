@@ -1,0 +1,11 @@
+.env
+.env.local
+.venv/
+__pycache__/
+*.pyc
+memory/
+logs/*
+!logs/.gitkeep
+.pytest_cache/
+.streamlit/secrets.toml
+node_modules/

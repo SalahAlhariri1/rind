@@ -1,0 +1,2407 @@
+{
+ "system": "Billing",
+ "exported_at": "2026-10-19T06:00:00Z",
+ "record_count": 240,
+ "data": [
+  {
+   "invoice_id": "INV-90001",
+   "customer_no": "C-28131",
+   "legal_name": "Cedarline Hospitality, Corp.",
+   "issued_on": "2025-11-10",
+   "due_on": "2025-12-10",
+   "amount_usd": 39100,
+   "paid_on": "2025-12-09",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90002",
+   "customer_no": "C-28131",
+   "legal_name": "Cedarline Hospitality, Corp.",
+   "issued_on": "2026-01-28",
+   "due_on": "2026-02-27",
+   "amount_usd": 39100,
+   "paid_on": "2026-02-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90003",
+   "customer_no": "C-28131",
+   "legal_name": "Cedarline Hospitality, Corp.",
+   "issued_on": "2026-05-09",
+   "due_on": "2026-06-08",
+   "amount_usd": 39100,
+   "paid_on": "2026-06-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90004",
+   "customer_no": "C-28131",
+   "legal_name": "Cedarline Hospitality, Corp.",
+   "issued_on": "2026-08-03",
+   "due_on": "2026-09-02",
+   "amount_usd": 39100,
+   "paid_on": "2026-08-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90005",
+   "customer_no": "C-72493",
+   "legal_name": "Saltmarsh Dental Group, Inc.",
+   "issued_on": "2025-11-06",
+   "due_on": "2025-12-06",
+   "amount_usd": 6850,
+   "paid_on": "2025-12-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90006",
+   "customer_no": "C-72493",
+   "legal_name": "Saltmarsh Dental Group, Inc.",
+   "issued_on": "2026-01-28",
+   "due_on": "2026-02-27",
+   "amount_usd": 6850,
+   "paid_on": "2026-02-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90007",
+   "customer_no": "C-72493",
+   "legal_name": "Saltmarsh Dental Group, Inc.",
+   "issued_on": "2026-05-06",
+   "due_on": "2026-06-05",
+   "amount_usd": 6850,
+   "paid_on": "2026-05-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90008",
+   "customer_no": "C-72493",
+   "legal_name": "Saltmarsh Dental Group, Inc.",
+   "issued_on": "2026-08-02",
+   "due_on": "2026-09-01",
+   "amount_usd": 6850,
+   "paid_on": "2026-08-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90009",
+   "customer_no": "C-57739",
+   "legal_name": "Pinecrest Learning, Inc.",
+   "issued_on": "2025-11-04",
+   "due_on": "2025-12-04",
+   "amount_usd": 22325,
+   "paid_on": "2025-11-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90010",
+   "customer_no": "C-57739",
+   "legal_name": "Pinecrest Learning, Inc.",
+   "issued_on": "2026-01-30",
+   "due_on": "2026-03-01",
+   "amount_usd": 22325,
+   "paid_on": "2026-02-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90011",
+   "customer_no": "C-57739",
+   "legal_name": "Pinecrest Learning, Inc.",
+   "issued_on": "2026-04-29",
+   "due_on": "2026-05-29",
+   "amount_usd": 22325,
+   "paid_on": "2026-05-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90012",
+   "customer_no": "C-57739",
+   "legal_name": "Pinecrest Learning, Inc.",
+   "issued_on": "2026-07-30",
+   "due_on": "2026-08-29",
+   "amount_usd": 22325,
+   "paid_on": "2026-08-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90013",
+   "customer_no": "C-65255",
+   "legal_name": "Elmstead Analytics, LLC",
+   "issued_on": "2025-11-03",
+   "due_on": "2025-12-03",
+   "amount_usd": 14925,
+   "paid_on": "2025-11-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90014",
+   "customer_no": "C-65255",
+   "legal_name": "Elmstead Analytics, LLC",
+   "issued_on": "2026-02-07",
+   "due_on": "2026-03-09",
+   "amount_usd": 14925,
+   "paid_on": "2026-03-09",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90015",
+   "customer_no": "C-65255",
+   "legal_name": "Elmstead Analytics, LLC",
+   "issued_on": "2026-05-07",
+   "due_on": "2026-06-06",
+   "amount_usd": 14925,
+   "paid_on": "2026-05-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90016",
+   "customer_no": "C-65255",
+   "legal_name": "Elmstead Analytics, LLC",
+   "issued_on": "2026-08-09",
+   "due_on": "2026-09-08",
+   "amount_usd": 14925,
+   "paid_on": "2026-09-07",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90017",
+   "customer_no": "C-66207",
+   "legal_name": "Mossbank College, Corp.",
+   "issued_on": "2025-11-01",
+   "due_on": "2025-12-01",
+   "amount_usd": 12925,
+   "paid_on": "2025-11-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90018",
+   "customer_no": "C-66207",
+   "legal_name": "Mossbank College, Corp.",
+   "issued_on": "2026-01-29",
+   "due_on": "2026-02-28",
+   "amount_usd": 12925,
+   "paid_on": "2026-02-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90019",
+   "customer_no": "C-66207",
+   "legal_name": "Mossbank College, Corp.",
+   "issued_on": "2026-05-10",
+   "due_on": "2026-06-09",
+   "amount_usd": 12925,
+   "paid_on": "2026-06-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90020",
+   "customer_no": "C-66207",
+   "legal_name": "Mossbank College, Corp.",
+   "issued_on": "2026-07-29",
+   "due_on": "2026-08-28",
+   "amount_usd": 12925,
+   "paid_on": "2026-08-16",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90021",
+   "customer_no": "C-84946",
+   "legal_name": "Silverlake Insurance, Corp.",
+   "issued_on": "2025-11-06",
+   "due_on": "2025-12-06",
+   "amount_usd": 10250,
+   "paid_on": "2026-01-21",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90022",
+   "customer_no": "C-84946",
+   "legal_name": "Silverlake Insurance, Corp.",
+   "issued_on": "2026-02-02",
+   "due_on": "2026-03-04",
+   "amount_usd": 10250,
+   "paid_on": "2026-04-07",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90023",
+   "customer_no": "C-84946",
+   "legal_name": "Silverlake Insurance, Corp.",
+   "issued_on": "2026-05-02",
+   "due_on": "2026-06-01",
+   "amount_usd": 10250,
+   "paid_on": "2026-07-10",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90024",
+   "customer_no": "C-84946",
+   "legal_name": "Silverlake Insurance, Corp.",
+   "issued_on": "2026-07-30",
+   "due_on": "2026-08-29",
+   "amount_usd": 10250,
+   "paid_on": null,
+   "status": "overdue"
+  },
+  {
+   "invoice_id": "INV-90025",
+   "customer_no": "C-39571",
+   "legal_name": "Glenrock Components, Ltd.",
+   "issued_on": "2025-11-03",
+   "due_on": "2025-12-03",
+   "amount_usd": 32500,
+   "paid_on": "2025-11-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90026",
+   "customer_no": "C-39571",
+   "legal_name": "Glenrock Components, Ltd.",
+   "issued_on": "2026-02-03",
+   "due_on": "2026-03-05",
+   "amount_usd": 32500,
+   "paid_on": "2026-02-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90027",
+   "customer_no": "C-39571",
+   "legal_name": "Glenrock Components, Ltd.",
+   "issued_on": "2026-05-10",
+   "due_on": "2026-06-09",
+   "amount_usd": 32500,
+   "paid_on": "2026-06-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90028",
+   "customer_no": "C-39571",
+   "legal_name": "Glenrock Components, Ltd.",
+   "issued_on": "2026-07-30",
+   "due_on": "2026-08-29",
+   "amount_usd": 32500,
+   "paid_on": "2026-08-22",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90029",
+   "customer_no": "C-38183",
+   "legal_name": "Riverbend Components, Corp.",
+   "issued_on": "2025-10-29",
+   "due_on": "2025-11-28",
+   "amount_usd": 6200,
+   "paid_on": "2025-11-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90030",
+   "customer_no": "C-38183",
+   "legal_name": "Riverbend Components, Corp.",
+   "issued_on": "2026-02-02",
+   "due_on": "2026-03-04",
+   "amount_usd": 6200,
+   "paid_on": "2026-02-21",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90031",
+   "customer_no": "C-38183",
+   "legal_name": "Riverbend Components, Corp.",
+   "issued_on": "2026-05-06",
+   "due_on": "2026-06-05",
+   "amount_usd": 6200,
+   "paid_on": "2026-06-04",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90032",
+   "customer_no": "C-38183",
+   "legal_name": "Riverbend Components, Corp.",
+   "issued_on": "2026-08-04",
+   "due_on": "2026-09-03",
+   "amount_usd": 6200,
+   "paid_on": "2026-09-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90033",
+   "customer_no": "C-32740",
+   "legal_name": "Fernleaf Markets, LLC",
+   "issued_on": "2025-10-29",
+   "due_on": "2025-11-28",
+   "amount_usd": 2525,
+   "paid_on": "2025-11-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90034",
+   "customer_no": "C-32740",
+   "legal_name": "Fernleaf Markets, LLC",
+   "issued_on": "2026-02-07",
+   "due_on": "2026-03-09",
+   "amount_usd": 2525,
+   "paid_on": "2026-02-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90035",
+   "customer_no": "C-32740",
+   "legal_name": "Fernleaf Markets, LLC",
+   "issued_on": "2026-05-05",
+   "due_on": "2026-06-04",
+   "amount_usd": 2525,
+   "paid_on": "2026-06-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90036",
+   "customer_no": "C-32740",
+   "legal_name": "Fernleaf Markets, LLC",
+   "issued_on": "2026-08-08",
+   "due_on": "2026-09-07",
+   "amount_usd": 2525,
+   "paid_on": "2026-09-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90037",
+   "customer_no": "C-79135",
+   "legal_name": "Quarrystone Power, Corp.",
+   "issued_on": "2025-11-04",
+   "due_on": "2025-12-04",
+   "amount_usd": 14925,
+   "paid_on": "2025-11-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90038",
+   "customer_no": "C-79135",
+   "legal_name": "Quarrystone Power, Corp.",
+   "issued_on": "2026-02-02",
+   "due_on": "2026-03-04",
+   "amount_usd": 14925,
+   "paid_on": "2026-02-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90039",
+   "customer_no": "C-79135",
+   "legal_name": "Quarrystone Power, Corp.",
+   "issued_on": "2026-05-06",
+   "due_on": "2026-06-05",
+   "amount_usd": 14925,
+   "paid_on": "2026-06-03",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90040",
+   "customer_no": "C-79135",
+   "legal_name": "Quarrystone Power, Corp.",
+   "issued_on": "2026-08-03",
+   "due_on": "2026-09-02",
+   "amount_usd": 14925,
+   "paid_on": "2026-08-22",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90041",
+   "customer_no": "C-68183",
+   "legal_name": "Cinderfield Growers, Ltd.",
+   "issued_on": "2025-11-01",
+   "due_on": "2025-12-01",
+   "amount_usd": 16050,
+   "paid_on": "2025-11-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90042",
+   "customer_no": "C-68183",
+   "legal_name": "Cinderfield Growers, Ltd.",
+   "issued_on": "2026-02-08",
+   "due_on": "2026-03-10",
+   "amount_usd": 16050,
+   "paid_on": "2026-03-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90043",
+   "customer_no": "C-68183",
+   "legal_name": "Cinderfield Growers, Ltd.",
+   "issued_on": "2026-05-01",
+   "due_on": "2026-05-31",
+   "amount_usd": 16050,
+   "paid_on": "2026-05-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90044",
+   "customer_no": "C-68183",
+   "legal_name": "Cinderfield Growers, Ltd.",
+   "issued_on": "2026-08-01",
+   "due_on": "2026-08-31",
+   "amount_usd": 16050,
+   "paid_on": null,
+   "status": "overdue"
+  },
+  {
+   "invoice_id": "INV-90045",
+   "customer_no": "C-69446",
+   "legal_name": "Hollowell Power, Corp.",
+   "issued_on": "2025-10-30",
+   "due_on": "2025-11-29",
+   "amount_usd": 6100,
+   "paid_on": "2025-11-18",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90046",
+   "customer_no": "C-69446",
+   "legal_name": "Hollowell Power, Corp.",
+   "issued_on": "2026-02-09",
+   "due_on": "2026-03-11",
+   "amount_usd": 6100,
+   "paid_on": "2026-02-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90047",
+   "customer_no": "C-69446",
+   "legal_name": "Hollowell Power, Corp.",
+   "issued_on": "2026-05-09",
+   "due_on": "2026-06-08",
+   "amount_usd": 6100,
+   "paid_on": "2026-05-31",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90048",
+   "customer_no": "C-69446",
+   "legal_name": "Hollowell Power, Corp.",
+   "issued_on": "2026-08-07",
+   "due_on": "2026-09-06",
+   "amount_usd": 6100,
+   "paid_on": "2026-08-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90049",
+   "customer_no": "C-55718",
+   "legal_name": "Ironwood Components, LLC",
+   "issued_on": "2025-11-06",
+   "due_on": "2025-12-06",
+   "amount_usd": 13400,
+   "paid_on": "2025-12-01",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90050",
+   "customer_no": "C-55718",
+   "legal_name": "Ironwood Components, LLC",
+   "issued_on": "2026-01-31",
+   "due_on": "2026-03-02",
+   "amount_usd": 13400,
+   "paid_on": "2026-02-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90051",
+   "customer_no": "C-55718",
+   "legal_name": "Ironwood Components, LLC",
+   "issued_on": "2026-05-08",
+   "due_on": "2026-06-07",
+   "amount_usd": 13400,
+   "paid_on": "2026-06-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90052",
+   "customer_no": "C-55718",
+   "legal_name": "Ironwood Components, LLC",
+   "issued_on": "2026-08-03",
+   "due_on": "2026-09-02",
+   "amount_usd": 13400,
+   "paid_on": "2026-08-31",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90053",
+   "customer_no": "C-85065",
+   "legal_name": "Summitview Components, Inc.",
+   "issued_on": "2025-11-02",
+   "due_on": "2025-12-02",
+   "amount_usd": 5250,
+   "paid_on": "2025-11-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90054",
+   "customer_no": "C-85065",
+   "legal_name": "Summitview Components, Inc.",
+   "issued_on": "2026-02-07",
+   "due_on": "2026-03-09",
+   "amount_usd": 5250,
+   "paid_on": "2026-03-03",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90055",
+   "customer_no": "C-85065",
+   "legal_name": "Summitview Components, Inc.",
+   "issued_on": "2026-05-08",
+   "due_on": "2026-06-07",
+   "amount_usd": 5250,
+   "paid_on": "2026-06-03",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90056",
+   "customer_no": "C-85065",
+   "legal_name": "Summitview Components, Inc.",
+   "issued_on": "2026-08-07",
+   "due_on": "2026-09-06",
+   "amount_usd": 5250,
+   "paid_on": "2026-09-01",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90057",
+   "customer_no": "C-72773",
+   "legal_name": "Lumenway Capital, Inc.",
+   "issued_on": "2025-11-01",
+   "due_on": "2025-12-01",
+   "amount_usd": 2825,
+   "paid_on": "2025-11-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90058",
+   "customer_no": "C-72773",
+   "legal_name": "Lumenway Capital, Inc.",
+   "issued_on": "2026-02-05",
+   "due_on": "2026-03-07",
+   "amount_usd": 2825,
+   "paid_on": "2026-03-07",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90059",
+   "customer_no": "C-72773",
+   "legal_name": "Lumenway Capital, Inc.",
+   "issued_on": "2026-05-10",
+   "due_on": "2026-06-09",
+   "amount_usd": 2825,
+   "paid_on": "2026-05-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90060",
+   "customer_no": "C-72773",
+   "legal_name": "Lumenway Capital, Inc.",
+   "issued_on": "2026-08-06",
+   "due_on": "2026-09-05",
+   "amount_usd": 2825,
+   "paid_on": "2026-08-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90061",
+   "customer_no": "C-67290",
+   "legal_name": "Starling College, Inc.",
+   "issued_on": "2025-11-08",
+   "due_on": "2025-12-08",
+   "amount_usd": 6925,
+   "paid_on": "2025-11-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90062",
+   "customer_no": "C-67290",
+   "legal_name": "Starling College, Inc.",
+   "issued_on": "2026-02-03",
+   "due_on": "2026-03-05",
+   "amount_usd": 6925,
+   "paid_on": "2026-02-21",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90063",
+   "customer_no": "C-67290",
+   "legal_name": "Starling College, Inc.",
+   "issued_on": "2026-05-05",
+   "due_on": "2026-06-04",
+   "amount_usd": 6925,
+   "paid_on": "2026-06-03",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90064",
+   "customer_no": "C-67290",
+   "legal_name": "Starling College, Inc.",
+   "issued_on": "2026-08-03",
+   "due_on": "2026-09-02",
+   "amount_usd": 6925,
+   "paid_on": "2026-08-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90065",
+   "customer_no": "C-94545",
+   "legal_name": "Tidewater Farm Supply, Ltd.",
+   "issued_on": "2025-11-08",
+   "due_on": "2025-12-08",
+   "amount_usd": 5675,
+   "paid_on": "2025-11-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90066",
+   "customer_no": "C-94545",
+   "legal_name": "Tidewater Farm Supply, Ltd.",
+   "issued_on": "2026-02-02",
+   "due_on": "2026-03-04",
+   "amount_usd": 5675,
+   "paid_on": "2026-02-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90067",
+   "customer_no": "C-94545",
+   "legal_name": "Tidewater Farm Supply, Ltd.",
+   "issued_on": "2026-04-30",
+   "due_on": "2026-05-30",
+   "amount_usd": 5675,
+   "paid_on": "2026-05-18",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90068",
+   "customer_no": "C-94545",
+   "legal_name": "Tidewater Farm Supply, Ltd.",
+   "issued_on": "2026-07-29",
+   "due_on": "2026-08-28",
+   "amount_usd": 5675,
+   "paid_on": "2026-08-21",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90069",
+   "customer_no": "C-87060",
+   "legal_name": "Foxhollow Retail, Corp.",
+   "issued_on": "2025-11-09",
+   "due_on": "2025-12-09",
+   "amount_usd": 38275,
+   "paid_on": "2026-01-15",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90070",
+   "customer_no": "C-87060",
+   "legal_name": "Foxhollow Retail, Corp.",
+   "issued_on": "2026-02-03",
+   "due_on": "2026-03-05",
+   "amount_usd": 38275,
+   "paid_on": "2026-04-09",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90071",
+   "customer_no": "C-87060",
+   "legal_name": "Foxhollow Retail, Corp.",
+   "issued_on": "2026-04-30",
+   "due_on": "2026-05-30",
+   "amount_usd": 38275,
+   "paid_on": "2026-07-15",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90072",
+   "customer_no": "C-87060",
+   "legal_name": "Foxhollow Retail, Corp.",
+   "issued_on": "2026-08-09",
+   "due_on": "2026-09-08",
+   "amount_usd": 38275,
+   "paid_on": null,
+   "status": "overdue"
+  },
+  {
+   "invoice_id": "INV-90073",
+   "customer_no": "C-38474",
+   "legal_name": "Juniperhill Hotels, LLC",
+   "issued_on": "2025-11-08",
+   "due_on": "2025-12-08",
+   "amount_usd": 58000,
+   "paid_on": "2025-12-08",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90074",
+   "customer_no": "C-38474",
+   "legal_name": "Juniperhill Hotels, LLC",
+   "issued_on": "2026-02-01",
+   "due_on": "2026-03-03",
+   "amount_usd": 58000,
+   "paid_on": "2026-02-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90075",
+   "customer_no": "C-38474",
+   "legal_name": "Juniperhill Hotels, LLC",
+   "issued_on": "2026-04-30",
+   "due_on": "2026-05-30",
+   "amount_usd": 58000,
+   "paid_on": "2026-05-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90076",
+   "customer_no": "C-38474",
+   "legal_name": "Juniperhill Hotels, LLC",
+   "issued_on": "2026-07-31",
+   "due_on": "2026-08-30",
+   "amount_usd": 58000,
+   "paid_on": "2026-08-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90077",
+   "customer_no": "C-49834",
+   "legal_name": "Highmoor Components, Corp.",
+   "issued_on": "2025-10-29",
+   "due_on": "2025-11-28",
+   "amount_usd": 2825,
+   "paid_on": "2025-11-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90078",
+   "customer_no": "C-49834",
+   "legal_name": "Highmoor Components, Corp.",
+   "issued_on": "2026-02-08",
+   "due_on": "2026-03-10",
+   "amount_usd": 2825,
+   "paid_on": "2026-03-10",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90079",
+   "customer_no": "C-49834",
+   "legal_name": "Highmoor Components, Corp.",
+   "issued_on": "2026-05-04",
+   "due_on": "2026-06-03",
+   "amount_usd": 2825,
+   "paid_on": "2026-06-03",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90080",
+   "customer_no": "C-49834",
+   "legal_name": "Highmoor Components, Corp.",
+   "issued_on": "2026-08-08",
+   "due_on": "2026-09-07",
+   "amount_usd": 2825,
+   "paid_on": null,
+   "status": "overdue"
+  },
+  {
+   "invoice_id": "INV-90081",
+   "customer_no": "C-21497",
+   "legal_name": "Heronsgate Power, Corp.",
+   "issued_on": "2025-11-10",
+   "due_on": "2025-12-10",
+   "amount_usd": 17300,
+   "paid_on": "2025-12-08",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90082",
+   "customer_no": "C-21497",
+   "legal_name": "Heronsgate Power, Corp.",
+   "issued_on": "2026-01-31",
+   "due_on": "2026-03-02",
+   "amount_usd": 17300,
+   "paid_on": "2026-02-25",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90083",
+   "customer_no": "C-21497",
+   "legal_name": "Heronsgate Power, Corp.",
+   "issued_on": "2026-04-29",
+   "due_on": "2026-05-29",
+   "amount_usd": 17300,
+   "paid_on": "2026-05-20",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90084",
+   "customer_no": "C-21497",
+   "legal_name": "Heronsgate Power, Corp.",
+   "issued_on": "2026-08-07",
+   "due_on": "2026-09-06",
+   "amount_usd": 17300,
+   "paid_on": "2026-08-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90085",
+   "customer_no": "C-16310",
+   "legal_name": "Copperline Haulage, Inc.",
+   "issued_on": "2025-11-09",
+   "due_on": "2025-12-09",
+   "amount_usd": 2200,
+   "paid_on": "2025-12-08",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90086",
+   "customer_no": "C-16310",
+   "legal_name": "Copperline Haulage, Inc.",
+   "issued_on": "2026-01-31",
+   "due_on": "2026-03-02",
+   "amount_usd": 2200,
+   "paid_on": "2026-02-18",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90087",
+   "customer_no": "C-16310",
+   "legal_name": "Copperline Haulage, Inc.",
+   "issued_on": "2026-05-10",
+   "due_on": "2026-06-09",
+   "amount_usd": 2200,
+   "paid_on": "2026-05-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90088",
+   "customer_no": "C-16310",
+   "legal_name": "Copperline Haulage, Inc.",
+   "issued_on": "2026-08-06",
+   "due_on": "2026-09-05",
+   "amount_usd": 2200,
+   "paid_on": "2026-08-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90089",
+   "customer_no": "C-12651",
+   "legal_name": "Quillon Insurance, LLC",
+   "issued_on": "2025-10-30",
+   "due_on": "2025-11-29",
+   "amount_usd": 4725,
+   "paid_on": "2025-11-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90090",
+   "customer_no": "C-12651",
+   "legal_name": "Quillon Insurance, LLC",
+   "issued_on": "2026-01-31",
+   "due_on": "2026-03-02",
+   "amount_usd": 4725,
+   "paid_on": "2026-02-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90091",
+   "customer_no": "C-12651",
+   "legal_name": "Quillon Insurance, LLC",
+   "issued_on": "2026-05-02",
+   "due_on": "2026-06-01",
+   "amount_usd": 4725,
+   "paid_on": "2026-05-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90092",
+   "customer_no": "C-12651",
+   "legal_name": "Quillon Insurance, LLC",
+   "issued_on": "2026-08-05",
+   "due_on": "2026-09-04",
+   "amount_usd": 4725,
+   "paid_on": "2026-08-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90093",
+   "customer_no": "C-58717",
+   "legal_name": "Ambergate Freight, LLC",
+   "issued_on": "2025-11-10",
+   "due_on": "2025-12-10",
+   "amount_usd": 15875,
+   "paid_on": "2026-01-21",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90094",
+   "customer_no": "C-58717",
+   "legal_name": "Ambergate Freight, LLC",
+   "issued_on": "2026-02-02",
+   "due_on": "2026-03-04",
+   "amount_usd": 15875,
+   "paid_on": "2026-04-21",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90095",
+   "customer_no": "C-58717",
+   "legal_name": "Ambergate Freight, LLC",
+   "issued_on": "2026-05-08",
+   "due_on": "2026-06-07",
+   "amount_usd": 15875,
+   "paid_on": "2026-07-22",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90096",
+   "customer_no": "C-58717",
+   "legal_name": "Ambergate Freight, LLC",
+   "issued_on": "2026-08-03",
+   "due_on": "2026-09-02",
+   "amount_usd": 15875,
+   "paid_on": null,
+   "status": "overdue"
+  },
+  {
+   "invoice_id": "INV-90097",
+   "customer_no": "C-57214",
+   "legal_name": "Halcyon Clinics, Inc.",
+   "issued_on": "2025-11-08",
+   "due_on": "2025-12-08",
+   "amount_usd": 2725,
+   "paid_on": "2025-12-01",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90098",
+   "customer_no": "C-57214",
+   "legal_name": "Halcyon Clinics, Inc.",
+   "issued_on": "2026-02-07",
+   "due_on": "2026-03-09",
+   "amount_usd": 2725,
+   "paid_on": "2026-02-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90099",
+   "customer_no": "C-57214",
+   "legal_name": "Halcyon Clinics, Inc.",
+   "issued_on": "2026-04-30",
+   "due_on": "2026-05-30",
+   "amount_usd": 2725,
+   "paid_on": "2026-05-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90100",
+   "customer_no": "C-57214",
+   "legal_name": "Halcyon Clinics, Inc.",
+   "issued_on": "2026-08-04",
+   "due_on": "2026-09-03",
+   "amount_usd": 2725,
+   "paid_on": "2026-09-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90101",
+   "customer_no": "C-82512",
+   "legal_name": "Corvid Farm Supply, LLC",
+   "issued_on": "2025-11-06",
+   "due_on": "2025-12-06",
+   "amount_usd": 24675,
+   "paid_on": "2025-12-04",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90102",
+   "customer_no": "C-82512",
+   "legal_name": "Corvid Farm Supply, LLC",
+   "issued_on": "2026-02-07",
+   "due_on": "2026-03-09",
+   "amount_usd": 24675,
+   "paid_on": "2026-02-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90103",
+   "customer_no": "C-82512",
+   "legal_name": "Corvid Farm Supply, LLC",
+   "issued_on": "2026-05-07",
+   "due_on": "2026-06-06",
+   "amount_usd": 24675,
+   "paid_on": "2026-06-06",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90104",
+   "customer_no": "C-82512",
+   "legal_name": "Corvid Farm Supply, LLC",
+   "issued_on": "2026-08-05",
+   "due_on": "2026-09-04",
+   "amount_usd": 24675,
+   "paid_on": "2026-08-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90105",
+   "customer_no": "C-79533",
+   "legal_name": "Windward Logistics, Ltd.",
+   "issued_on": "2025-10-29",
+   "due_on": "2025-11-28",
+   "amount_usd": 3475,
+   "paid_on": "2025-11-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90106",
+   "customer_no": "C-79533",
+   "legal_name": "Windward Logistics, Ltd.",
+   "issued_on": "2026-02-03",
+   "due_on": "2026-03-05",
+   "amount_usd": 3475,
+   "paid_on": "2026-03-03",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90107",
+   "customer_no": "C-79533",
+   "legal_name": "Windward Logistics, Ltd.",
+   "issued_on": "2026-05-11",
+   "due_on": "2026-06-10",
+   "amount_usd": 3475,
+   "paid_on": "2026-06-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90108",
+   "customer_no": "C-79533",
+   "legal_name": "Windward Logistics, Ltd.",
+   "issued_on": "2026-08-07",
+   "due_on": "2026-09-06",
+   "amount_usd": 3475,
+   "paid_on": "2026-08-25",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90109",
+   "customer_no": "C-12441",
+   "legal_name": "Ashcombe Credit Union, Ltd.",
+   "issued_on": "2025-11-03",
+   "due_on": "2025-12-03",
+   "amount_usd": 7500,
+   "paid_on": "2025-12-01",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90110",
+   "customer_no": "C-12441",
+   "legal_name": "Ashcombe Credit Union, Ltd.",
+   "issued_on": "2026-02-06",
+   "due_on": "2026-03-08",
+   "amount_usd": 7500,
+   "paid_on": "2026-03-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90111",
+   "customer_no": "C-12441",
+   "legal_name": "Ashcombe Credit Union, Ltd.",
+   "issued_on": "2026-05-02",
+   "due_on": "2026-06-01",
+   "amount_usd": 7500,
+   "paid_on": "2026-05-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90112",
+   "customer_no": "C-12441",
+   "legal_name": "Ashcombe Credit Union, Ltd.",
+   "issued_on": "2026-07-29",
+   "due_on": "2026-08-28",
+   "amount_usd": 7500,
+   "paid_on": "2026-08-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90113",
+   "customer_no": "C-79655",
+   "legal_name": "Brightpath Markets, Inc.",
+   "issued_on": "2025-11-04",
+   "due_on": "2025-12-04",
+   "amount_usd": 5675,
+   "paid_on": "2025-11-25",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90114",
+   "customer_no": "C-79655",
+   "legal_name": "Brightpath Markets, Inc.",
+   "issued_on": "2026-02-06",
+   "due_on": "2026-03-08",
+   "amount_usd": 5675,
+   "paid_on": "2026-02-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90115",
+   "customer_no": "C-79655",
+   "legal_name": "Brightpath Markets, Inc.",
+   "issued_on": "2026-05-11",
+   "due_on": "2026-06-10",
+   "amount_usd": 5675,
+   "paid_on": "2026-05-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90116",
+   "customer_no": "C-79655",
+   "legal_name": "Brightpath Markets, Inc.",
+   "issued_on": "2026-07-30",
+   "due_on": "2026-08-29",
+   "amount_usd": 5675,
+   "paid_on": "2026-08-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90117",
+   "customer_no": "C-43776",
+   "legal_name": "Tallgrass Manufacturing, Inc.",
+   "issued_on": "2025-10-29",
+   "due_on": "2025-11-28",
+   "amount_usd": 8450,
+   "paid_on": "2025-11-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90118",
+   "customer_no": "C-43776",
+   "legal_name": "Tallgrass Manufacturing, Inc.",
+   "issued_on": "2026-02-07",
+   "due_on": "2026-03-09",
+   "amount_usd": 8450,
+   "paid_on": "2026-03-03",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90119",
+   "customer_no": "C-43776",
+   "legal_name": "Tallgrass Manufacturing, Inc.",
+   "issued_on": "2026-05-04",
+   "due_on": "2026-06-03",
+   "amount_usd": 8450,
+   "paid_on": "2026-06-01",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90120",
+   "customer_no": "C-43776",
+   "legal_name": "Tallgrass Manufacturing, Inc.",
+   "issued_on": "2026-07-31",
+   "due_on": "2026-08-30",
+   "amount_usd": 8450,
+   "paid_on": "2026-08-22",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90121",
+   "customer_no": "C-43779",
+   "legal_name": "Ravenshaw Haulage, Ltd.",
+   "issued_on": "2025-10-31",
+   "due_on": "2025-11-30",
+   "amount_usd": 4000,
+   "paid_on": "2025-11-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90122",
+   "customer_no": "C-43779",
+   "legal_name": "Ravenshaw Haulage, Ltd.",
+   "issued_on": "2026-02-01",
+   "due_on": "2026-03-03",
+   "amount_usd": 4000,
+   "paid_on": "2026-02-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90123",
+   "customer_no": "C-43779",
+   "legal_name": "Ravenshaw Haulage, Ltd.",
+   "issued_on": "2026-05-07",
+   "due_on": "2026-06-06",
+   "amount_usd": 4000,
+   "paid_on": "2026-05-31",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90124",
+   "customer_no": "C-43779",
+   "legal_name": "Ravenshaw Haulage, Ltd.",
+   "issued_on": "2026-08-07",
+   "due_on": "2026-09-06",
+   "amount_usd": 4000,
+   "paid_on": "2026-09-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90125",
+   "customer_no": "C-40514",
+   "legal_name": "Bayshore Labs, Ltd.",
+   "issued_on": "2025-11-05",
+   "due_on": "2025-12-05",
+   "amount_usd": 6300,
+   "paid_on": "2025-11-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90126",
+   "customer_no": "C-40514",
+   "legal_name": "Bayshore Labs, Ltd.",
+   "issued_on": "2026-01-31",
+   "due_on": "2026-03-02",
+   "amount_usd": 6300,
+   "paid_on": "2026-02-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90127",
+   "customer_no": "C-40514",
+   "legal_name": "Bayshore Labs, Ltd.",
+   "issued_on": "2026-05-06",
+   "due_on": "2026-06-05",
+   "amount_usd": 6300,
+   "paid_on": "2026-05-25",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90128",
+   "customer_no": "C-40514",
+   "legal_name": "Bayshore Labs, Ltd.",
+   "issued_on": "2026-08-09",
+   "due_on": "2026-09-08",
+   "amount_usd": 6300,
+   "paid_on": "2026-08-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90129",
+   "customer_no": "C-96235",
+   "legal_name": "Orchidbay Energy, Corp.",
+   "issued_on": "2025-11-02",
+   "due_on": "2025-12-02",
+   "amount_usd": 1775,
+   "paid_on": "2025-11-21",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90130",
+   "customer_no": "C-96235",
+   "legal_name": "Orchidbay Energy, Corp.",
+   "issued_on": "2026-02-06",
+   "due_on": "2026-03-08",
+   "amount_usd": 1775,
+   "paid_on": "2026-03-06",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90131",
+   "customer_no": "C-96235",
+   "legal_name": "Orchidbay Energy, Corp.",
+   "issued_on": "2026-05-11",
+   "due_on": "2026-06-10",
+   "amount_usd": 1775,
+   "paid_on": "2026-05-31",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90132",
+   "customer_no": "C-96235",
+   "legal_name": "Orchidbay Energy, Corp.",
+   "issued_on": "2026-07-30",
+   "due_on": "2026-08-29",
+   "amount_usd": 1775,
+   "paid_on": "2026-08-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90133",
+   "customer_no": "C-73944",
+   "legal_name": "Northfold Fabrication, LLC",
+   "issued_on": "2025-11-01",
+   "due_on": "2025-12-01",
+   "amount_usd": 19275,
+   "paid_on": "2025-11-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90134",
+   "customer_no": "C-73944",
+   "legal_name": "Northfold Fabrication, LLC",
+   "issued_on": "2026-02-02",
+   "due_on": "2026-03-04",
+   "amount_usd": 19275,
+   "paid_on": "2026-02-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90135",
+   "customer_no": "C-73944",
+   "legal_name": "Northfold Fabrication, LLC",
+   "issued_on": "2026-05-09",
+   "due_on": "2026-06-08",
+   "amount_usd": 19275,
+   "paid_on": "2026-06-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90136",
+   "customer_no": "C-73944",
+   "legal_name": "Northfold Fabrication, LLC",
+   "issued_on": "2026-07-31",
+   "due_on": "2026-08-30",
+   "amount_usd": 19275,
+   "paid_on": "2026-08-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90137",
+   "customer_no": "C-68065",
+   "legal_name": "Brookhaven Markets, Inc.",
+   "issued_on": "2025-11-07",
+   "due_on": "2025-12-07",
+   "amount_usd": 15675,
+   "paid_on": "2025-12-07",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90138",
+   "customer_no": "C-68065",
+   "legal_name": "Brookhaven Markets, Inc.",
+   "issued_on": "2026-01-31",
+   "due_on": "2026-03-02",
+   "amount_usd": 15675,
+   "paid_on": "2026-02-18",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90139",
+   "customer_no": "C-68065",
+   "legal_name": "Brookhaven Markets, Inc.",
+   "issued_on": "2026-05-07",
+   "due_on": "2026-06-06",
+   "amount_usd": 15675,
+   "paid_on": "2026-06-06",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90140",
+   "customer_no": "C-68065",
+   "legal_name": "Brookhaven Markets, Inc.",
+   "issued_on": "2026-08-03",
+   "due_on": "2026-09-02",
+   "amount_usd": 15675,
+   "paid_on": "2026-08-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90141",
+   "customer_no": "C-14813",
+   "legal_name": "Bramblewood Systems, LLC",
+   "issued_on": "2025-11-09",
+   "due_on": "2025-12-09",
+   "amount_usd": 2525,
+   "paid_on": "2025-11-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90142",
+   "customer_no": "C-14813",
+   "legal_name": "Bramblewood Systems, LLC",
+   "issued_on": "2026-01-28",
+   "due_on": "2026-02-27",
+   "amount_usd": 2525,
+   "paid_on": "2026-02-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90143",
+   "customer_no": "C-14813",
+   "legal_name": "Bramblewood Systems, LLC",
+   "issued_on": "2026-04-30",
+   "due_on": "2026-05-30",
+   "amount_usd": 2525,
+   "paid_on": "2026-05-25",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90144",
+   "customer_no": "C-14813",
+   "legal_name": "Bramblewood Systems, LLC",
+   "issued_on": "2026-07-30",
+   "due_on": "2026-08-29",
+   "amount_usd": 2525,
+   "paid_on": "2026-08-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90145",
+   "customer_no": "C-54579",
+   "legal_name": "Granitepeak Haulage, Inc.",
+   "issued_on": "2025-11-04",
+   "due_on": "2025-12-04",
+   "amount_usd": 9400,
+   "paid_on": "2025-11-25",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90146",
+   "customer_no": "C-54579",
+   "legal_name": "Granitepeak Haulage, Inc.",
+   "issued_on": "2026-02-03",
+   "due_on": "2026-03-05",
+   "amount_usd": 9400,
+   "paid_on": "2026-03-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90147",
+   "customer_no": "C-54579",
+   "legal_name": "Granitepeak Haulage, Inc.",
+   "issued_on": "2026-05-02",
+   "due_on": "2026-06-01",
+   "amount_usd": 9400,
+   "paid_on": "2026-05-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90148",
+   "customer_no": "C-54579",
+   "legal_name": "Granitepeak Haulage, Inc.",
+   "issued_on": "2026-08-02",
+   "due_on": "2026-09-01",
+   "amount_usd": 9400,
+   "paid_on": "2026-08-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90149",
+   "customer_no": "C-50374",
+   "legal_name": "Kestrel Insurance, Corp.",
+   "issued_on": "2025-10-29",
+   "due_on": "2025-11-28",
+   "amount_usd": 2200,
+   "paid_on": "2025-11-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90150",
+   "customer_no": "C-50374",
+   "legal_name": "Kestrel Insurance, Corp.",
+   "issued_on": "2026-02-05",
+   "due_on": "2026-03-07",
+   "amount_usd": 2200,
+   "paid_on": "2026-03-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90151",
+   "customer_no": "C-50374",
+   "legal_name": "Kestrel Insurance, Corp.",
+   "issued_on": "2026-05-11",
+   "due_on": "2026-06-10",
+   "amount_usd": 2200,
+   "paid_on": "2026-05-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90152",
+   "customer_no": "C-50374",
+   "legal_name": "Kestrel Insurance, Corp.",
+   "issued_on": "2026-08-01",
+   "due_on": "2026-08-31",
+   "amount_usd": 2200,
+   "paid_on": "2026-08-20",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90153",
+   "customer_no": "C-89144",
+   "legal_name": "Meridian Markets, Ltd.",
+   "issued_on": "2025-11-08",
+   "due_on": "2025-12-08",
+   "amount_usd": 3250,
+   "paid_on": "2025-11-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90154",
+   "customer_no": "C-89144",
+   "legal_name": "Meridian Markets, Ltd.",
+   "issued_on": "2026-01-28",
+   "due_on": "2026-02-27",
+   "amount_usd": 3250,
+   "paid_on": "2026-02-21",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90155",
+   "customer_no": "C-89144",
+   "legal_name": "Meridian Markets, Ltd.",
+   "issued_on": "2026-05-08",
+   "due_on": "2026-06-07",
+   "amount_usd": 3250,
+   "paid_on": "2026-05-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90156",
+   "customer_no": "C-89144",
+   "legal_name": "Meridian Markets, Ltd.",
+   "issued_on": "2026-07-31",
+   "due_on": "2026-08-30",
+   "amount_usd": 3250,
+   "paid_on": "2026-08-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90157",
+   "customer_no": "C-74314",
+   "legal_name": "Harborline Health, Ltd.",
+   "issued_on": "2025-11-04",
+   "due_on": "2025-12-04",
+   "amount_usd": 64100,
+   "paid_on": "2025-12-01",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90158",
+   "customer_no": "C-74314",
+   "legal_name": "Harborline Health, Ltd.",
+   "issued_on": "2026-02-07",
+   "due_on": "2026-03-09",
+   "amount_usd": 64100,
+   "paid_on": "2026-02-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90159",
+   "customer_no": "C-74314",
+   "legal_name": "Harborline Health, Ltd.",
+   "issued_on": "2026-04-30",
+   "due_on": "2026-05-30",
+   "amount_usd": 64100,
+   "paid_on": "2026-05-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90160",
+   "customer_no": "C-74314",
+   "legal_name": "Harborline Health, Ltd.",
+   "issued_on": "2026-08-01",
+   "due_on": "2026-08-31",
+   "amount_usd": 64100,
+   "paid_on": "2026-08-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90161",
+   "customer_no": "C-99816",
+   "legal_name": "Wrenfield Learning, LLC",
+   "issued_on": "2025-11-04",
+   "due_on": "2025-12-04",
+   "amount_usd": 2825,
+   "paid_on": "2025-11-22",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90162",
+   "customer_no": "C-99816",
+   "legal_name": "Wrenfield Learning, LLC",
+   "issued_on": "2026-02-05",
+   "due_on": "2026-03-07",
+   "amount_usd": 2825,
+   "paid_on": "2026-02-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90163",
+   "customer_no": "C-99816",
+   "legal_name": "Wrenfield Learning, LLC",
+   "issued_on": "2026-05-02",
+   "due_on": "2026-06-01",
+   "amount_usd": 2825,
+   "paid_on": "2026-05-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90164",
+   "customer_no": "C-99816",
+   "legal_name": "Wrenfield Learning, LLC",
+   "issued_on": "2026-08-01",
+   "due_on": "2026-08-31",
+   "amount_usd": 2825,
+   "paid_on": "2026-08-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90165",
+   "customer_no": "C-41278",
+   "legal_name": "Redcliff Utilities, Inc.",
+   "issued_on": "2025-11-08",
+   "due_on": "2025-12-08",
+   "amount_usd": 9025,
+   "paid_on": "2025-11-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90166",
+   "customer_no": "C-41278",
+   "legal_name": "Redcliff Utilities, Inc.",
+   "issued_on": "2026-02-01",
+   "due_on": "2026-03-03",
+   "amount_usd": 9025,
+   "paid_on": "2026-03-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90167",
+   "customer_no": "C-41278",
+   "legal_name": "Redcliff Utilities, Inc.",
+   "issued_on": "2026-05-07",
+   "due_on": "2026-06-06",
+   "amount_usd": 9025,
+   "paid_on": "2026-06-06",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90168",
+   "customer_no": "C-41278",
+   "legal_name": "Redcliff Utilities, Inc.",
+   "issued_on": "2026-08-04",
+   "due_on": "2026-09-03",
+   "amount_usd": 9025,
+   "paid_on": "2026-08-25",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90169",
+   "customer_no": "C-62108",
+   "legal_name": "Driftwood Power, Ltd.",
+   "issued_on": "2025-11-09",
+   "due_on": "2025-12-09",
+   "amount_usd": 7025,
+   "paid_on": "2025-12-08",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90170",
+   "customer_no": "C-62108",
+   "legal_name": "Driftwood Power, Ltd.",
+   "issued_on": "2026-02-07",
+   "due_on": "2026-03-09",
+   "amount_usd": 7025,
+   "paid_on": "2026-03-09",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90171",
+   "customer_no": "C-62108",
+   "legal_name": "Driftwood Power, Ltd.",
+   "issued_on": "2026-05-04",
+   "due_on": "2026-06-03",
+   "amount_usd": 7025,
+   "paid_on": "2026-05-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90172",
+   "customer_no": "C-62108",
+   "legal_name": "Driftwood Power, Ltd.",
+   "issued_on": "2026-08-06",
+   "due_on": "2026-09-05",
+   "amount_usd": 7025,
+   "paid_on": "2026-08-25",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90173",
+   "customer_no": "C-35736",
+   "legal_name": "Clearwater Fabrication, Inc.",
+   "issued_on": "2025-11-05",
+   "due_on": "2025-12-05",
+   "amount_usd": 4725,
+   "paid_on": "2025-11-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90174",
+   "customer_no": "C-35736",
+   "legal_name": "Clearwater Fabrication, Inc.",
+   "issued_on": "2026-02-01",
+   "due_on": "2026-03-03",
+   "amount_usd": 4725,
+   "paid_on": "2026-02-23",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90175",
+   "customer_no": "C-35736",
+   "legal_name": "Clearwater Fabrication, Inc.",
+   "issued_on": "2026-05-11",
+   "due_on": "2026-06-10",
+   "amount_usd": 4725,
+   "paid_on": "2026-05-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90176",
+   "customer_no": "C-35736",
+   "legal_name": "Clearwater Fabrication, Inc.",
+   "issued_on": "2026-08-10",
+   "due_on": "2026-09-09",
+   "amount_usd": 4725,
+   "paid_on": "2026-09-03",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90177",
+   "customer_no": "C-61299",
+   "legal_name": "Stonebridge Farm Supply, Corp.",
+   "issued_on": "2025-11-06",
+   "due_on": "2025-12-06",
+   "amount_usd": 17950,
+   "paid_on": "2025-11-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90178",
+   "customer_no": "C-61299",
+   "legal_name": "Stonebridge Farm Supply, Corp.",
+   "issued_on": "2026-02-07",
+   "due_on": "2026-03-09",
+   "amount_usd": 17950,
+   "paid_on": "2026-03-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90179",
+   "customer_no": "C-61299",
+   "legal_name": "Stonebridge Farm Supply, Corp.",
+   "issued_on": "2026-05-01",
+   "due_on": "2026-05-31",
+   "amount_usd": 17950,
+   "paid_on": "2026-05-22",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90180",
+   "customer_no": "C-61299",
+   "legal_name": "Stonebridge Farm Supply, Corp.",
+   "issued_on": "2026-08-07",
+   "due_on": "2026-09-06",
+   "amount_usd": 17950,
+   "paid_on": "2026-08-31",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90181",
+   "customer_no": "C-88852",
+   "legal_name": "Coldspring Energy, Corp.",
+   "issued_on": "2025-10-30",
+   "due_on": "2025-11-29",
+   "amount_usd": 7700,
+   "paid_on": "2025-11-17",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90182",
+   "customer_no": "C-88852",
+   "legal_name": "Coldspring Energy, Corp.",
+   "issued_on": "2026-01-30",
+   "due_on": "2026-03-01",
+   "amount_usd": 7700,
+   "paid_on": "2026-02-17",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90183",
+   "customer_no": "C-88852",
+   "legal_name": "Coldspring Energy, Corp.",
+   "issued_on": "2026-05-09",
+   "due_on": "2026-06-08",
+   "amount_usd": 7700,
+   "paid_on": "2026-05-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90184",
+   "customer_no": "C-88852",
+   "legal_name": "Coldspring Energy, Corp.",
+   "issued_on": "2026-07-31",
+   "due_on": "2026-08-30",
+   "amount_usd": 7700,
+   "paid_on": "2026-08-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90185",
+   "customer_no": "C-32119",
+   "legal_name": "Maplecrest Logistics, LLC",
+   "issued_on": "2025-11-09",
+   "due_on": "2025-12-09",
+   "amount_usd": 42725,
+   "paid_on": "2025-12-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90186",
+   "customer_no": "C-32119",
+   "legal_name": "Maplecrest Logistics, LLC",
+   "issued_on": "2026-01-29",
+   "due_on": "2026-02-28",
+   "amount_usd": 42725,
+   "paid_on": "2026-02-18",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90187",
+   "customer_no": "C-32119",
+   "legal_name": "Maplecrest Logistics, LLC",
+   "issued_on": "2026-05-04",
+   "due_on": "2026-06-03",
+   "amount_usd": 42725,
+   "paid_on": "2026-05-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90188",
+   "customer_no": "C-32119",
+   "legal_name": "Maplecrest Logistics, LLC",
+   "issued_on": "2026-07-31",
+   "due_on": "2026-08-30",
+   "amount_usd": 42725,
+   "paid_on": null,
+   "status": "overdue"
+  },
+  {
+   "invoice_id": "INV-90189",
+   "customer_no": "C-37292",
+   "legal_name": "Pioneerpoint Fabrication, Ltd.",
+   "issued_on": "2025-11-03",
+   "due_on": "2025-12-03",
+   "amount_usd": 4200,
+   "paid_on": "2025-11-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90190",
+   "customer_no": "C-37292",
+   "legal_name": "Pioneerpoint Fabrication, Ltd.",
+   "issued_on": "2026-02-09",
+   "due_on": "2026-03-11",
+   "amount_usd": 4200,
+   "paid_on": "2026-03-10",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90191",
+   "customer_no": "C-37292",
+   "legal_name": "Pioneerpoint Fabrication, Ltd.",
+   "issued_on": "2026-05-09",
+   "due_on": "2026-06-08",
+   "amount_usd": 4200,
+   "paid_on": "2026-06-06",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90192",
+   "customer_no": "C-37292",
+   "legal_name": "Pioneerpoint Fabrication, Ltd.",
+   "issued_on": "2026-07-30",
+   "due_on": "2026-08-29",
+   "amount_usd": 4200,
+   "paid_on": "2026-08-18",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90193",
+   "customer_no": "C-87468",
+   "legal_name": "Sablewood Hospitality, Ltd.",
+   "issued_on": "2025-11-04",
+   "due_on": "2025-12-04",
+   "amount_usd": 4200,
+   "paid_on": "2025-11-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90194",
+   "customer_no": "C-87468",
+   "legal_name": "Sablewood Hospitality, Ltd.",
+   "issued_on": "2026-01-30",
+   "due_on": "2026-03-01",
+   "amount_usd": 4200,
+   "paid_on": "2026-02-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90195",
+   "customer_no": "C-87468",
+   "legal_name": "Sablewood Hospitality, Ltd.",
+   "issued_on": "2026-05-08",
+   "due_on": "2026-06-07",
+   "amount_usd": 4200,
+   "paid_on": "2026-06-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90196",
+   "customer_no": "C-87468",
+   "legal_name": "Sablewood Hospitality, Ltd.",
+   "issued_on": "2026-07-29",
+   "due_on": "2026-08-28",
+   "amount_usd": 4200,
+   "paid_on": "2026-08-16",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90197",
+   "customer_no": "C-85308",
+   "legal_name": "Oakhaven Labs, Corp.",
+   "issued_on": "2025-11-08",
+   "due_on": "2025-12-08",
+   "amount_usd": 1775,
+   "paid_on": "2025-12-07",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90198",
+   "customer_no": "C-85308",
+   "legal_name": "Oakhaven Labs, Corp.",
+   "issued_on": "2026-02-04",
+   "due_on": "2026-03-06",
+   "amount_usd": 1775,
+   "paid_on": "2026-03-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90199",
+   "customer_no": "C-85308",
+   "legal_name": "Oakhaven Labs, Corp.",
+   "issued_on": "2026-05-06",
+   "due_on": "2026-06-05",
+   "amount_usd": 1775,
+   "paid_on": "2026-06-01",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90200",
+   "customer_no": "C-85308",
+   "legal_name": "Oakhaven Labs, Corp.",
+   "issued_on": "2026-08-06",
+   "due_on": "2026-09-05",
+   "amount_usd": 1775,
+   "paid_on": "2026-08-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90201",
+   "customer_no": "C-89391",
+   "legal_name": "Eastvale Power, Ltd.",
+   "issued_on": "2025-11-01",
+   "due_on": "2025-12-01",
+   "amount_usd": 14825,
+   "paid_on": "2025-11-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90202",
+   "customer_no": "C-89391",
+   "legal_name": "Eastvale Power, Ltd.",
+   "issued_on": "2026-01-30",
+   "due_on": "2026-03-01",
+   "amount_usd": 14825,
+   "paid_on": "2026-02-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90203",
+   "customer_no": "C-89391",
+   "legal_name": "Eastvale Power, Ltd.",
+   "issued_on": "2026-05-11",
+   "due_on": "2026-06-10",
+   "amount_usd": 14825,
+   "paid_on": "2026-06-10",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90204",
+   "customer_no": "C-89391",
+   "legal_name": "Eastvale Power, Ltd.",
+   "issued_on": "2026-08-03",
+   "due_on": "2026-09-02",
+   "amount_usd": 14825,
+   "paid_on": null,
+   "status": "overdue"
+  },
+  {
+   "invoice_id": "INV-90205",
+   "customer_no": "C-51720",
+   "legal_name": "Westmarch Markets, Ltd.",
+   "issued_on": "2025-11-05",
+   "due_on": "2025-12-05",
+   "amount_usd": 63200,
+   "paid_on": "2025-12-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90206",
+   "customer_no": "C-51720",
+   "legal_name": "Westmarch Markets, Ltd.",
+   "issued_on": "2026-02-04",
+   "due_on": "2026-03-06",
+   "amount_usd": 63200,
+   "paid_on": "2026-02-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90207",
+   "customer_no": "C-51720",
+   "legal_name": "Westmarch Markets, Ltd.",
+   "issued_on": "2026-04-29",
+   "due_on": "2026-05-29",
+   "amount_usd": 63200,
+   "paid_on": "2026-05-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90208",
+   "customer_no": "C-51720",
+   "legal_name": "Westmarch Markets, Ltd.",
+   "issued_on": "2026-08-09",
+   "due_on": "2026-09-08",
+   "amount_usd": 63200,
+   "paid_on": "2026-08-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90209",
+   "customer_no": "C-98809",
+   "legal_name": "Marigold Logistics, Ltd.",
+   "issued_on": "2025-11-04",
+   "due_on": "2025-12-04",
+   "amount_usd": 7225,
+   "paid_on": "2025-11-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90210",
+   "customer_no": "C-98809",
+   "legal_name": "Marigold Logistics, Ltd.",
+   "issued_on": "2026-02-06",
+   "due_on": "2026-03-08",
+   "amount_usd": 7225,
+   "paid_on": "2026-03-08",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90211",
+   "customer_no": "C-98809",
+   "legal_name": "Marigold Logistics, Ltd.",
+   "issued_on": "2026-04-29",
+   "due_on": "2026-05-29",
+   "amount_usd": 7225,
+   "paid_on": "2026-05-20",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90212",
+   "customer_no": "C-98809",
+   "legal_name": "Marigold Logistics, Ltd.",
+   "issued_on": "2026-08-01",
+   "due_on": "2026-08-31",
+   "amount_usd": 7225,
+   "paid_on": null,
+   "status": "overdue"
+  },
+  {
+   "invoice_id": "INV-90213",
+   "customer_no": "C-59055",
+   "legal_name": "Birchmont Resorts, Inc.",
+   "issued_on": "2025-11-09",
+   "due_on": "2025-12-09",
+   "amount_usd": 4100,
+   "paid_on": "2025-11-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90214",
+   "customer_no": "C-59055",
+   "legal_name": "Birchmont Resorts, Inc.",
+   "issued_on": "2026-02-01",
+   "due_on": "2026-03-03",
+   "amount_usd": 4100,
+   "paid_on": "2026-03-01",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90215",
+   "customer_no": "C-59055",
+   "legal_name": "Birchmont Resorts, Inc.",
+   "issued_on": "2026-05-11",
+   "due_on": "2026-06-10",
+   "amount_usd": 4100,
+   "paid_on": "2026-05-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90216",
+   "customer_no": "C-59055",
+   "legal_name": "Birchmont Resorts, Inc.",
+   "issued_on": "2026-08-01",
+   "due_on": "2026-08-31",
+   "amount_usd": 4100,
+   "paid_on": "2026-08-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90217",
+   "customer_no": "C-24515",
+   "legal_name": "Cobaltridge Ag Co-op, Ltd.",
+   "issued_on": "2025-11-08",
+   "due_on": "2025-12-08",
+   "amount_usd": 33825,
+   "paid_on": "2025-11-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90218",
+   "customer_no": "C-24515",
+   "legal_name": "Cobaltridge Ag Co-op, Ltd.",
+   "issued_on": "2026-02-07",
+   "due_on": "2026-03-09",
+   "amount_usd": 33825,
+   "paid_on": "2026-03-09",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90219",
+   "customer_no": "C-24515",
+   "legal_name": "Cobaltridge Ag Co-op, Ltd.",
+   "issued_on": "2026-05-05",
+   "due_on": "2026-06-04",
+   "amount_usd": 33825,
+   "paid_on": "2026-05-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90220",
+   "customer_no": "C-24515",
+   "legal_name": "Cobaltridge Ag Co-op, Ltd.",
+   "issued_on": "2026-08-09",
+   "due_on": "2026-09-08",
+   "amount_usd": 33825,
+   "paid_on": "2026-09-03",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90221",
+   "customer_no": "C-96240",
+   "legal_name": "Valewood Power, Inc.",
+   "issued_on": "2025-11-02",
+   "due_on": "2025-12-02",
+   "amount_usd": 4625,
+   "paid_on": "2025-11-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90222",
+   "customer_no": "C-96240",
+   "legal_name": "Valewood Power, Inc.",
+   "issued_on": "2026-02-01",
+   "due_on": "2026-03-03",
+   "amount_usd": 4625,
+   "paid_on": "2026-02-20",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90223",
+   "customer_no": "C-96240",
+   "legal_name": "Valewood Power, Inc.",
+   "issued_on": "2026-05-09",
+   "due_on": "2026-06-08",
+   "amount_usd": 4625,
+   "paid_on": "2026-06-04",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90224",
+   "customer_no": "C-96240",
+   "legal_name": "Valewood Power, Inc.",
+   "issued_on": "2026-08-04",
+   "due_on": "2026-09-03",
+   "amount_usd": 4625,
+   "paid_on": "2026-08-27",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90225",
+   "customer_no": "C-50345",
+   "legal_name": "Goldfinch Clinics, Corp.",
+   "issued_on": "2025-11-05",
+   "due_on": "2025-12-05",
+   "amount_usd": 61950,
+   "paid_on": "2025-11-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90226",
+   "customer_no": "C-50345",
+   "legal_name": "Goldfinch Clinics, Corp.",
+   "issued_on": "2026-01-30",
+   "due_on": "2026-03-01",
+   "amount_usd": 61950,
+   "paid_on": "2026-02-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90227",
+   "customer_no": "C-50345",
+   "legal_name": "Goldfinch Clinics, Corp.",
+   "issued_on": "2026-05-06",
+   "due_on": "2026-06-05",
+   "amount_usd": 61950,
+   "paid_on": "2026-06-02",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90228",
+   "customer_no": "C-50345",
+   "legal_name": "Goldfinch Clinics, Corp.",
+   "issued_on": "2026-08-05",
+   "due_on": "2026-09-04",
+   "amount_usd": 61950,
+   "paid_on": "2026-08-25",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90229",
+   "customer_no": "C-77490",
+   "legal_name": "Bluegate Academy, Ltd.",
+   "issued_on": "2025-11-07",
+   "due_on": "2025-12-07",
+   "amount_usd": 21650,
+   "paid_on": "2025-11-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90230",
+   "customer_no": "C-77490",
+   "legal_name": "Bluegate Academy, Ltd.",
+   "issued_on": "2026-01-30",
+   "due_on": "2026-03-01",
+   "amount_usd": 21650,
+   "paid_on": "2026-02-22",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90231",
+   "customer_no": "C-77490",
+   "legal_name": "Bluegate Academy, Ltd.",
+   "issued_on": "2026-05-09",
+   "due_on": "2026-06-08",
+   "amount_usd": 21650,
+   "paid_on": "2026-05-30",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90232",
+   "customer_no": "C-77490",
+   "legal_name": "Bluegate Academy, Ltd.",
+   "issued_on": "2026-08-06",
+   "due_on": "2026-09-05",
+   "amount_usd": 21650,
+   "paid_on": null,
+   "status": "overdue"
+  },
+  {
+   "invoice_id": "INV-90233",
+   "customer_no": "C-81819",
+   "legal_name": "Larkspur Analytics, Corp.",
+   "issued_on": "2025-10-30",
+   "due_on": "2025-11-29",
+   "amount_usd": 5975,
+   "paid_on": "2025-11-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90234",
+   "customer_no": "C-81819",
+   "legal_name": "Larkspur Analytics, Corp.",
+   "issued_on": "2026-02-01",
+   "due_on": "2026-03-03",
+   "amount_usd": 5975,
+   "paid_on": "2026-02-26",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90235",
+   "customer_no": "C-81819",
+   "legal_name": "Larkspur Analytics, Corp.",
+   "issued_on": "2026-05-02",
+   "due_on": "2026-06-01",
+   "amount_usd": 5975,
+   "paid_on": "2026-05-24",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90236",
+   "customer_no": "C-81819",
+   "legal_name": "Larkspur Analytics, Corp.",
+   "issued_on": "2026-08-02",
+   "due_on": "2026-09-01",
+   "amount_usd": 5975,
+   "paid_on": "2026-08-29",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90237",
+   "customer_no": "C-95166",
+   "legal_name": "Thornbury Hospitality, Corp.",
+   "issued_on": "2025-11-08",
+   "due_on": "2025-12-08",
+   "amount_usd": 3250,
+   "paid_on": "2025-11-28",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90238",
+   "customer_no": "C-95166",
+   "legal_name": "Thornbury Hospitality, Corp.",
+   "issued_on": "2026-01-28",
+   "due_on": "2026-02-27",
+   "amount_usd": 3250,
+   "paid_on": "2026-02-19",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90239",
+   "customer_no": "C-95166",
+   "legal_name": "Thornbury Hospitality, Corp.",
+   "issued_on": "2026-05-08",
+   "due_on": "2026-06-07",
+   "amount_usd": 3250,
+   "paid_on": "2026-06-05",
+   "status": "paid"
+  },
+  {
+   "invoice_id": "INV-90240",
+   "customer_no": "C-95166",
+   "legal_name": "Thornbury Hospitality, Corp.",
+   "issued_on": "2026-08-09",
+   "due_on": "2026-09-08",
+   "amount_usd": 3250,
+   "paid_on": "2026-09-03",
+   "status": "paid"
+  }
+ ]
+}

@@ -1,0 +1,66 @@
+{
+ "generated_at": "2026-10-25T22:42:21+00:00",
+ "mode": "sample",
+ "runs": 1,
+ "rind_mean": {
+  "at_risk_caught": 13,
+  "watermelons_caught": 8,
+  "decoy_false_alarms": 0,
+  "healthy_false_alarms": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "citation_rate": 1.0
+ },
+ "baselines": {
+  "CRM health score (red only)": {
+   "at_risk_caught": 5,
+   "at_risk_total": 13,
+   "watermelons_caught": 0,
+   "watermelons_total": 8,
+   "decoy_false_alarms": 0,
+   "decoys_total": 12,
+   "healthy_false_alarms": 0,
+   "healthy_total": 35,
+   "precision": 1.0,
+   "recall": 0.385
+  },
+  "Naive rules, no Skeptic": {
+   "at_risk_caught": 13,
+   "at_risk_total": 13,
+   "watermelons_caught": 8,
+   "watermelons_total": 8,
+   "decoy_false_alarms": 9,
+   "decoys_total": 12,
+   "healthy_false_alarms": 0,
+   "healthy_total": 35,
+   "precision": 0.591,
+   "recall": 1.0
+  }
+ },
+ "per_run": [
+  {
+   "at_risk_caught": 13,
+   "at_risk_total": 13,
+   "watermelons_caught": 8,
+   "watermelons_total": 8,
+   "decoy_false_alarms": 0,
+   "decoys_total": 12,
+   "healthy_false_alarms": 0,
+   "healthy_total": 35,
+   "precision": 1.0,
+   "recall": 1.0,
+   "citation_rate": 1.0,
+   "run_id": "20261025T224221Z-8ae5f5",
+   "model_usage": {
+    "offline-heuristic": 119
+   },
+   "llm_calls": 119,
+   "zetaris_queries": 58,
+   "missed": [],
+   "false_alarms": []
+  }
+ ],
+ "models": {
+  "offline-heuristic": 119
+ }
+}

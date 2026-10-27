@@ -1,0 +1,13 @@
+{
+  "name": "rind-hmem",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Rind's Meterless H-MEM engine (adapted from the Meterless H-MEM reference, Apache-2.0) and its Python bridge",
+  "scripts": {
+    "conformance": "tsx conformance/runner.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0"
+  }
+}
