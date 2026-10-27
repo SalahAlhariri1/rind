@@ -113,15 +113,36 @@ Benchmark script: `python eval/run_eval.py`. Note: `evidence/eval_results.md` is
 
 ## Run it
 
-**Sample mode (no Zetaris, no Nightshift, no credentials):**
+**Sample mode (no Zetaris, no Nightshift, no credentials).** Uses the bundled synthetic data and labelled
+offline answers instead of the model, so anyone can see the full pipeline and UI in a few minutes.
+Needs Python 3.11+ and Node.js 20+.
+
+Windows (PowerShell):
+
+```powershell
+git clone https://github.com/SalahAlhariri1/rind.git
+cd rind
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+cd hmem; npm install; cd ..
+$env:SAMPLE_MODE="true"
+$env:RIND_MAX_DEEP_DIVES="26"
+python -m agent.cli seed-memory
+python -m agent.cli run
+streamlit run app.py
+```
+
+macOS / Linux:
 
 ```bash
-python -m venv .venv
-.venv\Scripts\activate          # macOS/Linux: source .venv/bin/activate
+git clone https://github.com/SalahAlhariri1/rind.git
+cd rind
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-cd hmem && npm install && cd ..   # H-MEM engine (needs Node.js 20+)
-set SAMPLE_MODE=true            # macOS/Linux: export SAMPLE_MODE=true
-set RIND_MAX_DEEP_DIVES=26
+(cd hmem && npm install)
+export SAMPLE_MODE=true RIND_MAX_DEEP_DIVES=26
 python -m agent.cli seed-memory
 python -m agent.cli run
 streamlit run app.py
